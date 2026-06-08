@@ -1,0 +1,5160 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOS Online Design System Showcase</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Application Stylesheet -->
+
+
+    <!-- Design System Documentation Layout Styles -->
+    <style>
+        /* ==========================================================================
+           INJECTED APPLICATION STYLES (styles.css)
+           ========================================================================== */
+        /* ==========================================================================
+   AOS ONLINE CONCEPT REDESIGN - BRIGHT SYSTEM STYLESHEET
+   Accords with: AOS Online Brand Guidelines (Royal Blue, Ocean Blue, Baby Blue)
+   Aesthetic: Clean, Bright, Light-gray background, White cards, Blue accents
+   ========================================================================== */
+
+        :root {
+            /* Brand Color Palette (MANDATORY FROM GUIDELINES) */
+            --brand-royal: #1859BC;
+            --brand-ocean: #2888E6;
+            --brand-baby: #82B2FA;
+
+            /* Secondary Colors (FROM GUIDELINES) */
+            --brand-black: #332D2B;
+            --brand-grey: #767575;
+
+            /* Semantic Colors */
+            --success: #22c55e;
+            --success-bg: rgba(34, 197, 94, 0.1);
+            --blue-progress: #3b82f6;
+            --blue-progress-bg: rgba(59, 130, 246, 0.1);
+            --muted: #cbd5e1;
+            --muted-bg: #f8fafc;
+
+            /* Bright Layout Theme (Light Mode by default) */
+            --bg-main: #f8fafc;
+            --bg-sidebar: #ffffff;
+            --bg-card: #ffffff;
+            --border-color: #cbd5e1;
+            --text-main: var(--brand-black);
+            --text-muted: var(--brand-grey);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+
+            /* Supergraphic: Technology & Synergy (Hexagonal grid pattern overlay) */
+            /* Custom precise seamless colored hexagonal pattern with 1.2 stroke-width and 0.08 stroke-opacity */
+            --hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='156' viewBox='0 0 120 156'%3E%3Cg stroke='%231859bc' stroke-width='1.0' stroke-opacity='0.04' fill='none'%3E%3Cpath d='M7.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z'/%3E%3C/g%3E%3C/svg%3E");
+
+            /* Brand Gradients (Royal Blue to Baby Blue as per page 8) */
+            --brand-gradient: linear-gradient(135deg, var(--brand-royal) 0%, var(--brand-ocean) 50%, var(--brand-baby) 100%);
+            --bg-gradient: radial-gradient(circle at 50% 0%, #f1f5f9 0%, #f8fafc 100%);
+        }
+
+        /* Dark theme overrides if toggled */
+        body.dark-theme {
+            --bg-main: #0b0f17;
+            --bg-sidebar: #0f1420;
+            --bg-card: rgba(22, 29, 47, 0.85);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.5);
+            --hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='156' viewBox='0 0 120 156'%3E%3Cg stroke='%2382b2fa' stroke-width='1.0' stroke-opacity='0.06' fill='none'%3E%3Cpath d='M7.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z'/%3E%3C/g%3E%3C/svg%3E");
+            --muted: rgba(255, 255, 255, 0.12);
+            --muted-bg: #121824;
+            --bg-gradient: radial-gradient(circle at 50% 0%, #111827 0%, #0b0f17 100%);
+        }
+
+        body.dark-theme #sidebar-logo-img {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Custom Scrollbars globally */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        body.dark-theme ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        body.dark-theme ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        body.dark-theme ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* General form controls and inputs in dark mode */
+        body.dark-theme .form-control,
+        body.dark-theme input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not(.table-form *),
+        body.dark-theme select:not(.table-form *),
+        body.dark-theme textarea:not(.table-form *) {
+            background-color: #121824;
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text-main);
+        }
+
+        body.dark-theme .form-control:focus {
+            background-color: #161d2f;
+            border-color: var(--brand-ocean);
+        }
+
+        body.dark-theme .checkbox-group {
+            background-color: #121824;
+        }
+
+        /* Welcome Dashboard Banner in Dark Mode */
+        body.dark-theme .dashboard-banner {
+            background: linear-gradient(135deg, rgba(24, 89, 188, 0.15) 0%, rgba(40, 136, 230, 0.05) 100%);
+            border-color: rgba(40, 136, 230, 0.25);
+        }
+
+        body.dark-theme .banner-title {
+            color: var(--brand-baby);
+        }
+
+        body.dark-theme .banner-desc {
+            color: var(--text-main);
+        }
+
+        /* Chat component dark mode overrides */
+        body.dark-theme .chat-window {
+            background-color: #0f1420;
+        }
+
+        body.dark-theme .chat-window-header,
+        body.dark-theme .chat-messages-feed,
+        body.dark-theme .chat-typing-indicator,
+        body.dark-theme .chat-users-sidebar {
+            background-color: #0c101a;
+        }
+
+        body.dark-theme .received-message .message-bubble {
+            background-color: #1c2333;
+            border-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+        }
+
+        body.dark-theme .chat-system-event {
+            background: #161d2f;
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text-muted);
+        }
+
+        /* Modals and dialog cards in dark mode */
+        body.dark-theme .modal-card {
+            background-color: #121824;
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text-main);
+        }
+
+        body.dark-theme .modal-document-list li,
+        body.dark-theme .media-list-item {
+            background-color: #161d2f;
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Table headers & cells hover in dark mode */
+        body.dark-theme .table-form th {
+            background-color: #0c101a;
+            color: var(--text-muted);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Sidebar and active steps navigation overrides */
+        body.dark-theme .workspace-badge {
+            background-color: #161d2f;
+        }
+
+        body.dark-theme .nav-item {
+            color: var(--text-muted);
+        }
+
+        body.dark-theme .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+
+        body.dark-theme .nav-item.active,
+        body.dark-theme .nav-item.active-step {
+            border-left-color: var(--brand-ocean);
+            background-color: rgba(40, 136, 230, 0.15);
+            color: var(--brand-baby) !important;
+        }
+
+        body.dark-theme .step-num {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--brand-baby);
+        }
+
+        /* Buttons and progress indicators in dark mode */
+        body.dark-theme .btn-outline {
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
+        }
+
+        body.dark-theme .btn-outline:hover,
+        body.dark-theme .theme-toggle-btn:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .progress-bar-container-multi,
+        body.dark-theme .progress-bar-container {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .progress-bar-segment.segment-gray {
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Timeline & markers in dark mode */
+        body.dark-theme .node-circle {
+            background-color: #161d2f;
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+        }
+
+        body.dark-theme .step-node.locked .node-circle {
+            background-color: #0c101a;
+            border-color: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-theme .impl-marker {
+            background-color: #121824;
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+        }
+
+        body.dark-theme .step-indicator-num {
+            background-color: #0c101a;
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text-muted);
+        }
+
+        body.dark-theme .activity-row {
+            border-bottom-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Profile details in dark mode */
+        body.dark-theme .profile-price-row {
+            background-color: #121824;
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-theme .profile-social-badge {
+            background-color: #161d2f;
+            border-color: rgba(255, 255, 255, 0.12);
+            color: var(--text-main);
+        }
+
+        /* Dashboard & component icon/button boxes in dark mode */
+        body.dark-theme .impl-icon-box {
+            background-color: rgba(40, 136, 230, 0.15);
+        }
+
+        body.dark-theme .chat-user-item.active-user {
+            background-color: rgba(40, 136, 230, 0.15);
+            border-left-color: var(--brand-ocean);
+        }
+
+        body.dark-theme .btn-video {
+            background-color: rgba(40, 136, 230, 0.15);
+            border-color: rgba(40, 136, 230, 0.25);
+            color: var(--brand-baby);
+        }
+
+        body.dark-theme .btn-video:hover {
+            background-color: rgba(40, 136, 230, 0.25);
+            color: var(--text-main);
+        }
+
+        /* Tips side panel and worksheet breadcrumbs in dark mode */
+        body.dark-theme .tips-container {
+            background-color: #121824;
+            border-color: rgba(130, 178, 250, 0.2);
+        }
+
+        body.dark-theme .tips-title {
+            color: var(--brand-baby);
+        }
+
+        body.dark-theme .tips-content {
+            color: var(--text-muted);
+        }
+
+        body.dark-theme .tips-content strong {
+            color: var(--text-main);
+        }
+
+        body.dark-theme .ws-current {
+            color: var(--brand-baby);
+        }
+
+        /* RESET & CORE BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            background-image: var(--hex-pattern), var(--bg-gradient);
+            background-repeat: repeat, no-repeat;
+            background-size: 360px 468px, cover;
+            /* Hex pattern applied to body background on top of gradient */
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* APP FRAME WORKSPACE */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        /* SIDEBAR - BRIGHT & CLEAN DESIGN */
+        .sidebar {
+            width: 270px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sidebar-logo {
+            height: 70px;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            box-sizing: border-box;
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+        }
+
+        .logo-main {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #1e3a8a;
+            /* Deep corporate dark blue */
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3.5px;
+            color: #3b82f6;
+            /* Ocean blue */
+        }
+
+        .workspace-badge {
+            margin: 16px 20px 8px 20px;
+            padding: 10px 14px;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--success);
+        }
+
+        .badge-dot.pulse {
+            box-shadow: 0 0 6px var(--success);
+            animation: badgePulse 1.5s infinite alternate;
+        }
+
+        .badge-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #475569;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Sidebar navigation */
+        .sidebar-nav {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 14px;
+        }
+
+        .nav-section-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin: 20px 8px 8px 8px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 2px;
+        }
+
+        .nav-item:hover {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        /* Active sidebar item style - Blue text, light blue background (matches user image) */
+        .nav-item.active {
+            background-color: #eff6ff;
+            color: var(--brand-royal);
+            font-weight: 600;
+        }
+
+        .nav-icon {
+            width: 16px;
+            height: 16px;
+            color: inherit;
+        }
+
+        /* Step Items inside Sidebar */
+        .step-item {
+            padding: 8px 14px;
+            font-size: 12.5px;
+        }
+
+        .step-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--brand-royal);
+            background: #f1f5f9;
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 4px;
+        }
+
+        .nav-item.active-step {
+            border-left: 2px solid var(--brand-royal);
+            background-color: #eff6ff;
+            color: var(--brand-royal);
+            font-weight: 600;
+        }
+
+        .nav-item.locked {
+            opacity: 0.5;
+        }
+
+        .nav-item.locked:hover {
+            cursor: not-allowed;
+            background: transparent;
+            color: #475569;
+        }
+
+        .chat-unread-count {
+            background-color: #ef4444;
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        /* MAIN CONTENT AREA */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        /* HEADER STYLE */
+        .main-header {
+            height: 70px;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--bg-sidebar);
+        }
+
+        .header-breadcrumb {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        .theme-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .theme-toggle-btn .sun-icon {
+            display: block;
+        }
+
+        body.dark-theme .theme-toggle-btn .sun-icon {
+            display: none;
+        }
+
+        body.dark-theme .theme-toggle-btn .moon-icon {
+            display: block;
+        }
+
+        .theme-toggle-btn .moon-icon {
+            display: none;
+        }
+
+        .notification-trigger {
+            position: relative;
+            cursor: pointer;
+            color: var(--text-muted);
+            padding: 8px;
+        }
+
+        .notification-trigger svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .notif-dot {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #ef4444;
+            border: 1.5px solid var(--bg-sidebar);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-info-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+
+        .user-name {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .user-role {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* VIEWPORT CONTAINER */
+        .viewport {
+            flex: 1;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        .view-panel {
+            display: none;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .view-panel.active-panel {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================================
+   DASHBOARD COMPONENTS
+   ========================================================================== */
+
+        /* Welcome Banner (matches light blue gradient look) */
+        .dashboard-banner {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .banner-content {
+            max-width: 60%;
+        }
+
+        .banner-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .banner-desc {
+            font-size: 13.5px;
+            line-height: 1.6;
+            color: #1e40af;
+        }
+
+        .banner-visual {
+            width: 35%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .banner-visual svg {
+            max-height: 120px;
+            width: auto;
+        }
+
+        /* Tracker Section Box */
+        .tracker-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Legend items style */
+        .status-legend {
+            display: flex;
+            gap: 16px;
+        }
+
+        .legend-item {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .bg-success {
+            background-color: var(--success);
+        }
+
+        .bg-blue {
+            background-color: var(--brand-ocean);
+        }
+
+        .bg-muted {
+            background-color: #cbd5e1;
+        }
+
+        /* ==========================================================================
+   PERANCANGAN AOS 12 LANGKAH HORIZONTAL TIMELINE
+   ========================================================================== */
+
+        .horizontal-timeline-container {
+            padding: 24px 0 35px 0;
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        .timeline-nodes-wrapper {
+            position: relative;
+            width: max-content;
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        /* Line running through all node circles */
+        .timeline-connect-line {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            right: 20px;
+            height: 4px;
+            background-color: #e2e8f0;
+            z-index: 10;
+        }
+
+        .timeline-nodes-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 45px;
+            position: relative;
+            z-index: 20;
+        }
+
+        /* Indivual node styling */
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 80px;
+            cursor: pointer;
+        }
+
+        .node-circle {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 3px solid #cbd5e1;
+            color: #475569;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .badge-check {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--success);
+            color: #ffffff;
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #ffffff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .node-label {
+            font-size: 11.5px;
+            line-height: 1.4;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: block;
+            max-width: 100px;
+        }
+
+        .font-bold {
+            font-weight: 600 !important;
+        }
+
+        /* Active Completed Steps styles (Green border and green text/number) */
+        .step-node.completed .node-circle {
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .step-node.completed .node-label {
+            color: var(--success);
+        }
+
+        /* Active In-Progress Steps styles (Blue border and blue text/number) */
+        .step-node.in-progress .node-circle {
+            border-color: var(--brand-ocean);
+            color: var(--brand-ocean);
+            animation: activeGlowPulse 1.5s infinite alternate;
+        }
+
+        .step-node.in-progress .node-label {
+            color: var(--brand-royal);
+            font-weight: 700;
+        }
+
+        /* Locked Steps */
+        .step-node.locked {
+            opacity: 0.85;
+        }
+
+        .step-node.locked .node-circle {
+            border-color: #e2e8f0;
+            color: #94a3b8;
+            background-color: #f8fafc;
+        }
+
+        /* Progress bar section under timeline */
+        .progress-bar-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .progress-desc-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .progress-bar-container-multi {
+            flex: 1;
+            height: 8px;
+            background-color: #f1f5f9;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .progress-bar-segment {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-bar-segment.segment-green {
+            background-color: var(--success);
+        }
+
+        .progress-bar-segment.segment-blue {
+            background-color: var(--brand-ocean);
+        }
+
+        .progress-bar-segment.segment-gray {
+            background-color: #e2e8f0;
+        }
+
+        .progress-bar-container {
+            flex: 1;
+            height: 8px;
+            background-color: #f1f5f9;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--brand-gradient);
+            border-radius: 10px;
+        }
+
+        .progress-pct-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================================
+   IMPLEMENTASI AOS (33 HARI) WIDGET
+   ========================================================================== */
+
+        .implementation-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .impl-info-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .impl-icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+            color: var(--brand-ocean);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .impl-icon-box svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .impl-meta-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.35;
+        }
+
+        .impl-title {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .impl-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Progress Timeline Slider Line */
+        .impl-timeline-bar-wrapper {
+            padding: 16px 12px 24px 12px;
+        }
+
+        .impl-timeline-line {
+            height: 6px;
+            background-color: #e2e8f0;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .impl-timeline-fill {
+            height: 100%;
+            background-color: var(--brand-ocean);
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .impl-marker {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 2px solid #cbd5e1;
+            color: #475569;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            position: absolute;
+            top: -10px;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .impl-marker.active-marker {
+            background-color: var(--brand-ocean);
+            border-color: var(--brand-ocean);
+            color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(40, 136, 230, 0.2);
+        }
+
+        /* ==========================================================================
+   AKTIVITAS TERBARU SIMPLE LIST
+   ========================================================================== */
+
+        .view-all-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--brand-ocean);
+            text-decoration: none;
+        }
+
+        .view-all-link:hover {
+            color: var(--brand-royal);
+            text-decoration: underline;
+        }
+
+        .activity-list-simple {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .activity-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13.5px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 14px;
+        }
+
+        .activity-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .activity-row .activity-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #ffffff;
+        }
+
+        .activity-row .activity-icon svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .activity-row .activity-desc {
+            flex: 1;
+            color: var(--text-main);
+        }
+
+        .activity-row .activity-desc strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        .activity-row .activity-timestamp {
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        .bg-orange {
+            background-color: #f97316;
+        }
+
+        .bg-purple {
+            background-color: #8b5cf6;
+        }
+
+        /* ==========================================================================
+   DATA PERUSAHAAN REDESIGN TABS
+   ========================================================================== */
+
+        .split-view-container {
+            display: flex;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .form-container-card {
+            width: 55%;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-wizard-header {
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .form-wizard-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .form-wizard-subtitle {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .wizard-steps-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wizard-step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.5;
+        }
+
+        .wizard-step.active-step-indicator {
+            opacity: 1;
+        }
+
+        .step-indicator-num {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #64748b;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wizard-step.active-step-indicator .step-indicator-num {
+            background-color: var(--brand-royal);
+            border-color: var(--brand-royal);
+            color: #ffffff;
+        }
+
+        .step-indicator-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .wizard-indicator-line {
+            flex: 1;
+            height: 2px;
+            background-color: var(--border-color);
+            max-width: 40px;
+        }
+
+        .wizard-form-page {
+            display: none;
+        }
+
+        .wizard-form-page.active-form-page {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 12.5px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 14px;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brand-ocean);
+            box-shadow: 0 0 0 3px rgba(40, 136, 230, 0.15);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 12.5px;
+            font-weight: 500;
+        }
+
+        .checkbox-label input {
+            width: 15px;
+            height: 15px;
+        }
+
+        .form-actions-wizard {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn {
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-royal);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #11408f;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+        }
+
+        .btn-outline:hover {
+            background-color: #f1f5f9;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #16a34a;
+        }
+
+        /* V2 Live Preview Card */
+        .live-card-preview-area {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .preview-header-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--brand-royal);
+            margin-bottom: 20px;
+            align-self: flex-start;
+        }
+
+        .live-card {
+            width: 100%;
+            background: linear-gradient(135deg, var(--brand-royal) 0%, var(--brand-ocean) 50%, var(--brand-baby) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 16px;
+            padding: 24px;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            height: auto;
+            min-height: 560px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 25px rgba(24, 89, 188, 0.15);
+        }
+
+        .live-card-hex-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--hex-pattern);
+            opacity: 0.22;
+            /* Hexagonal pattern is clearly visible and elegant */
+            pointer-events: none;
+        }
+
+        .live-card-body {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .live-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 12px;
+        }
+
+        .live-card-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .live-card-logo-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: #ffffff;
+            color: var(--brand-royal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 11px;
+        }
+
+        .live-card-brand h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .live-card-industry-tag {
+            font-size: 9px;
+            color: #ffffff;
+            opacity: 0.95;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .live-card-category-tag {
+            font-size: 9px;
+            color: #ffffff;
+            opacity: 0.95;
+            background-color: rgba(255, 255, 255, 0.25);
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .live-card-entity-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        /* Scroll Container for data inside card */
+        .live-card-scroll-container {
+            flex-grow: 1;
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 12px 0;
+            padding-right: 6px;
+        }
+
+        /* Custom Scrollbar for live card */
+        .live-card-scroll-container::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .live-card-scroll-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .live-card-scroll-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .live-card-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        /* Glassmorphic blocks inside card */
+        .card-section-block {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .column-title {
+            font-size: 9px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #ffffff;
+            opacity: 0.85;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .card-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 12px;
+        }
+
+        .detail-row {
+            display: flex;
+            font-size: 11px;
+            line-height: 1.35;
+            align-items: flex-start;
+        }
+
+        .detail-label {
+            color: rgba(255, 255, 255, 0.68);
+            width: 60px;
+            flex-shrink: 0;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #ffffff;
+        }
+
+        .card-issues-list li {
+            font-size: 11px;
+            margin-bottom: 4px;
+            color: #f1f5f9;
+        }
+
+        .social-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 9px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .price-row-preview {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10.5px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 2px;
+        }
+
+        .price-row-preview:last-child {
+            border-bottom: none;
+        }
+
+        .live-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 10px;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .live-card-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #4ade80;
+            font-weight: 600;
+        }
+
+        .status-indicator-light {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: #4ade80;
+        }
+
+        .status-indicator-light.pulse-green {
+            box-shadow: 0 0 6px #4ade80;
+            animation: successPulse 1.2s infinite alternate;
+        }
+
+        .card-uuid {
+            font-family: monospace;
+        }
+
+        /* ==========================================================================
+   DISKUSI (CHAT COMPONENT)
+   ========================================================================== */
+
+        .chat-workspace-container {
+            display: flex;
+            height: 70vh;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chat-users-sidebar {
+            width: 260px;
+            border-right: 1px solid var(--border-color);
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-sidebar-title {
+            padding: 16px 20px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chat-search {
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chat-user-list {
+            list-style: none;
+        }
+
+        .chat-user-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .chat-user-item.active-user {
+            background-color: #eff6ff;
+            border-left: 3px solid var(--brand-royal);
+        }
+
+        .chat-user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .chat-user-meta {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .chat-user-name {
+            font-size: 12.5px;
+            font-weight: 600;
+        }
+
+        .chat-user-role {
+            font-size: 10px;
+            color: var(--brand-royal);
+        }
+
+        .chat-last-msg {
+            font-size: 11px;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 2px;
+        }
+
+        .chat-window {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+        }
+
+        .chat-window-header {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #f8fafc;
+        }
+
+        .active-chat-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .active-chat-status {
+            font-size: 11px;
+            color: var(--success);
+        }
+
+        .chat-messages-feed {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background-color: #f8fafc;
+        }
+
+        .chat-message {
+            max-width: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message.received-message {
+            align-self: flex-start;
+        }
+
+        .chat-message.sent-message {
+            align-self: flex-end;
+        }
+
+        .message-meta {
+            display: flex;
+            gap: 8px;
+            font-size: 9.5px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .chat-message.sent-message .message-meta {
+            justify-content: flex-end;
+        }
+
+        .message-bubble {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 12.5px;
+            line-height: 1.5;
+        }
+
+        .received-message .message-bubble {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-top-left-radius: 0;
+        }
+
+        .sent-message .message-bubble {
+            background-color: var(--brand-royal);
+            color: #ffffff;
+            border-top-right-radius: 0;
+        }
+
+        .chat-system-event {
+            align-self: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin: 8px 0;
+        }
+
+        .chat-typing-indicator {
+            padding: 8px 20px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background-color: #f8fafc;
+        }
+
+        .typing-dot {
+            width: 5px;
+            height: 5px;
+            background-color: var(--text-muted);
+            border-radius: 50%;
+            animation: typing 1s infinite alternate;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .typing-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-left: 6px;
+        }
+
+        .chat-input-area {
+            padding: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        #chat-input-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* ==========================================================================
+   PORTAL MODALS & DIALOGS
+   ========================================================================== */
+
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(8px);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-muted);
+        }
+
+        .modal-body {
+            padding: 20px;
+            max-height: 50vh;
+            overflow-y: auto;
+        }
+
+        .modal-footer {
+            padding: 14px 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .step-detail-status-bar {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .modal-info-section {
+            margin-bottom: 16px;
+        }
+
+        .modal-info-section h4 {
+            font-size: 12.5px;
+            color: var(--brand-royal);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .modal-info-section p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .modal-document-list li {
+            font-size: 12.5px;
+            padding: 6px 10px;
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 6px;
+        }
+
+        .bullet-list {
+            margin-left: 20px;
+        }
+
+        .bullet-list li {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        /* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+        @keyframes activeGlowPulse {
+            from {
+                box-shadow: 0 0 2px var(--brand-ocean);
+            }
+
+            to {
+                box-shadow: 0 0 10px var(--brand-ocean);
+            }
+        }
+
+        @keyframes successPulse {
+            from {
+                box-shadow: 0 0 2px #4ade80;
+            }
+
+            to {
+                box-shadow: 0 0 10px #4ade80;
+            }
+        }
+
+        @keyframes badgePulse {
+            from {
+                opacity: 0.6;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes typing {
+            from {
+                transform: translateY(0);
+                opacity: 0.3;
+            }
+
+            to {
+                transform: translateY(-3px);
+                opacity: 1;
+            }
+        }
+
+        /* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+        @media (max-width: 1400px) {
+            .split-view-container {
+                flex-direction: column;
+            }
+
+            .form-container-card {
+                width: 100%;
+            }
+
+            .live-card-preview-area {
+                width: 100%;
+            }
+
+            .live-card {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .dashboard-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .banner-content {
+                max-width: 100%;
+            }
+
+            .banner-visual {
+                display: none;
+            }
+        }
+
+        /* ==========================================================================
+   WORKSHEET SPLIT-SCREEN LAYOUT & ELEMENTS
+   ========================================================================== */
+
+        .worksheet-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+        }
+
+        .worksheet-header {
+            position: sticky;
+            top: -30px;
+            margin-top: -30px;
+            padding-top: 30px;
+            padding-bottom: 15px;
+            background-color: var(--bg-main);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .worksheet-breadcrumb {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .ws-parent {
+            color: var(--text-muted);
+        }
+
+        .ws-current {
+            color: var(--brand-royal);
+            font-weight: 700;
+        }
+
+        .worksheet-layout {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .form-side {
+            flex: 1;
+            min-width: 0;
+            /* Prevent flex blowout */
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tips-side {
+            width: 320px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 20px;
+        }
+
+        .tips-container {
+            background-color: rgba(130, 178, 250, 0.08);
+            border: 1px solid rgba(130, 178, 250, 0.35);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tips-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--brand-royal);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tips-content {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #475569;
+        }
+
+        .tips-content p {
+            margin-bottom: 10px;
+        }
+
+        .tips-content ul,
+        .tips-content ol {
+            margin-left: 16px;
+            margin-bottom: 10px;
+        }
+
+        .tips-content li {
+            margin-bottom: 4px;
+        }
+
+        .tips-video-wrapper {
+            margin-top: 20px;
+            border-top: 1px solid rgba(130, 178, 250, 0.2);
+            padding-top: 16px;
+        }
+
+        .btn-video {
+            width: 100%;
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: var(--brand-royal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        .btn-video:hover {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .play-icon {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* ==========================================================================
+   DYNAMIC FORM COMPONENTS & TABLES
+   ========================================================================== */
+
+        .form-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+        }
+
+        .form-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--brand-royal);
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-form {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .table-form th {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: left;
+        }
+
+        .table-form td {
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            vertical-align: middle;
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        .table-form td strong {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .btn-add-row {
+            font-size: 11px;
+            padding: 6px 12px;
+            color: var(--brand-royal);
+            border-color: rgba(24, 89, 188, 0.4);
+            background-color: transparent;
+        }
+
+        .btn-add-row:hover {
+            background-color: #f0f7ff;
+            border-color: var(--brand-royal);
+        }
+
+        .btn-delete-row {
+            color: #ef4444;
+            border: none;
+            background: transparent;
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-delete-row:hover {
+            background-color: #fef2f2;
+        }
+
+        /* ==========================================================================
+   PROFILE VIEW STYLING (AUTO GENERATED)
+   ========================================================================== */
+
+        .profile-dashboard-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .profile-header-card {
+            background: var(--brand-gradient);
+            border-radius: 12px;
+            padding: 24px;
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--hex-pattern);
+            opacity: 0.15;
+        }
+
+        .profile-brand-banner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-brand-logo {
+            width: 60px;
+            height: 60px;
+            background-color: #ffffff;
+            color: var(--brand-royal);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .profile-brand-meta h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .badge-legal {
+            font-size: 12px;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        .badge-industry {
+            font-size: 12px;
+            background-color: rgba(255, 255, 255, 0.25);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .profile-section-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--brand-royal);
+            padding-bottom: 10px;
+            border-bottom: 1.5px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .profile-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .price-list-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            width: 100%;
+            margin-top: 4px;
+        }
+
+        .profile-price-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12.5px;
+            background: #f8fafc;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .profile-social-badge {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .profile-issues-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .profile-issue-card {
+            background-color: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 6px;
+            padding: 12px;
+            font-size: 12.5px;
+            color: #92400e;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+   AOS CHECKLIST VIEW STYLING
+   ========================================================================== */
+
+        .checklist-main-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--brand-royal);
+            margin-bottom: 6px;
+        }
+
+        .checklist-subtitle {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .checklist-grid {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .checklist-items-list {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checklist-item-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .checklist-item-card:hover {
+            transform: translateX(4px);
+            border-color: var(--brand-baby);
+        }
+
+        .checklist-item-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .checklist-step-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--brand-royal);
+            background-color: #f0f7ff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checklist-step-title {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .checklist-status-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+
+        .checklist-status-badge.status-completed {
+            background-color: #dcfce7;
+            color: #15803d;
+        }
+
+        .checklist-status-badge.status-pending {
+            background-color: #fef3c7;
+            color: #b45309;
+        }
+
+        .checklist-action-board {
+            flex: 1;
+        }
+
+        .action-board-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 20px;
+        }
+
+        .board-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--brand-royal);
+            margin-bottom: 16px;
+            border-bottom: 1.5px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .board-action-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .board-action-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 12.5px;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .board-action-list input[type="checkbox"] {
+            margin-top: 3px;
+            cursor: pointer;
+        }
+
+        .board-action-list label {
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        /* ==========================================================================
+   POPUP CELEBRATION MODAL
+   ========================================================================== */
+
+        .celebration-modal {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .celebration-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .celebration-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--brand-royal);
+            margin-bottom: 10px;
+        }
+
+        .celebration-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ==========================================================================
+   ORGANIZATION STRUCTURE VISUAL CHART
+   ========================================================================= */
+
+        .org-chart-preview-container {
+            width: 100%;
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px dashed var(--border-color);
+        }
+
+        .org-chart-tree {
+            display: flex;
+            justify-content: center;
+            overflow-x: auto;
+            padding: 20px;
+            background: var(--bg-main);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .org-chart-tree ul {
+            padding-top: 20px;
+            position: relative;
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .org-chart-tree li {
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+            transition: all 0.5s;
+        }
+
+        /* Connectors */
+        .org-chart-tree li::before,
+        .org-chart-tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 2px solid var(--border-color);
+            width: 50%;
+            height: 20px;
+        }
+
+        .org-chart-tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 2px solid var(--border-color);
+        }
+
+        /* Connect single child nodes without horizontal connectors */
+        .org-chart-tree li:only-child::after,
+        .org-chart-tree li:only-child::before {
+            display: none;
+        }
+
+        .org-chart-tree li:only-child {
+            padding-top: 0;
+        }
+
+        .org-chart-tree li:first-child::before,
+        .org-chart-tree li:last-child::after {
+            border: 0 none;
+        }
+
+        .org-chart-tree li:last-child::before {
+            border-right: 2px solid var(--border-color);
+            border-radius: 0 5px 0 0;
+        }
+
+        .org-chart-tree li:first-child::after {
+            border-radius: 5px 0 0 0;
+        }
+
+        /* Downward connector from parent */
+        .org-chart-tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 2px solid var(--border-color);
+            width: 0;
+            height: 20px;
+        }
+
+        /* Visual Card design */
+        .org-chart-node-card {
+            border: 1.5px solid var(--brand-baby);
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-md);
+            display: inline-block;
+            min-width: 160px;
+            max-width: 200px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: default;
+        }
+
+        .org-chart-node-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--brand-ocean);
+        }
+
+        .org-chart-node-card .node-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--brand-royal);
+            font-size: 13px;
+            line-height: 1.3;
+        }
+
+        .org-chart-node-card .node-lvl {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .org-chart-node-card .node-div {
+            font-size: 9px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--brand-baby);
+            color: var(--brand-royal);
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+   AOS CHECKLIST ACCORDION & TABLE PREMIUM STYLES
+   ========================================================================== */
+
+        .checklist-section-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .checklist-section-card:hover {
+            border-color: var(--brand-baby);
+        }
+
+        .checklist-section-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            color: var(--text-main);
+            transition: background-color 0.2s ease;
+        }
+
+        .checklist-section-header:hover {
+            background-color: var(--muted-bg);
+        }
+
+        .checklist-section-title-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist-section-chevron {
+            transition: transform 0.2s ease;
+            color: var(--text-muted);
+        }
+
+        .checklist-section-card.expanded .checklist-section-chevron {
+            transform: rotate(180deg);
+        }
+
+        .checklist-section-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .checklist-section-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .checklist-section-progress-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .checklist-section-pct {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .checklist-section-bar-bg {
+            width: 80px;
+            background: var(--border-color);
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .checklist-section-bar-fill {
+            height: 100%;
+            background: var(--brand-royal);
+            transition: width 0.3s ease;
+        }
+
+        .checklist-section-content {
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding: 0;
+            background-color: var(--bg-card);
+        }
+
+        .checklist-section-card.expanded .checklist-section-content {
+            display: block;
+        }
+
+        /* Checklist Table */
+        .checklist-table-wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        .checklist-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        .checklist-table th {
+            background-color: var(--muted-bg);
+            padding: 12px 16px;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .checklist-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+            color: var(--text-main);
+        }
+
+        .checklist-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .checklist-table tr.row-completed {
+            background-color: rgba(34, 197, 94, 0.04);
+        }
+
+        .checklist-status-select {
+            width: 100%;
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            background-color: transparent;
+            color: var(--text-main);
+            font-size: 12.5px;
+            font-weight: 500;
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .checklist-status-select:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        body.dark-theme .checklist-status-select:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .checklist-status-select:focus {
+            background-color: var(--bg-card);
+            border-color: var(--brand-ocean);
+            box-shadow: 0 0 0 2px rgba(40, 136, 230, 0.15);
+        }
+
+        .checklist-notes-input {
+            width: 100%;
+            padding: 6px 8px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            background-color: transparent;
+            color: var(--text-main);
+            font-size: 12.5px;
+            outline: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .checklist-notes-input:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        body.dark-theme .checklist-notes-input:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .checklist-notes-input:focus {
+            background-color: var(--bg-card);
+            border-color: var(--brand-ocean);
+            box-shadow: 0 0 0 2px rgba(40, 136, 230, 0.15);
+        }
+
+        .checklist-media-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--muted-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .checklist-media-btn:hover {
+            background-color: var(--border-color);
+        }
+
+        .checklist-media-badge {
+            background-color: var(--brand-royal);
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 1px 6px;
+            font-size: 9.5px;
+            font-weight: 700;
+        }
+
+        /* Modal Tabs and Lists */
+        .modal-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .modal-tab-btn {
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 8px 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 12.5px;
+        }
+
+        .modal-tab-btn.active {
+            border-bottom-color: var(--brand-royal);
+            color: var(--brand-royal);
+            font-weight: 600;
+        }
+
+        .media-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 12.5px;
+        }
+
+        .media-list-item-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .media-list-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .media-list-item-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-list-item-btn.btn-download {
+            color: var(--brand-ocean);
+        }
+
+        .media-list-item-btn.btn-delete {
+            color: #ef4444;
+        }
+
+        /* ==========================================================================
+   NOTION-STYLE TRANSPARENT INPUTS FOR WORKSHEET TABLES (STEPS 6-14)
+   ========================================================================== */
+        .table-form td .form-control,
+        .table-form td input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+        .table-form td select,
+        .table-form td textarea {
+            background-color: transparent !important;
+            border: 1px solid transparent !important;
+            box-shadow: none !important;
+            padding: 6px 8px !important;
+            border-radius: 4px !important;
+            color: var(--text-main) !important;
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        .table-form td .form-control:hover,
+        .table-form td input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):hover,
+        .table-form td select:hover,
+        .table-form td textarea:hover {
+            background-color: rgba(0, 0, 0, 0.04) !important;
+        }
+
+        body.dark-theme .table-form td .form-control:hover,
+        body.dark-theme .table-form td input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):hover,
+        body.dark-theme .table-form td select:hover,
+        body.dark-theme .table-form td textarea:hover {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        .table-form td .form-control:focus,
+        .table-form td input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):focus,
+        .table-form td select:focus,
+        .table-form td textarea:focus {
+            background-color: var(--bg-card) !important;
+            border-color: var(--brand-ocean) !important;
+            box-shadow: 0 0 0 2px rgba(40, 136, 230, 0.15) !important;
+            outline: none !important;
+        }
+
+        /* ==========================================================================
+   COLLAPSIBLE TIPS SIDEBAR LAYOUT
+   ========================================================================== */
+        .worksheet-layout {
+            transition: gap 0.3s ease;
+        }
+
+        .worksheet-layout.tips-collapsed {
+            gap: 0 !important;
+        }
+
+        .worksheet-layout.tips-collapsed .tips-side {
+            display: none !important;
+        }
+
+        /* ==========================================================================
+           DESIGN SYSTEM DOCUMENTATION LAYOUT STYLES
+           ========================================================================== */
+        :root {
+            /* Spacing Scales (only used in documentation grid) */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 12px;
+            --space-lg: 16px;
+            --space-xl: 24px;
+            --space-2xl: 32px;
+            --space-3xl: 48px;
+            --space-4xl: 64px;
+
+            /* Custom Doc-specific values */
+            --accent-glow: rgba(24, 89, 188, 0.08);
+            --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            --border-radius-sm: 6px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 16px;
+            --border-radius-full: 9999px;
+        }
+
+        /* Sidebar Design Documentation Navigation */
+        .doc-sidebar {
+            width: 280px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .doc-sidebar-header {
+            height: 80px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-logo-main {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--brand-royal);
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-theme .doc-logo-main {
+            color: var(--brand-baby);
+        }
+
+        .doc-logo-sub {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+
+        .doc-sidebar-nav {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 15px;
+        }
+
+        .doc-nav-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 15px 10px 8px 10px;
+        }
+
+        .doc-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--text-main);
+            text-decoration: none;
+            margin-bottom: 4px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .doc-nav-item:hover,
+        .doc-nav-item.active {
+            background-color: var(--accent-glow);
+            color: var(--brand-royal);
+            font-weight: 600;
+        }
+
+        body.dark-theme .doc-nav-item:hover,
+        body.dark-theme .doc-nav-item.active {
+            background-color: rgba(40, 136, 230, 0.15);
+            color: var(--brand-baby);
+        }
+
+        .doc-nav-icon {
+            width: 16px;
+            height: 16px;
+            stroke-width: 2px;
+        }
+
+        /* Main Content Documentation Windows */
+        .doc-main-wrapper {
+            margin-left: 280px;
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .doc-header {
+            height: 80px;
+            padding: 0 40px;
+            background-color: var(--bg-sidebar);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .doc-header-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .doc-header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .doc-btn-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .doc-btn-toggle:hover {
+            background-color: var(--border-color);
+        }
+
+        /* View Panels */
+        .doc-content-container {
+            padding: 40px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .doc-section-panel {
+            display: none;
+            animation: docSlideUp 0.3s ease forwards;
+        }
+
+        .doc-section-panel.active {
+            display: block;
+        }
+
+        @keyframes docSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .doc-section-intro {
+            margin-bottom: 35px;
+        }
+
+        .doc-section-intro h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--brand-royal);
+        }
+
+        body.dark-theme .doc-section-intro h2 {
+            color: var(--brand-baby);
+        }
+
+        .doc-section-intro p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Base Card Styling */
+        .doc-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 30px;
+            transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+        }
+
+        .doc-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-main);
+        }
+
+        /* Color swatch catalog styling */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .doc-color-swatch {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .doc-color-swatch:hover {
+            transform: translateY(-4px);
+        }
+
+        .color-block {
+            height: 120px;
+            position: relative;
+        }
+
+        .color-meta {
+            padding: 15px;
+        }
+
+        .color-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .color-hex {
+            font-family: monospace;
+            font-size: 12.5px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .color-contrast {
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .contrast-badge {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9px;
+            font-weight: 800;
+        }
+
+        .contrast-pass {
+            background-color: rgba(34, 197, 94, 0.15);
+            color: #16a34a;
+        }
+
+        /* Typography display block */
+        .typo-specimen {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .typo-row {
+            display: flex;
+            align-items: baseline;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .typo-label {
+            width: 150px;
+            flex-shrink: 0;
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .typo-sample {
+            flex: 1;
+        }
+
+        .typo-details {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Spacing display blocks */
+        .space-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .space-label {
+            width: 120px;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        .space-bar-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .space-bar {
+            height: 20px;
+            background-color: var(--brand-royal);
+            border-radius: 4px;
+            min-width: 4px;
+        }
+
+        .space-value {
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        /* Showroom Container split with drawer */
+        .component-section {
+            margin-bottom: 40px;
+        }
+
+        .component-meta-header {
+            margin-bottom: 15px;
+        }
+
+        .component-meta-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .component-meta-desc {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .showroom-box {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            background-color: var(--bg-card);
+            padding: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .showroom-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.02);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        body.dark-theme .showroom-controls {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .showroom-controls span {
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* Source code drawer */
+        .code-drawer {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            background-color: #0f172a;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 25px;
+        }
+
+        .code-header {
+            background-color: #1e293b;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .code-title {
+            font-size: 11px;
+            color: #94a3b8;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.08);
+            border: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #e2e8f0;
+            font-size: 11px;
+            font-family: inherit;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: background 0.2s;
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .code-content {
+            padding: 15px;
+            margin: 0;
+            overflow-x: auto;
+            max-height: 240px;
+        }
+
+        .code-content code {
+            font-family: 'Consolas', 'Fira Code', monospace;
+            font-size: 12px;
+            color: #38bdf8;
+            line-height: 1.5;
+            white-space: pre;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #1e293b;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            font-weight: 500;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            z-index: 200;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        body.dark-theme .toast {
+            background-color: #0f172a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            color: #22c55e;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Export block for JSON */
+        .export-pre {
+            background: #0f172a;
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            color: #e2e8f0;
+            overflow-x: auto;
+            max-height: 400px;
+            font-family: monospace;
+            font-size: 12.5px;
+            line-height: 1.5;
+        }
+
+        /* Loading spinner (Custom helper not in styles.css) */
+        .spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Alignment helpers for Component Grid items */
+        .showroom-box .form-group {
+            margin-bottom: 0;
+        }
+
+        .showroom-box .timeline-nodes-list {
+            margin: 0;
+        }
+
+        .showroom-box .checklist-item-card {
+            width: 100%;
+        }
+
+        .showroom-box .checklist-section-card {
+            width: 100%;
+        }
+
+        /* Icons grid showcase styling */
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .icon-box {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            padding: 20px;
+            text-align: center;
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-box:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--brand-ocean);
+        }
+
+        .icon-box svg {
+            width: 28px;
+            height: 28px;
+            color: var(--brand-royal);
+            stroke-width: 2px;
+            transition: color 0.2s;
+        }
+
+        body.dark-theme .icon-box svg {
+            color: var(--brand-baby);
+        }
+
+        .icon-box span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        @media (max-width: 992px) {
+            .icons-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .icons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ==========================================================================
+   BRAND TYPOGRAPHY ALIGNMENT (Montserrat, Assistant, Ubuntu)
+   ========================================================================== */
+        body,
+        p,
+        li,
+        td,
+        th,
+        .tips-content,
+        .banner-desc,
+        .node-desc,
+        .checklist-step-title {
+            font-family: 'Ubuntu', 'Poppins', sans-serif !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .logo-main,
+        .doc-logo-main,
+        .banner-title,
+        .node-circle,
+        .doc-header-title h1,
+        .doc-section-intro h2,
+        .doc-card-title,
+        .component-meta-title,
+        .form-card-title,
+        .tips-title,
+        .modal-title,
+        .node-name,
+        .checklist-step-number,
+        .checklist-section-name {
+            font-family: 'Montserrat', 'Outfit', sans-serif !important;
+        }
+
+        button,
+        input,
+        select,
+        textarea,
+        .btn,
+        .form-control,
+        .nav-item,
+        .doc-nav-item,
+        .wizard-step,
+        .step-indicator-label,
+        .badge,
+        .doc-btn-toggle,
+        .checklist-status-badge,
+        .node-lvl,
+        .node-div {
+            font-family: 'Assistant', sans-serif !important;
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+
+    <!-- SIDEBAR DOCUMENTATION NAV -->
+    <aside class="doc-sidebar">
+        <div class="doc-sidebar-header">
+            <div>
+                <span class="doc-logo-main">AOS Online</span>
+                <div class="doc-logo-sub">Design System</div>
+            </div>
+        </div>
+
+        <nav class="doc-sidebar-nav">
+            <div class="doc-nav-title">Panduan</div>
+            <a class="doc-nav-item active" data-target="overview">
+                <svg class="doc-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Ikhtisar</span>
+            </a>
+
+            <div class="doc-nav-title">Tokens</div>
+            <a class="doc-nav-item" data-target="colors">
+                <svg class="doc-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 2 12 22Z">
+                    </path>
+                    <path d="M12 6V12L16 14"></path>
+                </svg>
+                <span>Warna & Palet</span>
+            </a>
+            <a class="doc-nav-item" data-target="typography">
+                <svg class="doc-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                    <line x1="9" y1="20" x2="15" y2="20"></line>
+                    <line x1="12" y1="4" x2="12" y2="20"></line>
+                </svg>
+                <span>Tipografi</span>
+            </a>
+            <a class="doc-nav-item" data-target="spacing">
+                <svg class="doc-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                    <line x1="15" y1="3" x2="15" y2="21"></line>
+                </svg>
+                <span>Spasi & Ukuran</span>
+            </a>
+
+            <div class="doc-nav-title">Komponen</div>
+            <a class="doc-nav-item" data-target="components">
+                <svg class="doc-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <span>Pustaka Komponen</span>
+            </a>
+            <a class="doc-nav-item" data-target="icons">
+                <svg class="doc-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                </svg>
+                <span>Ikonografi</span>
+            </a>
+
+            <div class="doc-nav-title">Integrasi</div>
+            <a class="doc-nav-item" data-target="export">
+                <svg class="doc-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <span>Ekspor Token</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="doc-main-wrapper">
+        <header class="doc-header">
+            <div class="doc-header-title">
+                <h1 id="header-nav-title">Ikhtisar Design System</h1>
+            </div>
+
+            <div class="doc-header-controls">
+                <!-- Dark/Light theme Toggle -->
+                <button class="doc-btn-toggle" id="toggle-theme">
+                    🌙 Mode Gelap
+                </button>
+            </div>
+        </header>
+
+        <div class="doc-content-container">
+
+            <!-- SECTION 1: OVERVIEW -->
+            <section class="doc-section-panel active" id="panel-overview">
+                <div class="doc-section-intro">
+                    <h2>Ikhtisar Design System AOS</h2>
+                    <p>Selamat datang di spesifikasi visual resmi untuk AOS Online. Design system ini dibangun
+                        menggunakan basis CSS Variables modern, tipografi fungsional, dan visual terarah untuk
+                        memberikan user experience (UX) tingkat korporat yang kokoh, rapi, dan responsif.</p>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">Prinsip Desain Kami</div>
+                    <p style="margin-bottom:15px; font-size:14px; line-height:1.6;">Design system ini berpedoman pada
+                        tiga filosofi utama:</p>
+                    <ul style="margin-left:20px; font-size:14.5px; line-height:1.8;">
+                        <li><strong>Kepercayaan Korporat (Corporate Trust):</strong> Didominasi oleh Royal Blue dan
+                            Ocean Blue untuk mewakili profesionalitas sistem organisasi.</li>
+                        <li><strong>Kesederhanaan Alur (Visual Guidance):</strong> Kontras tajam, label terstruktur,
+                            status indikator tegas, serta ilustrasi bernilai fungsional.</li>
+                        <li><strong>Responsif & Ringan:</strong> Dibangun murni menggunakan HTML5 semantik, CSS variabel
+                            vanilla, dan Javascript interaktif tanpa membebani browser.</li>
+                    </ul>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">Cara Penggunaan</div>
+                    <p style="font-size:14px; line-height:1.6;">Telusuri menu di panel samping untuk melihat token
+                        warna, ukuran spasi, aturan huruf, dan daftar komponen interface. Di setiap komponen, Anda dapat
+                        menggunakan tombol <strong>Copy HTML</strong> atau <strong>Copy CSS</strong> untuk langsung
+                        menempelkan markup ke dalam kode prototype Anda.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 2: COLORS -->
+            <section class="doc-section-panel" id="panel-colors">
+                <div class="doc-section-intro">
+                    <h2>Warna & Palet</h2>
+                    <p>Palet warna AOS dirancang dengan perbandingan kontras tinggi yang ramah aksesibilitas (WCAG AA
+                        compliant) dan menyatu sempurna baik dalam Light Mode maupun Dark Mode.</p>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">Palet Utama Brand (Brand Guidelines Page 8)</div>
+                    <div class="color-grid">
+                        <div class="doc-color-swatch" onclick="copyText('var(--brand-royal)')">
+                            <div class="color-block" style="background-color: #1859BC;"></div>
+                            <div class="color-meta">
+                                <div class="color-name">Royal Blue</div>
+                                <div class="color-hex">
+                                    <span>#1859BC</span>
+                                    <span style="font-size:10px;">var(--brand-royal)</span>
+                                </div>
+                                <div class="color-contrast">
+                                    <span>Contrast on White</span>
+                                    <span class="contrast-badge contrast-pass">Pass AAA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-color-swatch" onclick="copyText('var(--brand-ocean)')">
+                            <div class="color-block" style="background-color: #2888E6;"></div>
+                            <div class="color-meta">
+                                <div class="color-name">Ocean Blue</div>
+                                <div class="color-hex">
+                                    <span>#2888E6</span>
+                                    <span style="font-size:10px;">var(--brand-ocean)</span>
+                                </div>
+                                <div class="color-contrast">
+                                    <span>Contrast on White</span>
+                                    <span class="contrast-badge contrast-pass">Pass AA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-color-swatch" onclick="copyText('var(--brand-baby)')">
+                            <div class="color-block" style="background-color: #82B2FA;"></div>
+                            <div class="color-meta">
+                                <div class="color-name">Baby Blue</div>
+                                <div class="color-hex">
+                                    <span>#82B2FA</span>
+                                    <span style="font-size:10px;">var(--brand-baby)</span>
+                                </div>
+                                <div class="color-contrast">
+                                    <span>Contrast on Dark Blue</span>
+                                    <span class="contrast-badge contrast-pass">Pass AAA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">Warna Semantik & Fungsional</div>
+                    <div class="color-grid">
+                        <div class="doc-color-swatch" onclick="copyText('var(--success)')">
+                            <div class="color-block" style="background-color: #22c55e;"></div>
+                            <div class="color-meta">
+                                <div class="color-name">Success Green</div>
+                                <div class="color-hex">
+                                    <span>#22c55e</span>
+                                    <span style="font-size:10px;">var(--success)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-color-swatch" onclick="copyText('var(--info)')">
+                            <div class="color-block" style="background-color: #3b82f6;"></div>
+                            <div class="color-meta">
+                                <div class="color-name">Info / Progress Blue</div>
+                                <div class="color-hex">
+                                    <span>#3b82f6</span>
+                                    <span style="font-size:10px;">var(--info)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-color-swatch" onclick="copyText('var(--warning)')">
+                            <div class="color-block" style="background-color: #f59e0b;"></div>
+                            <div class="color-meta">
+                                <div class="color-name">Warning Orange</div>
+                                <div class="color-hex">
+                                    <span>#f59e0b</span>
+                                    <span style="font-size:10px;">var(--warning)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-color-swatch" onclick="copyText('var(--danger)')">
+                            <div class="color-block" style="background-color: #ef4444;"></div>
+                            <div class="color-meta">
+                                <div class="color-name">Danger Red</div>
+                                <div class="color-hex">
+                                    <span>#ef4444</span>
+                                    <span style="font-size:10px;">var(--danger)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: TYPOGRAPHY -->
+            <section class="doc-section-panel" id="panel-typography">
+                <div class="doc-section-intro">
+                    <h2>Tipografi</h2>
+                    <p>Sistem tipografi resmi AOS menggunakan tiga rumpun font utama sesuai pedoman brand:
+                        <strong>Montserrat</strong> untuk judul halaman/branding, <strong>Assistant</strong> untuk
+                        elemen antarmuka (UI/Form/Tombol), dan <strong>Ubuntu</strong> untuk deskripsi konten dan teks
+                        tubuh.</p>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">Skala Huruf & Hirarki</div>
+
+                    <div class="typo-specimen">
+                        <div class="typo-row">
+                            <div class="typo-label">h1.heading (Montserrat)</div>
+                            <div class="typo-sample">
+                                <h1
+                                    style="font-family:'Montserrat', 'Outfit', sans-serif; font-size:32px; font-weight:800;">
+                                    Judul Halaman Utama - 32px</h1>
+                                <div class="typo-details">Font-Family: Montserrat | Font-Weight: 800 | Line-Height: 1.2
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="typo-row">
+                            <div class="typo-label">h2.heading (Ubuntu)</div>
+                            <div class="typo-sample">
+                                <h2
+                                    style="font-family:'Montserrat', 'Outfit', sans-serif; font-size:24px; font-weight:700;">
+                                    Subjudul Seksi / Kategori - 24px</h2>
+                                <div class="typo-details">Font-Family: Ubuntu | Font-Weight: 700 | Line-Height: 1.3
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="typo-row">
+                            <div class="typo-label">h3.heading (Assistant)</div>
+                            <div class="typo-sample">
+                                <h3
+                                    style="font-family:'Montserrat', 'Outfit', sans-serif; font-size:18px; font-weight:600;">
+                                    Judul Modul / Card Header - 18px</h3>
+                                <div class="typo-details">Font-Family: Assistant | Font-Weight: 600 | Line-Height: 1.4
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="typo-row">
+                            <div class="typo-label">body.text (Ubuntu)</div>
+                            <div class="typo-sample">
+                                <p
+                                    style="font-family:'Ubuntu', 'Poppins', sans-serif; font-size:14px; font-weight:400; line-height:1.6;">
+                                    Ini adalah teks tubuh utama. Paragraf deskripsi, penjelasan petunjuk pengisian, dan
+                                    informasi alur program AOS menggunakan Poppins ukuran 14px agar nyaman dibaca
+                                    berjam-jam.</p>
+                                <div class="typo-details">Font-Family: Ubuntu | Font-Weight: 400 | Line-Height: 1.6
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="typo-row">
+                            <div class="typo-label">micro.text (Assistant)</div>
+                            <div class="typo-sample">
+                                <span
+                                    style="font-family:'Ubuntu', 'Poppins', sans-serif; font-size:11px; font-weight:600; color:var(--text-muted);">TEKS
+                                    METADATA / KETERANGAN KECIL - 11px</span>
+                                <div class="typo-details">Font-Family: Assistant | Font-Weight: 600 | Line-Height: 1.0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: SPACING -->
+            <section class="doc-section-panel" id="panel-spacing">
+                <div class="doc-section-intro">
+                    <h2>Spasi & Ukuran</h2>
+                    <p>Sistem grid dan spasi (layout gap, padding, margin) menggunakan basis kelipatan 4px/8px untuk
+                        menjamin keselarasan visual yang seimbang dan konsisten di seluruh viewport.</p>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">Token Skala Spasi</div>
+
+                    <div class="space-row">
+                        <div class="space-label">--space-xs (4px)</div>
+                        <div class="space-bar-container">
+                            <div class="space-bar" style="width: 4px;"></div>
+                            <span class="space-value">Label spacing / Microgap</span>
+                        </div>
+                    </div>
+
+                    <div class="space-row">
+                        <div class="space-label">--space-sm (8px)</div>
+                        <div class="space-bar-container">
+                            <div class="space-bar" style="width: 8px;"></div>
+                            <span class="space-value">Inner button padding / Grouping elements</span>
+                        </div>
+                    </div>
+
+                    <div class="space-row">
+                        <div class="space-label">--space-md (12px)</div>
+                        <div class="space-bar-container">
+                            <div class="space-bar" style="width: 12px;"></div>
+                            <span class="space-value">Badge padding / Input label margin</span>
+                        </div>
+                    </div>
+
+                    <div class="space-row">
+                        <div class="space-label">--space-lg (16px)</div>
+                        <div class="space-bar-container">
+                            <div class="space-bar" style="width: 16px;"></div>
+                            <span class="space-value">Form fields gap / Small card padding</span>
+                        </div>
+                    </div>
+
+                    <div class="space-row">
+                        <div class="space-label">--space-xl (24px)</div>
+                        <div class="space-bar-container">
+                            <div class="space-bar" style="width: 24px;"></div>
+                            <span class="space-value">Standard Card Padding / Layout columns gap</span>
+                        </div>
+                    </div>
+
+                    <div class="space-row">
+                        <div class="space-label">--space-2xl (32px)</div>
+                        <div class="space-bar-container">
+                            <div class="space-bar" style="width: 32px;"></div>
+                            <span class="space-value">Section margin / Large banner padding</span>
+                        </div>
+                    </div>
+
+                    <div class="space-row">
+                        <div class="space-label">--space-3xl (48px)</div>
+                        <div class="space-bar-container">
+                            <div class="space-bar" style="width: 48px;"></div>
+                            <span class="space-value">Outer viewport padding</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: COMPONENTS -->
+            <section class="doc-section-panel" id="panel-components">
+                <div class="doc-section-intro">
+                    <h2>Pustaka Komponen</h2>
+                    <p>Di bawah ini adalah representasi visual dari komponen-komponen utama yang digunakan di program
+                        AOS Online. Anda dapat mengubah state komponen (seperti disable/loading) untuk melihat reaksinya
+                        secara dinamis.</p>
+                </div>
+
+                <!-- Subcomponent: Buttons -->
+                <div class="component-section" id="comp-buttons">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">1. Tombol (Buttons)</span>
+                        <div class="component-meta-desc">Tombol primer menggunakan solid Royal Blue, tombol semantik
+                            menggunakan warna fungsional datar.</div>
+                    </div>
+
+                    <div class="showroom-controls">
+                        <span>Opsi Interaktif:</span>
+                        <label class="switch-container">
+                            <input type="checkbox" class="switch-input" id="btn-state-disable">
+                            <span class="switch-slider"></span>
+                            <span>Disable Buttons</span>
+                        </label>
+
+                        <label class="switch-container" style="margin-left: 15px;">
+                            <input type="checkbox" class="switch-input" id="btn-state-loading">
+                            <span class="switch-slider"></span>
+                            <span>Loading state</span>
+                        </label>
+                    </div>
+
+                    <div class="showroom-box" id="buttons-showroom">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-ocean">Ocean Accent</button>
+                        <button class="btn btn-success">Success Action</button>
+                        <button class="btn btn-danger">Danger Delete</button>
+                        <button class="btn btn-outline">Outline Neutral</button>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-btn')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-btn">&lt;!-- Primary Royal Blue Button --&gt;
+&lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;
+
+&lt;!-- Ocean Blue Accent Button --&gt;
+&lt;button class="btn btn-ocean"&gt;Ocean Accent&lt;/button&gt;
+
+&lt;!-- Success (Green) --&gt;
+&lt;button class="btn btn-success"&gt;Success Action&lt;/button&gt;
+
+&lt;!-- Neutral Outline Button --&gt;
+&lt;button class="btn btn-outline"&gt;Outline Neutral&lt;/button&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Form Controls -->
+                <div class="component-section" id="comp-forms">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">2. Form Inputs & Controls</span>
+                        <div class="component-meta-desc">Bidang input teks terstandarisasi dengan efek ring glow fokus
+                            tipis dan border status semantik.</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <div class="form-group">
+                            <label>INPUT NORMAL</label>
+                            <input type="text" class="form-control" placeholder="Ketik sesuatu...">
+                        </div>
+
+                        <div class="form-group">
+                            <label>INPUT FOCUS GLOW (SIMULASI)</label>
+                            <input type="text" class="form-control"
+                                style="border-color: var(--brand-ocean); box-shadow: 0 0 0 3px var(--accent-glow);"
+                                value="Fokus Aktif">
+                        </div>
+
+                        <div class="form-group">
+                            <label>INPUT VALIDASI SALAH (ERROR)</label>
+                            <input type="text" class="form-control error" value="Nilai tidak sesuai format">
+                        </div>
+
+                        <div class="form-group">
+                            <label>INPUT VALIDASI BENAR (SUCCESS)</label>
+                            <input type="text" class="form-control success" value="WhatsApp valid & terverifikasi">
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-form')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-form">&lt;div class="form-group"&gt;
+  &lt;label for="fullname"&gt;Nama Lengkap Pemilik *&lt;/label&gt;
+  &lt;input type="text" id="fullname" class="form-control" placeholder="Masukkan nama..."&gt;
+&lt;/div&gt;
+
+&lt;!-- Error Input --&gt;
+&lt;div class="form-group"&gt;
+  &lt;label for="phone"&gt;No WhatsApp *&lt;/label&gt;
+  &lt;input type="text" id="phone" class="form-control error" value="+6285..."&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Badges & Statuses -->
+                <div class="component-section" id="comp-badges">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">3. Badges & Status Indikator</span>
+                        <div class="component-meta-desc">Label status berwarna soft untuk melambangkan tingkat kemajuan
+                            (progress) tugas atau tahapan.</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <span class="badge badge-success">
+                            <span class="pulse-dot" style="margin-right:6px;"></span> Selesai
+                        </span>
+
+                        <span class="badge badge-info">Sedang Berjalan</span>
+                        <span class="badge badge-warning">Dalam Antrian</span>
+                        <span class="badge badge-danger">Tertunda</span>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-badge')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-badge">&lt;!-- Selesai Badge (dengan Green Pulse Dot) --&gt;
+&lt;span class="badge badge-success"&gt;
+  &lt;span class="pulse-dot"&gt;&lt;/span&gt; Selesai
+&lt;/span&gt;
+
+&lt;!-- Info / Progress Badge --&gt;
+&lt;span class="badge badge-info"&gt;Sedang Berjalan&lt;/span&gt;
+
+&lt;!-- Warning Badge --&gt;
+&lt;span class="badge badge-warning"&gt;Dalam Antrian&lt;/span&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Welcome Banner Card -->
+                <div class="component-section" id="comp-banners">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">4. Welcome Banner Card</span>
+                        <div class="component-meta-desc">Banner sambutan utama pada dashboard dengan kombinasi latar
+                            gradient modern.</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <div class="dashboard-banner">
+                            <div style="max-width: 70%;">
+                                <h3 class="banner-title">Selamat datang, Pimpinan Bisnis! 👋</h3>
+                                <p class="banner-desc">Mari selesaikan perancangan sistem operasional (AOS) Anda agar
+                                    bisnis dapat berjalan otomatis tanpa ketergantungan founder.</p>
+                            </div>
+                            <!-- Stairs climbing outline placeholder vector -->
+                            <div style="width: 20%; display: flex; justify-content: flex-end;">
+                                <svg viewBox="0 0 100 100" style="width:50px; height:50px; color:var(--brand-royal);"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10 90 L30 90 L30 60 L50 60 L50 30 L70 30 L70 10 M70 10 L90 10"
+                                        stroke-linecap="round" />
+                                    <circle cx="70" cy="10" r="4" fill="currentColor" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-banner-markup')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-banner-markup">&lt;section class="dashboard-banner"&gt;
+  &lt;div class="banner-content"&gt;
+    &lt;h1 class="banner-title"&gt;Selamat datang, Budi Santoso! 👋&lt;/h1&gt;
+    &lt;p class="banner-desc"&gt;Mari selesaikan perancangan dan implementasi AOS untuk membangun sistem bisnis.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                    </div>
+                </div>
+                <!-- Subcomponent: Timeline Nodes -->
+                <div class="component-section" id="comp-timelines">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">5. Timeline 12 Langkah (Nodes)</span>
+                        <div class="component-meta-desc">Node horizontal modular yang merepresentasikan progres
+                            perancangan.</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <div class="timeline-nodes-list" style="gap: 24px;">
+                            <div class="step-node completed">
+                                <div class="node-circle">✅</div>
+                                <span class="node-label">Purpose</span>
+                            </div>
+                            <div class="step-node active">
+                                <div class="node-circle">02</div>
+                                <span class="node-label">Positioning</span>
+                            </div>
+                            <div class="step-node locked">
+                                <div class="node-circle">03</div>
+                                <span class="node-label">Vision</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-timeline')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-timeline">&lt;div class="step-node completed"&gt;
+  &lt;div class="node-circle"&gt;?&lt;/div&gt;
+  &lt;span class="node-label"&gt;Purpose&lt;/span&gt;
+&lt;/div&gt;
+ 
+&lt;div class="step-node active"&gt;
+  &lt;div class="node-circle"&gt;02&lt;/div&gt;
+  &lt;span class="node-label"&gt;Positioning&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="step-node locked"&gt;
+  &lt;div class="node-circle"&gt;03&lt;/div&gt;
+  &lt;span class="node-label"&gt;Vision&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Step Wizard Indicators -->
+                <div class="component-section" id="comp-wizard">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">6. Step Wizard Indicators</span>
+                        <div class="component-meta-desc">Penunjuk kemajuan langkah setup form multi-step dengan visual
+                            penghubung horizontal.</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <div class="wizard-steps-indicator" style="width: 100%; max-width: 600px;">
+                            <div class="wizard-step active-step-indicator">
+                                <span class="step-indicator-num">1</span>
+                                <span class="step-indicator-label">Identitas Pemilik</span>
+                            </div>
+                            <div class="wizard-indicator-line"></div>
+                            <div class="wizard-step">
+                                <span class="step-indicator-num">2</span>
+                                <span class="step-indicator-label">Identitas Bisnis</span>
+                            </div>
+                            <div class="wizard-indicator-line"></div>
+                            <div class="wizard-step">
+                                <span class="step-indicator-num">3</span>
+                                <span class="step-indicator-label">Produk Usaha</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-wizard-indicator')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-wizard-indicator">&lt;div class="wizard-steps-indicator"&gt;
+  &lt;div class="wizard-step active-step-indicator"&gt;
+    &lt;span class="step-indicator-num"&gt;1&lt;/span&gt;
+    &lt;span class="step-indicator-label"&gt;Identitas Pemilik&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="wizard-indicator-line"&gt;&lt;/div&gt;
+  &lt;div class="wizard-step"&gt;
+    &lt;span class="step-indicator-num"&gt;2&lt;/span&gt;
+    &lt;span class="step-indicator-label"&gt;Identitas Bisnis&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Interactive Form Tables -->
+                <div class="component-section" id="comp-tables">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">7. Tabel Form & Input Dinamis</span>
+                        <div class="component-meta-desc">Tabel data interaktif yang memuat form controls di dalamnya
+                            untuk pengisian data baris dinamis (seperti SOP atau KPI).</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <div class="form-card" style="width: 100%; margin-bottom: 0;">
+                            <table class="table-form">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Jabatan</th>
+                                        <th>Divisi</th>
+                                        <th>Tingkat Level</th>
+                                        <th style="text-align:center; width: 60px;">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" class="form-control" value="Manajer Produk"></td>
+                                        <td>
+                                            <select class="form-control">
+                                                <option selected>Operation</option>
+                                                <option>Marketing</option>
+                                                <option>Finance</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select class="form-control">
+                                                <option selected>Manager</option>
+                                                <option>Supervisor</option>
+                                                <option>Staff</option>
+                                            </select>
+                                        </td>
+                                        <td style="text-align:center;">
+                                            <button class="btn-icon-danger" title="Hapus Baris">
+                                                <svg style="width:16px; height:16px;" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-table-form')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-table-form">&lt;table class="table-form"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nama Jabatan&lt;/th&gt;
+      &lt;th&gt;Divisi&lt;/th&gt;
+      &lt;th style="width:60px; text-align:center;"&gt;Aksi&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;input type="text" class="form-control" value="Staff Akuntan"&gt;&lt;/td&gt;
+      &lt;td&gt;
+        &lt;select class="form-control"&gt;
+          &lt;option value="finance"&gt;Finance&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/td&gt;
+      &lt;td style="text-align:center;"&gt;
+        &lt;button class="btn-icon-danger"&gt;
+          &lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px; height:16px;"&gt;
+            &lt;line x1="18" y1="6" x2="6" y2="18"&gt;&lt;/line&gt;
+            &lt;line x1="6" y1="6" x2="18" y2="18"&gt;&lt;/line&gt;
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Collapsible Tips Sidebar -->
+                <div class="component-section" id="comp-tips">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">8. Panel Tips & Panduan (Tips Sidebar)</span>
+                        <div class="component-meta-desc">Panel informasi di samping workspace untuk memberikan
+                            petunjuk/cara pengisian wizard.</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <div class="tips-side" style="width: 320px; position: relative; top: 0;">
+                            <div class="tips-container">
+                                <h4 class="tips-title">💡 Tips Pengisian</h4>
+                                <div class="tips-content">
+                                    <p><strong>Kenapa Visi Penting?</strong></p>
+                                    <p>Visi adalah impian jangka panjang (5-10 tahun) yang ingin dicapai bersama oleh
+                                        seluruh jajaran organisasi.</p>
+                                    <p><strong>Rumus Otomatis:</strong></p>
+                                    <p>Visi akan di-generate otomatis dengan format:</p>
+                                    <p style="font-style: italic; color: var(--text-muted);">Menjadi [Kategori] [DNA]
+                                        [Core Value] di [Wilayah] pada tahun [Target Tahun].</p>
+                                </div>
+                                <div class="tips-video-wrapper">
+                                    <button class="btn btn-video" id="btn-play-video-demo">
+                                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                        </svg>
+                                        <span>Tonton Video Panduan</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-tips-sidebar')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-tips-sidebar">&lt;div class="tips-container"&gt;
+  &lt;h4 class="tips-title"&gt;💡 Tips Pengisian&lt;/h4&gt;
+  &lt;div class="tips-content"&gt;
+    &lt;p&gt;&lt;strong&gt;Kenapa Visi Penting?&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;Visi adalah impian jangka panjang...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="tips-video-wrapper"&gt;
+    &lt;button class="btn btn-video"&gt;
+      &lt;svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"&gt;
+        &lt;polygon points="5 3 19 12 5 21 5 3"&gt;&lt;/polygon&gt;
+      &lt;/svg&gt;
+      &lt;span&gt;Tonton Video Panduan&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Modal Dialog Box -->
+                <div class="component-section" id="comp-modal">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">9. Modul Dialog Modal Overlay</span>
+                        <div class="component-meta-desc">Kotak dialog overlay untuk konfirmasi aksi, media browser, atau
+                            detail isian data.</div>
+                    </div>
+
+                    <div class="showroom-box" style="justify-content: center;">
+                        <div class="modal-card"
+                            style="width: 100%; max-width: 460px; position: relative; animation: none;">
+                            <div class="modal-header">
+                                <span class="modal-title"
+                                    style="font-family:'Montserrat', 'Outfit', sans-serif; font-size:16px; font-weight:700;">Unggah
+                                    Berkas SOP</span>
+                                <button class="btn-icon-danger" style="padding: 2px;">
+                                    <svg style="width:16px; height:16px;" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">Pilih file
+                                    template laporan yang akan Anda tautkan pada tugas jabatan ini:</p>
+                                <input type="file" class="form-control">
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-outline" style="font-size:12px; padding:6px 12px;">Batal</button>
+                                <button class="btn btn-primary" style="font-size:12px; padding:6px 12px;">Simpan
+                                    Berkas</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-modal-dialog')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-modal-dialog">&lt;div class="modal-card"&gt;
+  &lt;div class="modal-header"&gt;
+    &lt;span class="modal-title"&gt;Unggah Berkas SOP&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-body"&gt;
+    &lt;input type="file" class="form-control"&gt;
+  &lt;/div&gt;
+  &lt;div class="modal-footer"&gt;
+    &lt;button class="btn btn-outline"&gt;Batal&lt;/button&gt;
+    &lt;button class="btn btn-primary"&gt;Simpan&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Org Chart Node -->
+                <div class="component-section" id="comp-org">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">10. Bagan Struktur Organisasi (Node)</span>
+                        <div class="component-meta-desc">Item node representasi tingkat hirarki pada chart organisasi.
+                        </div>
+                    </div>
+
+                    <div class="showroom-box" style="justify-content: center;">
+                        <div class="org-chart-node-card">
+                            <div class="node-name">Budi Santoso</div>
+                            <div class="node-lvl">Manajer Produk</div>
+                            <span class="node-div">Operation</span>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-org-node')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-org-node">&lt;div class="org-chart-node-card"&gt;
+  &lt;div class="node-name"&gt;Budi Santoso&lt;/div&gt;
+  &lt;div class="node-lvl"&gt;Manajer Produk&lt;/div&gt;
+  &lt;span class="node-div"&gt;Operation&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Checklist Task Card -->
+                <div class="component-section" id="comp-checklist">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">11. Baris Checklist Kerja (Implementasi Checklist)</span>
+                        <div class="component-meta-desc">Tugas harian checklist dalam monitoring implementasi AOS 33
+                            hari.</div>
+                    </div>
+
+                    <div class="showroom-box" id="checklist-showroom">
+                        <div class="checklist-item-card">
+                            <div class="checklist-item-meta">
+                                <div class="checklist-step-number">01</div>
+                                <span class="checklist-step-title">Cetak dan bingkai Poster Purpose & Vision</span>
+                            </div>
+                            <span class="checklist-status-badge status-completed">Selesai</span>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-checklist-markup')">Copy HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-checklist-markup">&lt;div class="checklist-item-card"&gt;
+  &lt;div class="checklist-item-meta"&gt;
+    &lt;div class="checklist-step-number"&gt;01&lt;/div&gt;
+    &lt;span class="checklist-step-title"&gt;Poster Purpose &amp; Visi&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span class="checklist-status-badge status-completed"&gt;Selesai&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Subcomponent: Premium Accordion Checklist Section -->
+                <div class="component-section" id="comp-premium-checklist">
+                    <div class="component-meta-header">
+                        <span class="component-meta-title">12. Premium Accordion Checklist & Table</span>
+                        <div class="component-meta-desc">Modul checklist premium dengan accordion, visual progress bar,
+                            dan tabel isian aktivitas kunci terintegrasi.</div>
+                    </div>
+
+                    <div class="showroom-box">
+                        <div class="checklist-section-card expanded">
+                            <div class="checklist-section-header">
+                                <div class="checklist-section-title-area">
+                                    <svg class="checklist-section-chevron"
+                                        style="width: 16px; height: 16px; transition: transform 0.2s; transform: rotate(180deg);"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                    <div>
+                                        <span class="checklist-section-name">Fase 1: Sistem Fondasi Bisnis</span>
+                                        <p class="checklist-section-desc">Penyusunan visi, misi, budaya kerja, dan bagan
+                                            organisasi perusahaan.</p>
+                                    </div>
+                                </div>
+                                <div class="checklist-section-progress-area">
+                                    <span class="checklist-section-pct">50% Selesai</span>
+                                    <div class="checklist-section-bar-bg">
+                                        <div class="checklist-section-bar-fill" style="width: 50%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checklist-section-content" style="display: block;">
+                                <div class="checklist-table-wrapper">
+                                    <table class="checklist-table">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 40px; text-align: center;">No</th>
+                                                <th>Aktivitas Kunci</th>
+                                                <th style="width: 140px;">Penanggungjawab</th>
+                                                <th style="width: 140px;">Status</th>
+                                                <th>Catatan / Keterangan</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="row-completed">
+                                                <td style="text-align: center;">1</td>
+                                                <td>Menyusun Purpose Statement pemilik bisnis</td>
+                                                <td>Direktur Utama</td>
+                                                <td>
+                                                    <select class="checklist-status-select">
+                                                        <option value="completed" selected>Selesai</option>
+                                                        <option value="pending">Belum Selesai</option>
+                                                    </select>
+                                                </td>
+                                                <td><input type="text" class="checklist-notes-input"
+                                                        value="Selesai disetujui dewan direksi"></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: center;">2</td>
+                                                <td>Merumuskan Budaya Kerja Perusahaan</td>
+                                                <td>HR Manager</td>
+                                                <td>
+                                                    <select class="checklist-status-select">
+                                                        <option value="completed">Selesai</option>
+                                                        <option value="pending" selected>Belum Selesai</option>
+                                                    </select>
+                                                </td>
+                                                <td><input type="text" class="checklist-notes-input"
+                                                        placeholder="Tulis catatan di sini..."></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-drawer">
+                        <div class="code-header">
+                            <span class="code-title">HTML MARKUP</span>
+                            <button class="btn-copy" onclick="copyCode('code-premium-checklist-markup')">Copy
+                                HTML</button>
+                        </div>
+                        <pre class="code-content"><code id="code-premium-checklist-markup">&lt;div class="checklist-section-card expanded"&gt;
+  &lt;div class="checklist-section-header"&gt;
+    &lt;div class="checklist-section-title-area"&gt;
+      &lt;svg class="checklist-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"&gt;
+        &lt;polyline points="6 9 12 15 18 9"&gt;&lt;/polyline&gt;
+      &lt;/svg&gt;
+      &lt;div&gt;
+        &lt;span class="checklist-section-name"&gt;Fase 1: Fondasi&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="checklist-section-content"&gt;
+    &lt;div class="checklist-table-wrapper"&gt;
+      &lt;table class="checklist-table"&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;No&lt;/th&gt;
+            &lt;th&gt;Aktivitas Kunci&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Contoh Aktivitas&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: ICONS -->
+            <section class="doc-section-panel" id="panel-icons">
+                <div class="doc-section-intro">
+                    <h2>Ikonografi</h2>
+                    <p>Katalog SVG icon resmi yang terintegrasi di sidebar, panel worksheet, dan dialog box AOS Online.
+                        Semua ikon dirancang menggunakan style stroke minimalis.</p>
+                </div>
+
+                          <!-- Library Info Card -->
+                <div class="doc-card" style="border-left: 3px solid var(--brand-ocean); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(40,136,230,0.03) 100%);">
+                    <div class="doc-card-title" style="display:flex; align-items:center; gap:10px;">
+                        <svg style="width:20px;height:20px;color:var(--brand-ocean);flex-shrink:0;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        Sumber Library Ikon
+                    </div>
+                    <div style="display:flex; flex-wrap:wrap; gap:24px; margin-top:12px;">
+                        <div style="display:flex; align-items:flex-start; gap:14px; flex:1; min-width:260px;">
+                            <div style="width:44px;height:44px;background:var(--brand-royal);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                                <svg style="width:24px;height:24px;color:#fff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <div>
+                                <div style="font-weight:700; font-size:15px; color:var(--brand-royal); margin-bottom:3px;">Lucide Icons</div>
+                                <div style="font-size:12.5px; color:var(--text-muted); line-height:1.6;">Library ikon SVG open-source berbasis <strong>stroke minimalis</strong> dengan ukuran kanvas standar <code style="background:var(--muted-bg);padding:1px 5px;border-radius:4px;font-size:11px;">24x24px</code>. Semua ikon di AOS Online digunakan sebagai <strong>inline SVG</strong> sehingga tidak memerlukan CDN atau koneksi internet.</div>
+                            </div>
+                        </div>
+                        <div style="flex:1; min-width:220px;">
+                            <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:8px;">Spesifikasi Teknis</div>
+                            <table style="width:100%; font-size:12.5px; border-collapse:collapse;">
+                                <tr style="border-bottom:1px solid var(--border-color);">
+                                    <td style="padding:5px 0; color:var(--text-muted); width:50%;">viewBox</td>
+                                    <td style="padding:5px 0; font-weight:600;"><code style="background:var(--muted-bg);padding:1px 5px;border-radius:4px;">0 0 24 24</code></td>
+                                </tr>
+                                <tr style="border-bottom:1px solid var(--border-color);">
+                                    <td style="padding:5px 0; color:var(--text-muted);">Fill</td>
+                                    <td style="padding:5px 0; font-weight:600;"><code style="background:var(--muted-bg);padding:1px 5px;border-radius:4px;">none</code></td>
+                                </tr>
+                                <tr style="border-bottom:1px solid var(--border-color);">
+                                    <td style="padding:5px 0; color:var(--text-muted);">Stroke</td>
+                                    <td style="padding:5px 0; font-weight:600;"><code style="background:var(--muted-bg);padding:1px 5px;border-radius:4px;">currentColor</code></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px 0; color:var(--text-muted);">Stroke Width</td>
+                                    <td style="padding:5px 0; font-weight:600;"><code style="background:var(--muted-bg);padding:1px 5px;border-radius:4px;">2</code></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border-color);">
+                        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:10px;">Cara Penggunaan</div>
+                        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                            <div style="flex:1; min-width:200px; background:var(--muted-bg); border-radius:8px; padding:12px;">
+                                <div style="font-size:12px; font-weight:700; color:var(--brand-royal); margin-bottom:6px;">① Inline SVG (Dipakai AOS)</div>
+                                <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:6px;">Copy path langsung ke HTML, tidak butuh CDN:</div>
+                                <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:6px;padding:8px;font-size:10.5px;overflow-x:auto;margin:0;line-height:1.5;"><code>&lt;svg viewBox="0 0 24 24" fill="none"
+  stroke="currentColor" stroke-width="2"&gt;
+  &lt;!-- path dari lucide.dev --&gt;
+&lt;/svg&gt;</code></pre>
+                            </div>
+                            <div style="flex:1; min-width:200px; background:var(--muted-bg); border-radius:8px; padding:12px;">
+                                <div style="font-size:12px; font-weight:700; color:var(--brand-ocean); margin-bottom:6px;">② CDN Script Tag</div>
+                                <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:6px;">Tambah script lalu gunakan tag <code>&lt;i data-lucide&gt;</code>:</div>
+                                <pre style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:6px;padding:8px;font-size:10.5px;overflow-x:auto;margin:0;line-height:1.5;"><code>&lt;script src="https://unpkg.com/
+  lucide@latest/dist/umd/
+  lucide.min.js"&gt;&lt;/script&gt;
+
+&lt;i data-lucide="home"&gt;&lt;/i&gt;
+&lt;script&gt;lucide.createIcons();&lt;/script&gt;</code></pre>
+                            </div>
+                            <div style="flex:1; min-width:200px; background:var(--muted-bg); border-radius:8px; padding:12px;">
+                                <div style="font-size:12px; font-weight:700; color:#22c55e; margin-bottom:6px;">③ Browse Semua Ikon</div>
+                                <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:8px;">Temukan 1500+ ikon di website resminya dan copy SVG path yang dibutuhkan:</div>
+                                <a href="https://lucide.dev/icons/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; background:var(--brand-royal); color:#fff; padding:7px 12px; border-radius:6px; font-size:11.5px; font-weight:600; text-decoration:none;">
+                                    <svg style="width:13px;height:13px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15 3 21 3 21 9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                    lucide.dev/icons
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">Katalog Ikon</div>
+                    <div class="icons-grid">
+                        <div class="icon-box" onclick="copyText('dashboard-icon')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                            <span>Dashboard</span>
+                        </div>
+
+                        <div class="icon-box" onclick="copyText('document-icon')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                            <span>Doc</span>
+                        </div>
+
+                        <div class="icon-box" onclick="copyText('user-icon')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>User</span>
+                        </div>
+
+                        <div class="icon-box" onclick="copyText('chat-icon')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            <span>Chat</span>
+                        </div>
+
+                        <div class="icon-box" onclick="copyText('download-icon')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            <span>Download</span>
+                        </div>
+
+                        <div class="icon-box" onclick="copyText('checklist-icon')">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"></path>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                            </svg>
+                            <span>Checklist</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: EXPORT TOKENS -->
+            <section class="doc-section-panel" id="panel-export">
+                <div class="doc-section-intro">
+                    <h2>Ekspor Token</h2>
+                    <p>Unduh atau salin representasi format data token design system ini ke platform pengembangan
+                        eksternal seperti Figma API, Tailwind config, atau preprocessor SASS.</p>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-card-title">
+                        <span>Figma / JSON Tokens</span>
+                        <button class="btn btn-outline" style="font-size:11px; padding:6px 12px;"
+                            onclick="copyCode('json-export-block')">Salin JSON</button>
+                    </div>
+                    <pre class="export-pre"><code id="json-export-block">{
+  "global": {
+    "colors": {
+      "royalBlue": { "value": "#1859BC", "type": "color" },
+      "oceanBlue": { "value": "#2888E6", "type": "color" },
+      "babyBlue": { "value": "#82B2FA", "type": "color" },
+      "neutralDark": { "value": "#332D2B", "type": "color" },
+      "successGreen": { "value": "#22c55e", "type": "color" }
+    },
+    "fontFamilies": {
+      "headings": { "value": "Outfit, sans-serif", "type": "fontFamily" },
+      "body": { "value": "Poppins, sans-serif", "type": "fontFamily" }
+    },
+    "spacingScale": {
+      "xs": { "value": "4px", "type": "spacing" },
+      "sm": { "value": "8px", "type": "spacing" },
+      "md": { "value": "12px", "type": "spacing" },
+      "lg": { "value": "16px", "type": "spacing" },
+      "xl": { "value": "24px", "type": "spacing" }
+    }
+  }
+}</code></pre>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- COPIED TOAST NOTIFICATION -->
+    <div class="toast" id="copy-toast">
+        <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span id="toast-message">Berhasil disalin ke clipboard!</span>
+    </div>
+
+    <!-- DESIGN SYSTEM DOCUMENTATION INTERACTION LOGIC -->
+    <script>
+        // Tab switching controller
+        document.querySelectorAll(".doc-sidebar-nav .doc-nav-item").forEach(item => {
+            item.addEventListener("click", function () {
+                // Remove active classes
+                document.querySelectorAll(".doc-sidebar-nav .doc-nav-item").forEach(i => i.classList.remove("active"));
+                // Add active to current
+                this.classList.add("active");
+
+                const target = this.getAttribute("data-target");
+
+                // Hide all panels
+                document.querySelectorAll(".doc-section-panel").forEach(panel => {
+                    panel.classList.remove("active");
+                });
+
+                // Show selected panel
+                const activePanel = document.getElementById(`panel-${target}`);
+                if (activePanel) {
+                    activePanel.classList.add("active");
+                }
+
+                // Set breadcrumb label
+                const label = this.querySelector("span").textContent;
+                document.getElementById("header-nav-title").textContent = label;
+            });
+        });
+
+        // Theme Toggle controller
+        const btnTheme = document.getElementById("toggle-theme");
+        btnTheme.addEventListener("click", () => {
+            const isDark = document.body.classList.toggle("dark-theme");
+            document.body.classList.toggle("light-theme", !isDark);
+
+            btnTheme.innerHTML = isDark ? "☀️ Mode Terang" : "🌙 Mode Gelap";
+            showToast(isDark ? "Beralih ke Mode Gelap" : "Beralih ke Mode Terang");
+        });
+
+
+
+        // Clipboard utility
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`Token "${text}" berhasil disalin!`);
+            });
+        }
+
+        function copyCode(elementId) {
+            const codeEl = document.getElementById(elementId);
+            if (codeEl) {
+                navigator.clipboard.writeText(codeEl.textContent).then(() => {
+                    showToast("Kode markup HTML berhasil disalin!");
+                });
+            }
+        }
+
+        // Show Toast Notification
+        function showToast(msg) {
+            const toast = document.getElementById("copy-toast");
+            document.getElementById("toast-message").textContent = msg;
+            toast.classList.add("show");
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+        }
+
+        // Component Interactive Options listeners
+        const chkDisable = document.getElementById("btn-state-disable");
+        const chkLoading = document.getElementById("btn-state-loading");
+        const showroom = document.getElementById("buttons-showroom");
+
+        chkDisable.addEventListener("change", function () {
+            showroom.querySelectorAll(".btn").forEach(btn => {
+                btn.disabled = this.checked;
+            });
+        });
+
+        chkLoading.addEventListener("change", function () {
+            if (this.checked) {
+                // Save original text and inject spinner
+                showroom.querySelectorAll(".btn").forEach(btn => {
+                    if (!btn.dataset.originalText) {
+                        btn.dataset.originalText = btn.textContent;
+                    }
+                    btn.innerHTML = `<span class="spinner"></span> Memuat...`;
+                    btn.disabled = true;
+                });
+            } else {
+                // Restore text
+                showroom.querySelectorAll(".btn").forEach(btn => {
+                    if (btn.dataset.originalText) {
+                        btn.innerHTML = btn.dataset.originalText;
+                    }
+                    btn.disabled = chkDisable.checked;
+                });
+            }
+        });
+
+        // Toggle checklist function
+        function toggleDemoChecklist(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                const isDone = el.classList.toggle("done");
+                const chk = el.querySelector(".checklist-chk-circle");
+                if (chk) {
+                    chk.textContent = isDone ? "✅" : "";
+                }
+                showToast(isDone ? "Tugas ditandai Selesai!" : "Tugas dibatalkan.");
+            }
+        }
+    </script>
+</body>
+
+</html>

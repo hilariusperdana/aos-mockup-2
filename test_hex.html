@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hex Pattern Test & Alignment</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brand-royal: #1859BC;
+    --brand-ocean: #2888E6;
+    --brand-baby: #82B2FA;
+    --bg-main: #f8fafc;
+    --text-main: #332D2B;
+    --border-color: #cbd5e1;
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    
+    /* Repeating multi-colored overlapping hexagon grid pattern */
+    --hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='156' viewBox='0 0 120 156'%3E%3Cg stroke='%231859bc' stroke-width='1.0' stroke-opacity='0.04' fill='none'%3E%3Cpath d='M7.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    background-image: var(--hex-pattern);
+    background-size: 360px 468px;
+    background-repeat: repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-lg);
+    max-width: 680px;
+    width: 90%;
+    text-align: center;
+  }
+
+  h1 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--brand-royal);
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+
+  .canvas-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  svg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  .dot.yellow { background-color: #fcc419; }
+  .dot.black  { background-color: #111111; }
+  .dot.red    { background-color: #ef4444; }
+  .dot.purple { background-color: #5f3dc4; }
+  .dot.green  { background-color: #087f5b; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hexagonal Grid Pattern Alignment</h1>
+    <p>Correct overlapping grid matching the brand guidelines. The layout is rendered in a single brand color (Royal Blue) for a clean, premium, and unified look.</p>
+    
+    <div class="canvas-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+        <defs>
+          <!-- Symmetrical repeating colored hexagon pattern -->
+          <pattern id="colored-grid" width="120" height="156" patternUnits="userSpaceOnUse">
+            <path d="M7.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M7.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M127.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M67.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,-13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,65 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,39 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,117 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M37.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M97.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,13 h15 l15,26 l-15,26 h-15 l-15,-26 z M-22.5,91 h15 l15,26 l-15,26 h-15 l-15,-26 z" stroke="#1859BC" stroke-width="1.5" fill="none" />
+          </pattern>
+        </defs>
+        
+        <!-- Fill canvas with the multi-colored pattern -->
+        <rect width="100%" height="100%" fill="url(#colored-grid)" />
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
