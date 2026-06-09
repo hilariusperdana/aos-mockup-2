@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -595,8 +595,35 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="owner-community">Komunitas Bisnis yang Diikuti (Opsional)</label>
-                                        <textarea id="owner-community" class="form-control" rows="3">HIPMI</textarea>
+                                        <label>Komunitas Bisnis yang Diikuti (Opsional)</label>
+                                        <div id="community-input-group" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px;">
+                                            <div class="dynamic-input-item" style="display:flex; gap:8px;">
+                                                <input type="text" class="form-control" value="HIPMI" placeholder="Contoh: HIPMI, TDA, dll">
+                                                <button type="button" class="btn btn-outline" style="padding: 0 12px; color: var(--danger); border-color: rgba(239,68,68,0.2);" onclick="this.parentElement.remove()" title="Hapus">
+                                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-outline" style="font-size: 12px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; margin-top: 4px;" onclick="addCommunityInput()">
+                                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                            Tambah Komunitas
+                                        </button>
+                                        
+                                        <script>
+                                            function addCommunityInput() {
+                                                const container = document.getElementById('community-input-group');
+                                                const div = document.createElement('div');
+                                                div.className = 'dynamic-input-item';
+                                                div.style.cssText = 'display:flex; gap:8px;';
+                                                div.innerHTML = `
+                                                    <input type="text" class="form-control" placeholder="Nama komunitas baru...">
+                                                    <button type="button" class="btn btn-outline" style="padding: 0 12px; color: var(--danger); border-color: rgba(239,68,68,0.2);" onclick="this.parentElement.remove()" title="Hapus">
+                                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
+                                                    </button>
+                                                `;
+                                                container.appendChild(div);
+                                            }
+                                        </script>
                                     </div>
 
                                     <div class="form-actions-wizard">
@@ -927,16 +954,15 @@
                                         <div class="card-section-block">
                                             <div class="column-title">Identitas Pemilik & Bisnis</div>
                                             <div class="card-info-grid">
-                                                <div class="detail-row"><span class="detail-label">Pemilik:</span><span
+                                                <div class="detail-row"><span class="detail-label">Pemilik</span><span
                                                         id="card-owner-preview" class="detail-value">danaa</span></div>
-                                                <div class="detail-row"><span class="detail-label">WhatsApp:</span><span
+                                                <div class="detail-row"><span class="detail-label">WhatsApp</span><span
                                                         id="card-owner-wa-preview"
                                                         class="detail-value">+628574734535</span></div>
-                                                <div class="detail-row"><span class="detail-label">Domisili:</span><span
+                                                <div class="detail-row"><span class="detail-label">Domisili</span><span
                                                         id="card-owner-city-preview" class="detail-value">CILACAP</span>
                                                 </div>
-                                                <div class="detail-row"><span class="detail-label">Nama
-                                                        Legal:</span><span id="card-legal-preview"
+                                                <div class="detail-row"><span class="detail-label">Nama Legal</span><span id="card-legal-preview"
                                                         class="detail-value">PT Harta Putera Epik</span></div>
                                             </div>
                                         </div>
@@ -945,33 +971,26 @@
                                         <div class="card-section-block">
                                             <div class="column-title">Operasional & Skala Usaha</div>
                                             <div class="card-info-grid">
-                                                <div class="detail-row"><span class="detail-label">Lama
-                                                        Usaha:</span><span id="card-age-preview" class="detail-value">3
-                                                        Tahun</span></div>
-                                                <div class="detail-row"><span class="detail-label">Cabang:</span><span
+                                                <div class="detail-row"><span class="detail-label">Berdiri</span><span id="card-age-preview" class="detail-value">3 Tahun</span></div>
+                                                <div class="detail-row"><span class="detail-label">Cabang</span><span
                                                         id="card-branches-preview" class="detail-value">2 Cabang</span>
                                                 </div>
-                                                <div class="detail-row"><span class="detail-label">Karyawan:</span><span
+                                                <div class="detail-row"><span class="detail-label">Karyawan</span><span
                                                         id="card-employees-preview" class="detail-value">25 Orang</span>
                                                 </div>
-                                                <div class="detail-row"><span class="detail-label">Omset:</span><span
-                                                        id="card-revenue-preview" class="detail-value">300 Jt - 2.5 M
-                                                        (Kecil)</span></div>
+                                                <div class="detail-row"><span class="detail-label">Omset</span><span
+                                                        id="card-revenue-preview" class="detail-value">300 Jt - 2.5 M</span></div>
                                                 <div class="detail-row"><span
-                                                        class="detail-label">Kepemilikan:</span><span
-                                                        id="card-ownership-preview" class="detail-value">Milik
-                                                        Sendiri</span></div>
-                                                <div class="detail-row"><span class="detail-label">Laporan Keuangan
-                                                        PSAK:</span><span id="card-psak-preview"
+                                                        class="detail-label">Kepemilikan</span><span
+                                                        id="card-ownership-preview" class="detail-value">Milik Sendiri</span></div>
+                                                <div class="detail-row"><span class="detail-label">PSAK</span><span id="card-psak-preview"
                                                         class="detail-value">Belum</span></div>
-                                                <div class="detail-row" style="grid-column: span 2;"><span
-                                                        class="detail-label">Lokasi Usaha:</span><span
-                                                        id="card-loc-preview" class="detail-value">JAKARTA SELATAN, DKI
-                                                        JAKARTA</span></div>
-                                                <div class="detail-row" style="grid-column: span 2;"><span
-                                                        class="detail-label">Kontak / Web:</span><span
-                                                        id="card-phone-web-preview" class="detail-value">021-88992211 /
-                                                        https://hartaputera.id</span></div>
+                                                <div class="detail-row"><span
+                                                        class="detail-label">Lokasi</span><span
+                                                        id="card-loc-preview" class="detail-value">JAKARTA SELATAN, DKI JAKARTA</span></div>
+                                                <div class="detail-row"><span
+                                                        class="detail-label">Kontak</span><span
+                                                        id="card-phone-web-preview" class="detail-value">021-88992211 / https://hartaputera.id</span></div>
                                             </div>
                                         </div>
 
@@ -993,7 +1012,7 @@
                                         <div class="card-section-block">
                                             <div class="column-title">Produk & Sosial Media</div>
                                             <div class="detail-row" style="margin-bottom: 5px;">
-                                                <span class="detail-label">Produk Utama:</span>
+                                                <span class="detail-label">Produk Utama</span>
                                                 <span id="card-product-preview" class="detail-value">Aplikasi SaaS
                                                     Manajemen Keuangan</span>
                                             </div>
@@ -1008,7 +1027,7 @@
                                         </div>
 
                                         <div class="detail-row" style="margin-top: 8px;">
-                                            <span class="detail-label" style="width: 80px;">Alamat Kantor:</span>
+                                            <span class="detail-label" style="width: 80px;">Alamat Kantor</span>
                                             <span id="card-address-preview" class="detail-value"
                                                 style="white-space: normal;">South Quarter Tower A, Lt. 12, Cilandak,
                                                 Jakarta Selatan</span>

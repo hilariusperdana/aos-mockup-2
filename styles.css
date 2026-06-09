@@ -1323,12 +1323,11 @@ label {
     background: linear-gradient(135deg, var(--brand-royal) 0%, var(--brand-ocean) 50%, var(--brand-baby) 100%);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 16px;
-    padding: 24px;
+    padding: 16px;
     color: #ffffff;
     position: relative;
     overflow: hidden;
     height: auto;
-    min-height: 560px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 25px rgba(24, 89, 188, 0.15);
@@ -1361,7 +1360,7 @@ label {
     justify-content: space-between;
     align-items: flex-start;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 12px;
+    padding-bottom: 8px;
 }
 
 .live-card-brand {
@@ -1421,74 +1420,65 @@ label {
     border-radius: 4px;
 }
 
-/* Scroll Container for data inside card */
+/* No-scroll container for data inside card — content fits naturally */
 .live-card-scroll-container {
     flex-grow: 1;
-    max-height: 400px;
-    overflow-y: auto;
-    margin: 12px 0;
-    padding-right: 6px;
-}
-
-/* Custom Scrollbar for live card */
-.live-card-scroll-container::-webkit-scrollbar {
-    width: 4px;
-}
-
-.live-card-scroll-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-}
-
-.live-card-scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-}
-
-.live-card-scroll-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.35);
+    overflow: visible;
+    margin: 8px 0;
 }
 
 /* Glassmorphic blocks inside card */
 .card-section-block {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 10px;
-    padding: 12px;
-    margin-bottom: 12px;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
     backdrop-filter: blur(5px);
 }
 
 .column-title {
-    font-size: 9px;
+    font-size: 11px;
     text-transform: uppercase;
     font-weight: 700;
     color: #ffffff;
     opacity: 0.85;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     padding-bottom: 4px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     letter-spacing: 0.5px;
 }
 
 .card-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 12px;
+    grid-template-columns: 1fr;
+    gap: 6px;
 }
 
 .detail-row {
     display: flex;
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 13px;
+    line-height: 1.4;
     align-items: flex-start;
 }
 
 .detail-label {
     color: rgba(255, 255, 255, 0.68);
-    width: 60px;
+    min-width: 90px;
+    width: 90px;
     flex-shrink: 0;
     font-weight: 500;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 4px;
+}
+
+.detail-label::after {
+    content: ":";
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
 }
 
 .detail-value {
@@ -1497,11 +1487,12 @@ label {
     overflow: hidden;
     text-overflow: ellipsis;
     color: #ffffff;
+    padding-left: 4px;
 }
 
 .card-issues-list li {
-    font-size: 11px;
-    margin-bottom: 4px;
+    font-size: 13px;
+    margin-bottom: 5px;
     color: #f1f5f9;
 }
 
@@ -1534,7 +1525,8 @@ label {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 10px;
+    padding-top: 7px;
+    margin-top: 4px;
     font-size: 9px;
     color: rgba(255, 255, 255, 0.6);
 }
