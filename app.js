@@ -1047,7 +1047,18 @@ document.addEventListener("DOMContentLoaded", function () {
             companyData.client_nickname = document.getElementById("owner-nickname").value;
             companyData.owner_phone = document.getElementById("owner-whatsapp").value;
             companyData.owner_gender = document.getElementById("owner-gender").value;
-            companyData.business_condition_position = document.getElementById("owner-community").value;
+            // Collect communities dynamically
+            const communities = [];
+            const communityContainer = document.getElementById("community-input-group");
+            if (communityContainer) {
+                communityContainer.querySelectorAll("input").forEach(input => {
+                    const val = input.value.trim();
+                    if (val) {
+                        communities.push(val);
+                    }
+                });
+            }
+            companyData.business_condition_position = communities.join(", ");
 
             // Map owner province/regency names to IDs
             const ownerProvName = document.getElementById("owner-province").value;
