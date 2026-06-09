@@ -122,4 +122,17 @@ Untuk memastikan implementasi redesain ini berjalan dengan baik, uji coba dilaku
 
 ---
 
+## 8. Ruang Lingkup & Batasan (Scope & Out of Scope)
+
+### 8.1. Persyaratan Responsivitas & Mobile Friendly
+* **Mobile Friendly**: Setiap screen/halaman wajib bersifat mobile friendly agar mempermudah pengguna yang mengakses dari ponsel.
+* **Standar Tampilan**: Cukup responsive saja dan semua konten/teks di dalam aplikasi dipastikan tetap bisa terbaca dengan jelas serta nyaman digunakan tanpa ada pemotongan informasi penting.
+
+### 8.2. Di Luar Jangkauan (Out of Scope)
+* **Sistem Backend Utama**: Manajemen basis data (database) riil untuk penyimpanan persisten di server.
+* **Autentikasi & Otorisasi**: Sistem pendaftaran pengguna, login, verifikasi peran, atau sesi user.
+* **Integrasi Unduh Dokumen PDF Nyata**: Fungsi generator PDF tingkat lanjut secara server-side.
+
+---
+
 *Dokumen ini merupakan panduan resmi untuk tahap pengembangan frontend lanjutan dari AOS Online.*
