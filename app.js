@@ -1996,7 +1996,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <th>Nama Jabatan *</th>
                                     <th>Departemen *</th>
                                     <th>Level *</th>
-                                    <th>Job Description Singkat</th>
                                     <th>Atasan Langsung</th>
                                     <th style="width:50px;">Aksi</th>
                                 </tr>
@@ -2792,7 +2791,6 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <option value="staff" ${item.level_key === 'staff' ? 'selected' : ''}>Staff</option>
                                 </select>
                             </td>
-                            <td><input type="text" class="form-control org-desc" value="${item.description || ''}" placeholder="Uraian Singkat"></td>
                             <td><select class="form-control org-parent">${atasanOptions}</select></td>
                             <td><button type="button" class="btn-delete-row org-remove">&times;</button></td>
                         `;
@@ -2801,10 +2799,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         const nameInp = row.querySelector(".org-name");
                         const divSelect = row.querySelector(".org-div");
                         const lvlSelect = row.querySelector(".org-lvl");
-                        const descInp = row.querySelector(".org-desc");
                         const parentSelect = row.querySelector(".org-parent");
 
-                        [nameInp, divSelect, lvlSelect, descInp, parentSelect].forEach(inp => {
+                        [nameInp, divSelect, lvlSelect, parentSelect].forEach(inp => {
                             inp.addEventListener("change", () => {
                                 syncRowData();
                                 drawOrgChart();
@@ -2835,7 +2832,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             item.name = newName;
                             item.division_key = divSelect.value;
                             item.level_key = lvlSelect.value;
-                            item.description = descInp.value;
                             item.parent_key = parentSelect.value;
                             
                             if (nameChanged) {
