@@ -581,58 +581,124 @@ document.addEventListener("DOMContentLoaded", function () {
                 renderChecklistPanel();
             }
             updateStepTimelineDashboard();
-            updateStepTimelineModal();
-            updateSidebarNavStatus();
+            // updateStepTimelineModal(); // Function does not exist
+            // updateSidebarNavStatus(); // Function does not exist
 
             // === POPULATE DEMO DATA ===
-            const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
-            setVal("owner-fullname", "Budi Santoso");
-            setVal("owner-nickname", "Budi");
-            setVal("owner-whatsapp", "+6281234567890");
-            const ownerProv = document.getElementById("owner-province");
-            if (ownerProv) { ownerProv.value = "DKI Jakarta"; ownerProv.dispatchEvent(new Event('change')); }
-            setTimeout(() => { setVal("owner-city", "Jakarta Selatan"); }, 50);
-            setVal("owner-gender", "Pria");
-            setVal("owner-community", "HIPMI, TDA");
+            const setValAndTrigger = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.value = val;
+                    el.dispatchEvent(new Event('input', { bubbles: true }));
+                    el.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            };
 
-            setVal("company-brand", "Harta Putera (HPE)");
-            setVal("company-entity", "PT");
-            setVal("company-legal", "PT Harta Putera Epik");
-            setVal("company-industry", "Manufaktur");
-            setVal("company-category", "Makanan & Minuman");
-            setVal("company-age", "3");
-            setVal("company-branches", "2");
-            setVal("company-ownership", "Milik Pribadi");
-            setVal("company-partners-count", "2");
-            setVal("company-status", "Pusat");
-            setVal("company-employees", "25");
-            setVal("company-revenue", "Kecil (300 Jt - 2.5 M)");
-            setVal("company-psak", "Belum");
-            const compProv = document.getElementById("company-province");
-            if (compProv) { compProv.value = "DKI Jakarta"; compProv.dispatchEvent(new Event('change')); }
-            setTimeout(() => { setVal("company-city", "Jakarta Selatan"); }, 50);
-            setVal("company-phone", "021-88992211");
-            setVal("sales-website", "https://hartaputera.id");
-            setVal("company-address", "South Quarter Tower A, Lt. 12, Cilandak, Jakarta Selatan");
-            
-            setVal("company-issue-1", "Ketergantungan operasional pada founder tinggi");
-            setVal("company-issue-2", "Belum memiliki SOP tertulis yang terstandarisasi");
-            setVal("company-issue-3", "Pencatatan keuangan masih manual & belum PSAK");
-            
-            setVal("product-primary", "Aplikasi SaaS Manajemen Keuangan");
-            
-            const socPlat = document.querySelector(".social-platform");
-            const socUser = document.querySelector(".social-username");
-            if (socPlat) socPlat.value = "Instagram";
-            if (socUser) socUser.value = "@hartaputera.id";
+            setValAndTrigger("owner-fullname", "Budi Santoso");
+            setValAndTrigger("owner-nickname", "Budi");
+            setValAndTrigger("owner-whatsapp", "+6281234567890");
+            setValAndTrigger("owner-province", "DKI Jakarta");
+            setValAndTrigger("owner-city", "Jakarta Selatan");
+            setValAndTrigger("owner-gender", "Pria");
 
-            const prodRows = document.querySelectorAll(".price-row");
-            if (prodRows.length >= 2) {
-                const r1 = prodRows[0].querySelectorAll("input");
-                if(r1.length >= 3) { r1[0].value="Paket Premium"; r1[1].value="500000"; r1[2].value="1500000"; }
-                const r2 = prodRows[1].querySelectorAll("input");
-                if(r2.length >= 3) { r2[0].value="Paket Starter"; r2[1].value="150000"; r2[2].value="450000"; }
+            const communityContainer = document.getElementById("community-input-group");
+            if (communityContainer) {
+                communityContainer.innerHTML = ""; // Clear existing
+                const addCommunity = (name) => {
+                    const div = document.createElement('div');
+                    div.className = 'dynamic-input-item';
+                    div.style.cssText = 'display:flex; gap:8px;';
+                    div.innerHTML = `
+                        <input type="text" class="form-control" placeholder="Nama komunitas baru..." value="${name}">
+                        <button type="button" class="btn btn-outline" style="padding: 0 12px; color: var(--danger); border-color: rgba(239,68,68,0.2);" onclick="this.parentElement.remove()" title="Hapus">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
+                        </button>
+                    `;
+                    communityContainer.appendChild(div);
+                };
+                addCommunity("HIPMI");
+                addCommunity("TDA");
             }
+
+            setValAndTrigger("company-brand", "Harta Putera (HPE)");
+            setValAndTrigger("company-entity", "PT");
+            setValAndTrigger("company-legal", "PT Harta Putera Epik");
+            setValAndTrigger("company-industry", "Manufaktur");
+            setValAndTrigger("company-category", "Makanan & Minuman");
+            setValAndTrigger("company-age", "3");
+            setValAndTrigger("company-branches", "2");
+            setValAndTrigger("company-ownership", "Syirkah");
+            setValAndTrigger("company-partners-count", "2");
+            setValAndTrigger("company-status", "Pusat");
+            setValAndTrigger("company-employees", "25");
+            setValAndTrigger("company-revenue", "Kecil (300 Jt - 2.5 M)");
+            setValAndTrigger("company-psak", "Belum");
+            setValAndTrigger("company-province", "DKI Jakarta");
+            setValAndTrigger("company-city", "Jakarta Selatan");
+            setValAndTrigger("company-phone", "021-88992211");
+            setValAndTrigger("sales-website", "https://hartaputera.id");
+            setValAndTrigger("company-address", "South Quarter Tower A, Lt. 12, Cilandak, Jakarta Selatan");
+            
+            setValAndTrigger("company-issue-1", "Ketergantungan operasional pada founder tinggi");
+            setValAndTrigger("company-issue-2", "Belum memiliki SOP tertulis yang terstandarisasi");
+            setValAndTrigger("company-issue-3", "Pencatatan keuangan masih manual & belum PSAK");
+            
+            setValAndTrigger("product-primary", "Aplikasi SaaS Manajemen Keuangan");
+            
+            const socialContainer = document.getElementById("social-media-rows-container");
+            if (socialContainer) {
+                socialContainer.innerHTML = ""; // Clear existing
+                const addSocialRow = (platform, username) => {
+                    const div = document.createElement("div");
+                    div.className = "social-media-row";
+                    div.style.display = "flex";
+                    div.style.gap = "10px";
+                    div.style.marginBottom = "8px";
+                    div.innerHTML = `
+                        <select class="form-control social-platform" style="width: 35%;">
+                            <option value="Instagram" ${platform === 'Instagram' ? 'selected' : ''}>Instagram</option>
+                            <option value="Facebook" ${platform === 'Facebook' ? 'selected' : ''}>Facebook</option>
+                            <option value="TikTok" ${platform === 'TikTok' ? 'selected' : ''}>TikTok</option>
+                            <option value="Shopee" ${platform === 'Shopee' ? 'selected' : ''}>Shopee</option>
+                            <option value="Tokopedia" ${platform === 'Tokopedia' ? 'selected' : ''}>Tokopedia</option>
+                            <option value="Lainnya" ${platform === 'Lainnya' ? 'selected' : ''}>Lainnya</option>
+                        </select>
+                        <input type="text" class="form-control social-username" placeholder="@akun / link" value="${username}">
+                        <button type="button" class="btn btn-outline btn-remove-social" style="padding: 10px; border-color: #fca5a5; color: #ef4444;">&times;</button>
+                    `;
+                    div.querySelector(".btn-remove-social").addEventListener("click", () => {
+                        div.remove();
+                        syncValuesToLiveCard();
+                    });
+                    div.querySelectorAll("input, select").forEach(input => {
+                        input.addEventListener("input", syncValuesToLiveCard);
+                        input.addEventListener("change", syncValuesToLiveCard);
+                    });
+                    socialContainer.appendChild(div);
+                };
+                addSocialRow("Instagram", "@hartaputera.id");
+            }
+
+            const prodRows = document.querySelectorAll(".product-price-grid .price-row");
+            prodRows.forEach((row, idx) => {
+                const inputs = row.querySelectorAll("input");
+                if (inputs.length >= 3) {
+                    if (idx === 0) {
+                        inputs[0].value = "Paket Premium";
+                        inputs[1].value = "500000";
+                        inputs[2].value = "1500000";
+                    } else if (idx === 1) {
+                        inputs[0].value = "Paket Starter";
+                        inputs[1].value = "150000";
+                        inputs[2].value = "450000";
+                    } else {
+                        inputs[0].value = "";
+                        inputs[1].value = "";
+                        inputs[2].value = "";
+                    }
+                    inputs.forEach(inp => inp.dispatchEvent(new Event('input', { bubbles: true })));
+                }
+            });
 
             // POPULATE COMPANYDATA SO PROFILE RENDERS CORRECTLY
             companyData.client_name = "Budi Santoso";
@@ -642,6 +708,8 @@ document.addEventListener("DOMContentLoaded", function () {
             companyData.business_condition_position = "HIPMI, TDA";
             companyData.province_name = "DKI Jakarta";
             companyData.regency_name = "Jakarta Selatan";
+            companyData.province_id = "31";
+            companyData.regency_id = "3174";
 
             companyData.business_name = "Harta Putera (HPE)";
             companyData.legal_entity = "PT";
@@ -650,7 +718,7 @@ document.addEventListener("DOMContentLoaded", function () {
             companyData.business_category = "Makanan & Minuman";
             companyData.business_age_years = 3;
             companyData.branch_count = 2;
-            companyData.ownership_status = "Milik Pribadi";
+            companyData.ownership_status = "Syirkah";
             companyData.partnership_count = 2;
             companyData.status_usaha = "Pusat";
             companyData.total_employees = 25;
@@ -658,6 +726,8 @@ document.addEventListener("DOMContentLoaded", function () {
             companyData.has_financial_report = "Belum";
             companyData.business_province_name = "DKI Jakarta";
             companyData.business_regency_name = "Jakarta Selatan";
+            companyData.business_province_id = "31";
+            companyData.business_regency_id = "3174";
             companyData.product_services_primary = "Aplikasi SaaS Manajemen Keuangan";
             
             companyData.main_problem_1 = "Ketergantungan operasional pada founder tinggi";
@@ -670,9 +740,184 @@ document.addEventListener("DOMContentLoaded", function () {
                 { product_service_name: "Paket Starter", estimated_price_min: "150000", estimated_price_max: "450000" }
             ];
 
+            // === POPULATE WIZARD STEPS 1-14 ===
+            stepsData[1] = {
+                purpose: "Membangun ekosistem teknologi keuangan yang transparan, mudah diakses, dan andal bagi pelaku usaha mikro, kecil, dan menengah (UMKM) untuk mendorong pertumbuhan ekonomi yang inklusif dan berkelanjutan."
+            };
+
+            stepsData[2] = {
+                company: "Harta Putera (HPE)",
+                category: "Aplikasi Keuangan",
+                dna: "SaaS Akuntansi UMKM",
+                core_value: "Terstandarisasi Akuntansi standar PSAK",
+                add_value: "Tampilan dashboard ramah pemula",
+                positioning: "Harta Putera (HPE) adalah Aplikasi Keuangan yang menjual SaaS Akuntansi UMKM yang Terstandarisasi Akuntansi standar PSAK dan Tampilan dashboard ramah pemula."
+            };
+
+            stepsData[3] = {
+                category: "Aplikasi Keuangan",
+                dna: "SaaS Akuntansi UMKM",
+                area: "Indonesia",
+                target: "2030",
+                vision: "Menjadi Aplikasi Keuangan SaaS Akuntansi UMKM di Indonesia pada tahun 2030."
+            };
+
+            stepsData[4] = {
+                human_resources: "Membangun tim kerja yang kompeten, loyal, berintegritas tinggi, serta berakhlak mulia untuk mendukung pertumbuhan berkelanjutan.",
+                operation: "Mengembangkan sistem kerja operasional berbasis digital yang efisien, aman, serta terstandarisasi secara internasional.",
+                marketing: "Menjadi mitra terpercaya bagi UMKM lewat edukasi keuangan bisnis secara aktif dan penyediaan solusi pemasaran digital.",
+                finance: "Menjaga stabilitas keuangan perusahaan yang sehat, profitabel, serta transparan bagi semua pemangku kepentingan."
+            };
+
+            stepsData[5] = {
+                cultures: [
+                    { budaya: "Inovatif", deskripsi: "Selalu mencari cara baru yang lebih efektif untuk memecahkan masalah klien." },
+                    { budaya: "Integritas", deskripsi: "Menjaga transparansi dan kejujuran dalam setiap tindakan dan pelaporan keuangan." },
+                    { budaya: "Kolaboratif", deskripsi: "Bekerja sama lintas divisi untuk menghasilkan solusi terbaik bagi pengguna." }
+                ]
+            };
+
+            stepsData[6] = {
+                business_type: "berjalan",
+                target_type: "rupiah",
+                monthly_data: [
+                    { month: 1, revenue_year1: 20000000, revenue_year2: 25000000 },
+                    { month: 2, revenue_year1: 22000000, revenue_year2: 27000000 },
+                    { month: 3, revenue_year1: 25000000, revenue_year2: 30000000 },
+                    { month: 4, revenue_year1: 24000000, revenue_year2: 29000000 },
+                    { month: 5, revenue_year1: 26000000, revenue_year2: 32000000 },
+                    { month: 6, revenue_year1: 30000000, revenue_year2: 38000000 },
+                    { month: 7, revenue_year1: 28000000, revenue_year2: 35000000 },
+                    { month: 8, revenue_year1: 31000000, revenue_year2: 40000000 },
+                    { month: 9, revenue_year1: 33000000, revenue_year2: 42000000 },
+                    { month: 10, revenue_year1: 32000000, revenue_year2: 41000000 },
+                    { month: 11, revenue_year1: 35000000, revenue_year2: 45000000 },
+                    { month: 12, revenue_year1: 40000000, revenue_year2: 50000000 }
+                ],
+                projection_kinerja_pct: 25,
+                projection_years: [2026, 2027, 2028, 2029, 2030],
+                projection_monthly_data: Array.from({ length: 12 }, (_, idx) => ({
+                    month: idx + 1,
+                    values: [
+                        Math.round(40000000 * (1 + 0.25 * 1)),
+                        Math.round(40000000 * (1 + 0.25 * 2)),
+                        Math.round(40000000 * (1 + 0.25 * 3)),
+                        Math.round(40000000 * (1 + 0.25 * 4)),
+                        Math.round(40000000 * (1 + 0.25 * 5))
+                    ]
+                }))
+            };
+
+            stepsData[7] = {
+                roles: [
+                    { name: "Direktur Utama", division_key: "hr", level_key: "director", description: "Memimpin perusahaan dan menetapkan arah strategis bisnis.", parent_key: "" },
+                    { name: "Manager Operasional", division_key: "operation", level_key: "manager", description: "Mengawasi jalannya operasional harian dan implementasi sistem.", parent_key: "Direktur Utama" },
+                    { name: "Manager Pemasaran", division_key: "marketing", level_key: "manager", description: "Merencanakan dan mengeksekusi strategi marketing serta akuisisi pelanggan.", parent_key: "Direktur Utama" },
+                    { name: "Manager Keuangan", division_key: "finance", level_key: "manager", description: "Mengelola arus kas, anggaran, dan pelaporan keuangan perusahaan.", parent_key: "Direktur Utama" },
+                    { name: "Staff Customer Service", division_key: "operation", level_key: "staff", description: "Melayani keluhan pelanggan dan membantu aktivasi akun pengguna.", parent_key: "Manager Operasional" }
+                ]
+            };
+
+            stepsData[8] = {
+                activities: [
+                    { role_name: "Direktur Utama", ka1: "Rapat direksi bulanan", ka2: "Meninjau laporan keuangan bulanan", ka3: "Penyusunan rencana kerja tahunan", ka4: "Pengawasan kinerja manager" },
+                    { role_name: "Manager Operasional", ka1: "Penyusunan jadwal kerja divisi", ka2: "Monitoring uptime server & aplikasi", ka3: "Penyusunan SOP operasional", ka4: "Pemberian feedback kinerja staff" },
+                    { role_name: "Manager Pemasaran", ka1: "Perencanaan kampanye digital", ka2: "Analisis conversion rate ads", ka3: "Manajemen sosial media perusahaan", ka4: "Evaluasi program promosi bulanan" },
+                    { role_name: "Manager Keuangan", ka1: "Verifikasi transaksi harian", ka2: "Penyusunan laporan laba rugi", ka3: "Pembayaran pajak & payroll", ka4: "Rekonsiliasi bank akhir bulan" },
+                    { role_name: "Staff Customer Service", ka1: "Menjawab keluhan klien", ka2: "Panduan onboarding pengguna baru", ka3: "Pencatatan feedback keluhan error", ka4: "Pembuatan FAQ mingguan" }
+                ]
+            };
+
+            stepsData[9] = {
+                tasks: [
+                    { role_name: "Manager Keuangan", key_activity: "Verifikasi transaksi harian", description: "Melakukan audit dan pencocokan invoice masuk dengan rekening koran bank", frequency: "Harian", report: "Buku kas harian dan mutasi bank" },
+                    { role_name: "Manager Keuangan", key_activity: "Penyusunan laporan laba rugi", description: "Menyusun dan mengevaluasi laporan keuangan berkala perusahaan", frequency: "Bulanan", report: "Laporan laba rugi, neraca, dan arus kas" },
+                    { role_name: "Staff Customer Service", key_activity: "Menjawab keluhan klien", description: "Membalas tiket keluhan dan masalah yang masuk dari customer di chat/email", frequency: "Harian", report: "Log tiket CS dan rating kepuasan" }
+                ]
+            };
+
+            stepsData[10] = {
+                reports: [
+                    { role_name: "Manager Keuangan", task_name: "Melakukan audit dan pencocokan invoice masuk dengan rekening koran bank", report_template: "Template Rekonsiliasi Kas & Bank Bulanan", frequency: "Harian", file_mockup: null },
+                    { role_name: "Manager Keuangan", task_name: "Menyusun dan mengevaluasi laporan keuangan berkala perusahaan", report_template: "Template Laporan Laba-Rugi Standard", frequency: "Bulanan", file_mockup: null },
+                    { role_name: "Staff Customer Service", task_name: "Membalas tiket keluhan dan masalah yang masuk dari customer di chat/email", report_template: "Dashboard Log Tiket Hubspot", frequency: "Harian", file_mockup: null }
+                ]
+            };
+
+            stepsData[11] = {
+                kpis: [
+                    { role_name: "Manager Keuangan", task_name: "Menyusun dan mengevaluasi laporan keuangan berkala perusahaan", bobot: 50, satuan: "persen", target_kpi: 100, realisasi: 100, definisi_target: "Ketepatan penyusunan laporan sebelum tanggal 5 setiap bulan", arah: "lebih besar lebih baik" },
+                    { role_name: "Manager Keuangan", task_name: "Melakukan audit dan pencocokan invoice masuk dengan rekening koran bank", bobot: 50, satuan: "persen", target_kpi: 100, realisasi: 98, definisi_target: "Persentase kecocokan data transaksi buku kas dengan bank", arah: "lebih besar lebih baik" },
+                    { role_name: "Staff Customer Service", task_name: "Membalas tiket keluhan dan masalah yang masuk dari customer di chat/email", bobot: 100, satuan: "persen", target_kpi: 95, realisasi: 96, definisi_target: "Persentase kepuasan pelanggan (rating bintang 4-5)", arah: "lebih besar lebih baik" }
+                ]
+            };
+
+            stepsData[12] = {
+                rewards: [
+                    { bonus_name: "Bonus Omset Bulanan", category: "level_perusahaan", org_chart_node_id: "", bonus_target: "Tercapainya target omset bulanan 100%", bonus_amount: "5% dari gaji pokok", bonus_period: "Bulanan" },
+                    { bonus_name: "Bonus Kinerja CS Terbaik", category: "level_jabatan", org_chart_node_id: "Staff Customer Service", bonus_target: "Rating kepuasan CS bulanan rata-rata > 98%", bonus_amount: "Rp 500.000", bonus_period: "Bulanan" }
+                ],
+                punishments: [
+                    {
+                        severity: "SP1",
+                        sanctions: [
+                            { warning_clause: "Terlambat masuk kerja tanpa izin tertulis > 3 kali dalam sebulan", fee: "Surat Peringatan 1 & Teguran Lisan" },
+                            { warning_clause: "Tidak menggunakan seragam lengkap / ID Card / Lanyard", fee: "Denda kas Rp 20.000 per pelanggaran" }
+                        ]
+                    },
+                    {
+                        severity: "SP2",
+                        sanctions: [
+                            { warning_clause: "Mangkir kerja tanpa kabar selama 2 hari berturut-turut", fee: "Surat Peringatan 2 & Potong Tunjangan Harian" },
+                            { warning_clause: "Melakukan kelalaian kerja yang menyebabkan complain tertulis dari klien", fee: "Pemotongan insentif kinerja bulan berjalan" }
+                        ]
+                    },
+                    {
+                        severity: "SP3",
+                        sanctions: [
+                            { warning_clause: "Membocorkan data sensitif/source code/kredensial perusahaan kepada pihak ketiga", fee: "Pemutusan Hubungan Kerja (PHK) seketika" },
+                            { warning_clause: "Terbukti melakukan tindakan kecurangan, penipuan, atau pencurian kas perusahaan", fee: "PHK langsung & Pelaporan ke Pihak Berwajib" }
+                        ]
+                    }
+                ]
+            };
+
+            stepsData[13] = {
+                sops: [
+                    {
+                        role_name: "Manager Keuangan",
+                        task_name: "Melakukan audit dan pencocokan invoice masuk dengan rekening koran bank",
+                        sop_name: "SOP Rekonsiliasi Bank Bulanan",
+                        steps: [
+                            { method: "Unduh mutasi bank dan file rekap invoice dari sistem.", man: "Manager Keuangan", machine: "Laptop & Web Browser", material: "Internet & Akses Internet Banking" },
+                            { method: "Cocokkan nominal di mutasi dengan nominal invoice.", man: "Manager Keuangan", machine: "Spreadsheet", material: "Data Mutasi Kas & Invoice" },
+                            { method: "Tandai transaksi cocok dan laporkan selisih jika ada.", man: "Manager Keuangan", machine: "Spreadsheet", material: "Form Rekonsiliasi" }
+                        ]
+                    }
+                ]
+            };
+
+            stepsData[14] = {
+                trainings: [
+                    {
+                        role_name: "Staff Customer Service",
+                        skills: [
+                            {
+                                key_activity: "Menjawab keluhan klien",
+                                list: [
+                                    "SOP Komunikasi Ramah & Profesional",
+                                    "Tata Cara Resolusi Tiket Masalah",
+                                    "Penggunaan Software Helpdesk Hubspot"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            };
+
             setTimeout(() => {
-                if(typeof updateLiveCard === 'function') updateLiveCard();
-                if(typeof generateProfileDashboard === 'function') generateProfileDashboard();
+                if (typeof syncValuesToLiveCard === 'function') syncValuesToLiveCard();
+                if (typeof generateProfileDashboard === 'function') generateProfileDashboard();
             }, 100);
             // ==========================
 
@@ -1043,9 +1288,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const ownerProvName = document.getElementById("owner-province").value;
             const ownerCityName = document.getElementById("owner-city").value;
             companyData.province_name = ownerProvName;
-            companyData.province_id = provinceIdMap[ownerProvName] || "";
+            companyData.province_id = provinceIdMap[ownerProvName ? ownerProvName.toUpperCase() : ""] || "";
             companyData.regency_name = ownerCityName;
-            companyData.regency_id = regencyIdMap[ownerCityName] || "";
+            companyData.regency_id = regencyIdMap[ownerCityName ? ownerCityName.toUpperCase() : ""] || "";
 
             companyData.business_name = document.getElementById("company-brand").value;
             companyData.legal_entity = document.getElementById("company-entity").value;
@@ -1066,9 +1311,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const bizProvName = document.getElementById("company-province").value;
             const bizCityName = document.getElementById("company-city").value;
             companyData.business_province_name = bizProvName;
-            companyData.business_province_id = provinceIdMap[bizProvName] || "";
+            companyData.business_province_id = provinceIdMap[bizProvName ? bizProvName.toUpperCase() : ""] || "";
             companyData.business_regency_name = bizCityName;
-            companyData.business_regency_id = regencyIdMap[bizCityName] || "";
+            companyData.business_regency_id = regencyIdMap[bizCityName ? bizCityName.toUpperCase() : ""] || "";
 
             companyData.product_services_primary = document.getElementById("product-primary").value;
 
