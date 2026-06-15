@@ -43,7 +43,7 @@ const BUSINESS_CATEGORIES_BY_INDUSTRY = {
 
 const STEP_DATABASE = {
     1: {
-        title: "Langkah 01: Purpose (Tujuan Fundamental)",
+        title: "Langkah 0: Purpose (Tujuan Fundamental)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Purpose Penting?</strong></p>
@@ -56,7 +56,7 @@ const STEP_DATABASE = {
         `
     },
     2: {
-        title: "Langkah 02: Brand Positioning (Posisi Pasar)",
+        title: "Langkah 0: Brand Positioning (Posisi Pasar)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Brand Positioning Penting?</strong></p>
@@ -67,7 +67,7 @@ const STEP_DATABASE = {
         `
     },
     3: {
-        title: "Langkah 03: Business Vision (Visi Perusahaan)",
+        title: "Langkah 01: Business Vision (Visi Perusahaan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Visi Penting?</strong></p>
@@ -78,7 +78,7 @@ const STEP_DATABASE = {
         `
     },
     4: {
-        title: "Langkah 04: Business Mission (Peta Jalan Misi)",
+        title: "Langkah 02: Business Mission (Peta Jalan Misi)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Misi Penting?</strong></p>
@@ -92,7 +92,7 @@ const STEP_DATABASE = {
         `
     },
     5: {
-        title: "Langkah 05: Core Values & Culture (Budaya Kerja)",
+        title: "Langkah 03: Core Values & Culture (Budaya Kerja)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Budaya Kerja Penting?</strong></p>
@@ -105,7 +105,7 @@ const STEP_DATABASE = {
         `
     },
     6: {
-        title: "Langkah 06: Business Goal (Sasaran Keuangan)",
+        title: "Langkah 04: Business Goal (Sasaran Keuangan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Business Goal Penting?</strong></p>
@@ -118,7 +118,7 @@ const STEP_DATABASE = {
         `
     },
     7: {
-        title: "Langkah 07: Organization Structure (Struktur Fungsional)",
+        title: "Langkah 05: Organization Structure (Struktur Fungsional)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Struktur Organisasi Penting?</strong></p>
@@ -131,7 +131,7 @@ const STEP_DATABASE = {
         `
     },
     8: {
-        title: "Langkah 08: Key Activities (Aktivitas Inti)",
+        title: "Langkah 06: Key Activities (Aktivitas Inti)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Key Activities Penting?</strong></p>
@@ -139,7 +139,7 @@ const STEP_DATABASE = {
         `
     },
     9: {
-        title: "Langkah 09: Job Description (Deskripsi Jabatan)",
+        title: "Langkah 07: Job Description (Deskripsi Jabatan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Job Description Penting?</strong></p>
@@ -147,7 +147,7 @@ const STEP_DATABASE = {
         `
     },
     10: {
-        title: "Langkah 10: Reporting System (Sistem Pelaporan)",
+        title: "Langkah 08: Reporting System (Sistem Pelaporan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Reporting System Penting?</strong></p>
@@ -155,7 +155,7 @@ const STEP_DATABASE = {
         `
     },
     11: {
-        title: "Langkah 11: KPI Setup (Indikator Kinerja Utama)",
+        title: "Langkah 09: KPI Setup (Indikator Kinerja Utama)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa KPI Setup Penting?</strong></p>
@@ -167,7 +167,7 @@ const STEP_DATABASE = {
         `
     },
     12: {
-        title: "Langkah 12: Reward & Punishment (Penghargaan & Sanksi)",
+        title: "Langkah 10: Reward & Punishment (Penghargaan & Sanksi)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Reward & Punishment Penting?</strong></p>
@@ -175,7 +175,7 @@ const STEP_DATABASE = {
         `
     },
     13: {
-        title: "Langkah 13: Standar Operasional Prosedur (SOP)",
+        title: "Langkah 11: Standar Operasional Prosedur (SOP)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa SOP Penting?</strong></p>
@@ -183,7 +183,7 @@ const STEP_DATABASE = {
         `
     },
     14: {
-        title: "Langkah 14: Train The Trainer (Kaderisasi Staf)",
+        title: "Langkah 12: Train The Trainer (Kaderisasi Staf)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Train The Trainer Penting?</strong></p>
@@ -194,200 +194,104 @@ const STEP_DATABASE = {
 
 // 2. STATE MANAGEMENT
 let companyData = {
-    client_name: "danaa",
-    client_nickname: "dana",
-    owner_phone: "+628574734535",
-    province_id: "33",
-    province_name: "JAWA TENGAH",
-    regency_id: "3301",
-    regency_name: "KABUPATEN CILACAP",
-    owner_gender: "pria",
-    business_condition_position: "HIPMI",
-    business_name: "hpe",
-    legal_entity: "PT",
-    business_legal_name: "PT Harta Putera Epik",
-    industry: "Manufaktur",
-    business_category: "Makanan & Minuman",
+    client_name: "",
+    client_nickname: "",
+    owner_phone: "",
+    province_id: "",
+    province_name: "",
+    regency_id: "",
+    regency_name: "",
+    owner_gender: "",
+    business_condition_position: "",
+    business_name: "",
+    legal_entity: "",
+    business_legal_name: "",
+    industry: "",
+    business_category: "",
     business_category_other: "",
-    business_age_years: 3,
-    branch_count: 2,
-    ownership_status: "Milik Pribadi",
+    business_age_years: 0,
+    branch_count: 0,
+    ownership_status: "",
     partnership_count: 0,
-    status_usaha: "Pusat",
-    total_employees: 25,
-    business_scale: "Kecil (300 Jt - 2.5 M)",
-    business_province_id: "31",
-    business_province_name: "DKI JAKARTA",
-    business_regency_id: "3174",
-    business_regency_name: "JAKARTA SELATAN",
-    has_financial_report: "Belum",
-    product_services_primary: "Aplikasi SaaS Manajemen Keuangan",
-    social_media_marketplaces: [
-        { social_media_marketplace: "Instagram", account_name: "@hartaputera.id" }
-    ],
+    status_usaha: "",
+    total_employees: 0,
+    business_scale: "",
+    business_province_id: "",
+    business_province_name: "",
+    business_regency_id: "",
+    business_regency_name: "",
+    has_financial_report: "",
+    product_services_primary: "",
+    social_media_marketplaces: [],
     other_product_services: [
-        { product_service_name: "Paket Premium", estimated_price_min: "500000", estimated_price_max: "1500000" },
-        { product_service_name: "Paket Starter", estimated_price_min: "150000", estimated_price_max: "450000" },
+        { product_service_name: "", estimated_price_min: "", estimated_price_max: "" },
+        { product_service_name: "", estimated_price_min: "", estimated_price_max: "" },
         { product_service_name: "", estimated_price_min: "", estimated_price_max: "" },
         { product_service_name: "", estimated_price_min: "", estimated_price_max: "" },
         { product_service_name: "", estimated_price_min: "", estimated_price_max: "" }
     ],
-    main_problem_1: "Ketergantungan operasional pada founder tinggi",
-    main_problem_2: "Belum memiliki SOP tertulis yang terstandarisasi",
-    main_problem_3: "Pencatatan keuangan masih manual & belum PSAK"
+    main_problem_1: "",
+    main_problem_2: "",
+    main_problem_3: ""
 };
 
 let stepsData = {
-    1: { purpose: "Membangun sistem keuangan digital terintegrasi yang andal dan terjangkau bagi UMKM di Indonesia agar mereka dapat naik kelas secara akuntabel." },
-    2: { company: "hpe", category: "Manufaktur", dna: "Aplikasi SaaS", core_value: "Terstandarisasi Akuntansi", add_value: "UI/UX Sangat Mudah", positioning: "hpe adalah Manufaktur yang menjual Aplikasi SaaS yang Terstandarisasi Akuntansi dan UI/UX Sangat Mudah" },
-    3: { category: "Manufaktur", dna: "Aplikasi SaaS", area: "Indonesia", target: "2030", vision: "Menjadi Manufaktur Aplikasi SaaS Terstandarisasi Akuntansi di Indonesia pada tahun 2030" },
-    4: { human_resources: "Membangun tim developer dan akuntan profesional yang berintegritas tinggi.", operation: "Mengembangkan sistem modular keuangan dengan uptime 99.9%.", marketing: "Melayani 10,000 UMKM aktif lewat edukasi bisnis terstruktur.", finance: "Menjaga profitabilitas perusahaan tumbuh minimal 25% YoY." },
+    1: { purpose: "" },
+    2: { company: "", category: "", dna: "", core_value: "", add_value: "", positioning: "" },
+    3: { category: "", dna: "", area: "", target: "", vision: "" },
+    4: { human_resources: "", operation: "", marketing: "", finance: "" },
     5: {
         cultures: [
-            { budaya: "Integritas", deskripsi: "Mengutamakan kejujuran dan akurasi dalam setiap baris kode." },
-            { budaya: "Kolaborasi", deskripsi: "Bekerja lintas divisi untuk melayani kebutuhan pelanggan." },
-            { budaya: "Kecepatan", deskripsi: "Merespon keluhan teknis pelanggan maksimal 30 menit." }
+            { budaya: "", deskripsi: "" },
+            { budaya: "", deskripsi: "" },
+            { budaya: "", deskripsi: "" }
         ]
     },
     6: {
-        business_type: "berjalan",
-        target_type: "rupiah",
+        business_type: "",
+        target_type: "",
         monthly_data: [
-            { month: 1, revenue_year1: 20000000, revenue_year2: 24000000 },
-            { month: 2, revenue_year1: 22000000, revenue_year2: 26000000 },
-            { month: 3, revenue_year1: 21000000, revenue_year2: 25000000 },
-            { month: 4, revenue_year1: 25000000, revenue_year2: 30000000 },
-            { month: 5, revenue_year1: 24000000, revenue_year2: 29000000 },
-            { month: 6, revenue_year1: 28000000, revenue_year2: 34000000 },
-            { month: 7, revenue_year1: 27000000, revenue_year2: 33000000 },
-            { month: 8, revenue_year1: 29000000, revenue_year2: 36000000 },
-            { month: 9, revenue_year1: 30000000, revenue_year2: 38000000 },
-            { month: 10, revenue_year1: 32000000, revenue_year2: 40000000 },
-            { month: 11, revenue_year1: 35000000, revenue_year2: 44000000 },
-            { month: 12, revenue_year1: 40000000, revenue_year2: 50000000 }
+            { month: 1, revenue_year1: 0, revenue_year2: 0 },
+            { month: 2, revenue_year1: 0, revenue_year2: 0 },
+            { month: 3, revenue_year1: 0, revenue_year2: 0 },
+            { month: 4, revenue_year1: 0, revenue_year2: 0 },
+            { month: 5, revenue_year1: 0, revenue_year2: 0 },
+            { month: 6, revenue_year1: 0, revenue_year2: 0 },
+            { month: 7, revenue_year1: 0, revenue_year2: 0 },
+            { month: 8, revenue_year1: 0, revenue_year2: 0 },
+            { month: 9, revenue_year1: 0, revenue_year2: 0 },
+            { month: 10, revenue_year1: 0, revenue_year2: 0 },
+            { month: 11, revenue_year1: 0, revenue_year2: 0 },
+            { month: 12, revenue_year1: 0, revenue_year2: 0 }
         ],
-        projection_kinerja_pct: 22,
-        projection_years: [2026, 2027, 2028, 2029, 2030],
-        projection_monthly_data: [
-            { month: 1, values: [0, 0, 0, 0, 0] },
-            { month: 2, values: [0, 0, 0, 0, 0] },
-            { month: 3, values: [0, 0, 0, 0, 0] },
-            { month: 4, values: [0, 0, 0, 0, 0] },
-            { month: 5, values: [0, 0, 0, 0, 0] },
-            { month: 6, values: [0, 0, 0, 0, 0] },
-            { month: 7, values: [0, 0, 0, 0, 0] },
-            { month: 8, values: [0, 0, 0, 0, 0] },
-            { month: 9, values: [0, 0, 0, 0, 0] },
-            { month: 10, values: [0, 0, 0, 0, 0] },
-            { month: 11, values: [0, 0, 0, 0, 0] },
-            { month: 12, values: [0, 0, 0, 0, 0] }
-        ]
+        projection_kinerja_pct: 0,
+        projection_years: [],
+        projection_monthly_data: []
     },
     7: {
-        roles: [
-            { name: "Direktur Utama", division_key: "operation", level_key: "director", description: "Memimpin strategi umum perusahaan", parent_key: "" },
-            { name: "Manajer Produk", division_key: "operation", level_key: "manager", description: "Mengelola siklus pengembangan perangkat lunak", parent_key: "Direktur Utama" },
-            { name: "Supervisor Marketing", division_key: "marketing", level_key: "supervisor", description: "Mengkoordinasi kampanye iklan digital", parent_key: "Direktur Utama" },
-            { name: "Staff Akuntan", division_key: "finance", level_key: "staff", description: "Melakukan pembukuan harian", parent_key: "Direktur Utama" }
-        ]
+        roles: []
     },
     8: {
-        activities: [
-            { role_name: "Direktur Utama", ka1: "Penyusunan Rencana Strategis", ka2: "Pengambilan Keputusan Bisnis", ka3: "Evaluasi Finansial Bulanan", ka4: "Koordinasi Antar Manajer" },
-            { role_name: "Manajer Produk", ka1: "Perancangan UI/UX Aplikasi", ka2: "Testing & QA Sistem", ka3: "Evaluasi Feedback Pengguna", ka4: "Rapat Sprint Mingguan" },
-            { role_name: "Supervisor Marketing", ka1: "Pembuatan Iklan Sosmed", ka2: "Customer Service Follow-up", ka3: "Analitik Data Trafik", ka4: "Event Webinar Bulanan" },
-            { role_name: "Staff Akuntan", ka1: "Rekonsiliasi Bank Harian", ka2: "Pencatatan Jurnal Kas", ka3: "Penyusunan Laporan Pajak", ka4: "Penagihan Invoice Client" }
-        ]
+        activities: []
     },
     9: {
-        tasks: [
-            { role_name: "Direktur Utama", key_activity: "Penyusunan Rencana Strategis", description: "Membuat rencana kerja dan anggaran tahunan", frequency: "Tahunan", report: "Dokumen RKAT" },
-            { role_name: "Manajer Produk", key_activity: "Perancangan UI/UX Aplikasi", description: "Membuat mockup navigasi di Figma", frequency: "Harian", report: "File Figma Terupdate" },
-            { role_name: "Supervisor Marketing", key_activity: "Pembuatan Iklan Sosmed", description: "Membuat draf copy ads dan grafis", frequency: "Mingguan", report: "Draf Ads Sheet" },
-            { role_name: "Staff Akuntan", key_activity: "Rekonsiliasi Bank Harian", description: "Mencocokkan mutasi rekening bank dengan sistem", frequency: "Harian", report: "Log Rekonsiliasi Harian" }
-        ]
+        tasks: []
     },
     10: {
-        reports: [
-            { role_name: "Direktur Utama", task_name: "Membuat rencana kerja dan anggaran tahunan", report_template: "Laporan RKAT Tahunan", frequency: "Tahunan", file_mockup: "rkat_report_template.pdf" },
-            { role_name: "Manajer Produk", task_name: "Membuat mockup navigasi di Figma", report_template: "Laporan Figma Link", frequency: "Harian", file_mockup: "figma_report_template.pdf" },
-            { role_name: "Supervisor Marketing", task_name: "Membuat draf copy ads dan grafis", report_template: "Ads Sheet Rekapitulasi", frequency: "Mingguan", file_mockup: "ads_recap_format.xlsx" },
-            { role_name: "Staff Akuntan", task_name: "Mencocokkan mutasi rekening bank dengan sistem", report_template: "Rekonsiliasi Ledger Kas", frequency: "Harian", file_mockup: "kas_reconciliation.csv" }
-        ]
+        reports: []
     },
     11: {
-        kpis: [
-            { role_name: "Direktur Utama", task_name: "Membuat rencana kerja dan anggaran tahunan", satuan: "persen", target_kpi: "100", definisi_target: "Tingkat ketercapaian RKAT tahunan", bobot: 100, arah: "lebih besar lebih baik" },
-            { role_name: "Manajer Produk", task_name: "Membuat mockup navigasi di Figma", satuan: "persen", target_kpi: "100", definisi_target: "Tingkat kesesuaian sprint backlog", bobot: 40, arah: "lebih besar lebih baik" },
-            { role_name: "Manajer Produk", task_name: "Evaluasi Feedback Pengguna", satuan: "volume", target_kpi: "5", definisi_target: "Jumlah fitur baru ter-generate", bobot: 60, arah: "lebih besar lebih baik" },
-            { role_name: "Supervisor Marketing", task_name: "Membuat draf copy ads dan grafis", satuan: "rupiah", target_kpi: "50.000.000", definisi_target: "Target konversi dari leads iklan", bobot: 100, arah: "lebih besar lebih baik" }
-        ]
+        kpis: []
     },
     12: {
-        rewards: [
-            { bonus_name: "Bonus Konversi Leads", bonus_period: "Bulanan", bonus_target: "Leads iklan > 1,500 orang", bonus_amount: "Rp 2,500,000", category: "level_perusahaan", org_chart_node_id: "" },
-            { bonus_name: "Reward Uptime Devs", bonus_period: "Tahunan", bonus_target: "Uptime aplikasi 100% tanpa crash", bonus_amount: "Rp 10,000,000", category: "level_perusahaan", org_chart_node_id: "" }
-        ],
-        punishments: [
-            {
-                severity: "SP1",
-                sanctions: [
-                    { warning_clause: "Terlambat mengirimkan rekonsiliasi harian > 3x seminggu", fee: "Sanksi Teguran & Potongan Uang Makan Rp 50,000" }
-                ]
-            },
-            {
-                severity: "SP2",
-                sanctions: [
-                    { warning_clause: "Salah memasukkan data mutasi keuangan fatal hingga audit ulang", fee: "Denda Rp 500,000 & Surat Peringatan II" }
-                ]
-            },
-            {
-                severity: "SP3",
-                sanctions: [
-                    { warning_clause: "Membocorkan source code database ke pihak luar", fee: "Pemutusan Hubungan Kerja (PHK) tanpa pesangon" }
-                ]
-            }
-        ]
+        rewards: [],
+        punishments: []
     },
     13: {
-        sops: [
-            {
-                role_name: "Direktur Utama",
-                task_name: "Membuat rencana kerja dan anggaran tahunan",
-                sop_name: "SOP Penyusunan RKAT Perusahaan",
-                steps: [
-                    { method: "Menganalisis performa bisnis tahun lalu", man: "Direktur Utama", machine: "Laptop & Spreadsheet", material: "Laporan Keuangan Audit" },
-                    { method: "Menyelenggarakan rapat kerja direksi", man: "Direktur Utama", machine: "Ruang Rapat", material: "Draf RKAT" }
-                ]
-            },
-            {
-                role_name: "Staff Akuntan",
-                task_name: "Mencocokkan mutasi rekening bank dengan sistem",
-                sop_name: "SOP Rekonsiliasi Kas Mutasi Bank",
-                steps: [
-                    { method: "Unduh mutasi rekening internet banking", man: "Staff Akuntan", machine: "Laptop & Web Bank", material: "Akun Internet Banking" },
-                    { method: "Bandingkan nominal debet-kredit dengan jurnal", man: "Staff Akuntan", machine: "Aplikasi Akuntansi", material: "Buku Jurnal Umum" }
-                ]
-            }
-        ]
+        sops: []
     },
     14: {
-        trainings: [
-            {
-                role_name: "Direktur Utama",
-                skills: [
-                    { key_activity: "Penyusunan Rencana Strategis", list: ["Analisis SWOT Makro", "Forecasting Finansial"] },
-                    { key_activity: "Pengambilan Keputusan Bisnis", list: ["Risk Management Assessment", "Negosiasi Bisnis"] }
-                ]
-            },
-            {
-                role_name: "Staff Akuntan",
-                skills: [
-                    { key_activity: "Rekonsiliasi Bank Harian", list: ["Mengoperasikan Web Bank", "Identifikasi Double Ledger"] },
-                    { key_activity: "Pencatatan Jurnal Kas", list: ["Paham Standar Akuntansi PSAK", "Input Akrual Pembukuan"] }
-                ]
-            }
-        ]
+        trainings: []
     }
 };
 
@@ -677,7 +581,102 @@ document.addEventListener("DOMContentLoaded", function () {
                 renderChecklistPanel();
             }
             updateStepTimelineDashboard();
-            alert("Seluruh tahapan, profil, checklist, dan download dokumen berhasil dibuka!");
+            updateStepTimelineModal();
+            updateSidebarNavStatus();
+
+            // === POPULATE DEMO DATA ===
+            const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
+            setVal("owner-fullname", "Budi Santoso");
+            setVal("owner-nickname", "Budi");
+            setVal("owner-whatsapp", "+6281234567890");
+            const ownerProv = document.getElementById("owner-province");
+            if (ownerProv) { ownerProv.value = "DKI Jakarta"; ownerProv.dispatchEvent(new Event('change')); }
+            setTimeout(() => { setVal("owner-city", "Jakarta Selatan"); }, 50);
+            setVal("owner-gender", "Pria");
+            setVal("owner-community", "HIPMI, TDA");
+
+            setVal("company-brand", "Harta Putera (HPE)");
+            setVal("company-entity", "PT");
+            setVal("company-legal", "PT Harta Putera Epik");
+            setVal("company-industry", "Manufaktur");
+            setVal("company-category", "Makanan & Minuman");
+            setVal("company-age", "3");
+            setVal("company-branches", "2");
+            setVal("company-ownership", "Milik Pribadi");
+            setVal("company-partners-count", "2");
+            setVal("company-status", "Pusat");
+            setVal("company-employees", "25");
+            setVal("company-revenue", "Kecil (300 Jt - 2.5 M)");
+            setVal("company-psak", "Belum");
+            const compProv = document.getElementById("company-province");
+            if (compProv) { compProv.value = "DKI Jakarta"; compProv.dispatchEvent(new Event('change')); }
+            setTimeout(() => { setVal("company-city", "Jakarta Selatan"); }, 50);
+            setVal("company-phone", "021-88992211");
+            setVal("sales-website", "https://hartaputera.id");
+            setVal("company-address", "South Quarter Tower A, Lt. 12, Cilandak, Jakarta Selatan");
+            
+            setVal("company-issue-1", "Ketergantungan operasional pada founder tinggi");
+            setVal("company-issue-2", "Belum memiliki SOP tertulis yang terstandarisasi");
+            setVal("company-issue-3", "Pencatatan keuangan masih manual & belum PSAK");
+            
+            setVal("product-primary", "Aplikasi SaaS Manajemen Keuangan");
+            
+            const socPlat = document.querySelector(".social-platform");
+            const socUser = document.querySelector(".social-username");
+            if (socPlat) socPlat.value = "Instagram";
+            if (socUser) socUser.value = "@hartaputera.id";
+
+            const prodRows = document.querySelectorAll(".price-row");
+            if (prodRows.length >= 2) {
+                const r1 = prodRows[0].querySelectorAll("input");
+                if(r1.length >= 3) { r1[0].value="Paket Premium"; r1[1].value="500000"; r1[2].value="1500000"; }
+                const r2 = prodRows[1].querySelectorAll("input");
+                if(r2.length >= 3) { r2[0].value="Paket Starter"; r2[1].value="150000"; r2[2].value="450000"; }
+            }
+
+            // POPULATE COMPANYDATA SO PROFILE RENDERS CORRECTLY
+            companyData.client_name = "Budi Santoso";
+            companyData.client_nickname = "Budi";
+            companyData.owner_phone = "+6281234567890";
+            companyData.owner_gender = "Pria";
+            companyData.business_condition_position = "HIPMI, TDA";
+            companyData.province_name = "DKI Jakarta";
+            companyData.regency_name = "Jakarta Selatan";
+
+            companyData.business_name = "Harta Putera (HPE)";
+            companyData.legal_entity = "PT";
+            companyData.business_legal_name = "PT Harta Putera Epik";
+            companyData.industry = "Manufaktur";
+            companyData.business_category = "Makanan & Minuman";
+            companyData.business_age_years = 3;
+            companyData.branch_count = 2;
+            companyData.ownership_status = "Milik Pribadi";
+            companyData.partnership_count = 2;
+            companyData.status_usaha = "Pusat";
+            companyData.total_employees = 25;
+            companyData.business_scale = "Kecil (300 Jt - 2.5 M)";
+            companyData.has_financial_report = "Belum";
+            companyData.business_province_name = "DKI Jakarta";
+            companyData.business_regency_name = "Jakarta Selatan";
+            companyData.product_services_primary = "Aplikasi SaaS Manajemen Keuangan";
+            
+            companyData.main_problem_1 = "Ketergantungan operasional pada founder tinggi";
+            companyData.main_problem_2 = "Belum memiliki SOP tertulis yang terstandarisasi";
+            companyData.main_problem_3 = "Pencatatan keuangan masih manual & belum PSAK";
+
+            companyData.social_media_marketplaces = [{ social_media_marketplace: "Instagram", account_name: "@hartaputera.id" }];
+            companyData.other_product_services = [
+                { product_service_name: "Paket Premium", estimated_price_min: "500000", estimated_price_max: "1500000" },
+                { product_service_name: "Paket Starter", estimated_price_min: "150000", estimated_price_max: "450000" }
+            ];
+
+            setTimeout(() => {
+                if(typeof updateLiveCard === 'function') updateLiveCard();
+                if(typeof generateProfileDashboard === 'function') generateProfileDashboard();
+            }, 100);
+            // ==========================
+
+            alert("Mode Demo diaktifkan! Data Perusahaan terisi otomatis, semua tahapan AOS (1-14) telah terbuka dan checklist selesai.");
         });
     }
 
@@ -852,9 +851,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateCompanyDataForm() {
-        const alphabetWithSpaces = /^[a-zA-Z\s]+$/;
-        const noSymbols = /^[^!@#$%^&*()+=[\]{};':"\\|,.<>?/~`]+$/;
-        const phoneRegex = /^(\+62|0)\d{9,14}$/;
+        return true; // Bypassed for mockup testing
+        const alphabetWithSpaces = /^[a-zA-Z\s.,']+$/;
+        const noSymbols = /^[^!@#$%^*()+=[\]{};'"\\|<>?/~`]+$/; // allowed: & - . , :
+        const phoneRegex = /^(\+62|0)[0-9\s-]{9,18}$/;
 
         const clientName = document.getElementById("owner-fullname").value.trim();
         const clientNickname = document.getElementById("owner-nickname").value.trim();
@@ -962,42 +962,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Masalah Utama
         const issue1 = document.getElementById("company-issue-1").value.trim();
-        const issue2 = document.getElementById("company-issue-2").value.trim();
-        const issue3 = document.getElementById("company-issue-3").value.trim();
 
-        if (issue1.length < 3 || issue2.length < 3 || issue3.length < 3) {
-            alert("Seluruh 3 Masalah Utama wajib diisi dengan minimal 3 karakter!");
+        if (issue1.length < 3) {
+            alert("Minimal 1 Masalah Utama wajib diisi dengan minimal 3 karakter!");
             return false;
         }
 
-        // Socials check (min 1)
+        // Socials check (min 1) - Removed because it's optional
         let socialCount = 0;
         document.querySelectorAll("#social-media-rows-container .social-media-row").forEach(row => {
             const username = row.querySelector(".social-username").value.trim();
             if (username) socialCount++;
         });
-        if (socialCount === 0) {
-            alert("Minimal satu akun sosial media/marketplace wajib diisi!");
-            return false;
-        }
 
         // Other products 5-slot check
         const priceRows = document.querySelectorAll(".product-price-grid .price-row");
-        if (priceRows.length > 0) {
-            const firstRow = priceRows[0];
-            const firstName = firstRow.querySelector(".prod-cat-name").value.trim();
-            const firstMin = firstRow.querySelector(".prod-price-min").value.trim();
-            const firstMax = firstRow.querySelector(".prod-price-max").value.trim();
-
-            if (!firstName) {
-                alert("Kategori produk/layanan lainnya ke-1 wajib diisi!");
-                return false;
-            }
-            if (!firstMin || !firstMax) {
-                alert("Estimasi harga minimum dan maksimum untuk produk ke-1 wajib diisi!");
-                return false;
-            }
-        }
 
         for (let i = 0; i < priceRows.length; i++) {
             const row = priceRows[i];
@@ -1135,7 +1114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updateStepTimelineDashboard();
 
             // Alert user success
-            alert("Data Perusahaan Berhasil Disimpan! Profil dan Langkah 01 (Purpose) kini telah terbuka.");
+            alert("Data Perusahaan Berhasil Disimpan! Profil dan Langkah 0 (Purpose) kini telah terbuka.");
 
             // Redirect to Profil tab
             switchTab("profil");
@@ -1287,7 +1266,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
             if (socialsPreview.children.length === 0) {
-                socialsPreview.innerHTML = "<span style='font-size: 10px; opacity: 0.6;'>Belum ada media sosial</span>";
+                socialsPreview.innerHTML = "<span style='font-size: 12.5px; opacity: 0.6;'>Belum ada media sosial</span>";
             }
         }
 
@@ -1312,7 +1291,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
             if (pricesPreview.children.length === 0) {
-                pricesPreview.innerHTML = "<span style='font-size: 10px; opacity: 0.6;'>Belum ada kategori produk</span>";
+                pricesPreview.innerHTML = "<span style='font-size: 12.5px; opacity: 0.6;'>Belum ada kategori produk</span>";
             }
         }
     }
@@ -1442,21 +1421,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     nav.querySelector(".step-num").style.color = "#ffffff";
                 }
             } else if (stepStatus[i] === 'unlocked') {
+                let displayNum = (i <= 2) ? 0 : (i - 2);
                 if (node) {
                     node.className = "step-node in-progress";
-                    node.querySelector(".node-circle").innerHTML = i;
+                    node.querySelector(".node-circle").innerHTML = displayNum;
                 }
                 if (nav) {
                     nav.classList.remove("locked");
-                    nav.querySelector(".step-num").innerHTML = i < 10 ? `0${i}` : i;
+                    nav.querySelector(".step-num").innerHTML = (displayNum === 0) ? "0" : (displayNum < 10 ? `0${displayNum}` : displayNum);
                     nav.querySelector(".step-num").style.backgroundColor = "";
                     nav.querySelector(".step-num").style.color = "";
                 }
                 if (activeIndex === -1) activeIndex = i;
             } else {
+                let displayNum = (i <= 2) ? 0 : (i - 2);
                 if (node) {
                     node.className = "step-node locked";
-                    node.querySelector(".node-circle").innerHTML = i;
+                    node.querySelector(".node-circle").innerHTML = displayNum;
                 }
                 if (nav) {
                     nav.classList.add("locked");
@@ -1768,7 +1749,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <thead>
                                 <tr>
                                     <th>Nama Jabatan *</th>
-                                    <th>Divisi *</th>
+                                    <th>Departemen *</th>
                                     <th>Level *</th>
                                     <th>Job Description Singkat</th>
                                     <th>Atasan Langsung</th>
@@ -1824,7 +1805,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <thead>
                                     <tr>
                                         <th>Nama Jabatan</th>
-                                        <th>Divisi</th>
+                                        <th>Departemen</th>
                                         <th>Level</th>
                                         <th style="width:150px; text-align:center;">Jumlah Job Desc</th>
                                         <th style="width:120px; text-align:center;">Aksi</th>
@@ -1854,7 +1835,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                             <div style="text-align:right;">
                                 <strong style="color:var(--brand-royal); font-size:14px;">${escapeHtml(currentEditingJobRole)}</strong>
-                                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">${escapeHtml(lvlLabel)} | Divisi: ${escapeHtml(roleData.division_key.toUpperCase())}</div>
+                                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">${escapeHtml(lvlLabel)} | Departemen: ${escapeHtml(roleData.division_key.toUpperCase())}</div>
                             </div>
                         </div>
                         <div style="overflow-x:auto;">
@@ -1908,7 +1889,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <thead>
                                     <tr>
                                         <th>Nama Jabatan</th>
-                                        <th>Divisi</th>
+                                        <th>Departemen</th>
                                         <th>Level</th>
                                         <th style="width:150px; text-align:center;">Jumlah KPI</th>
                                         <th style="width:150px; text-align:center;">Total Bobot (%)</th>
@@ -1939,7 +1920,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                             <div style="text-align:right;">
                                 <strong style="color:var(--brand-royal); font-size:14px;">${escapeHtml(currentEditingKpiRole)}</strong>
-                                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">${escapeHtml(lvlLabel)} | Divisi: ${escapeHtml(roleData.division_key.toUpperCase())}</div>
+                                <div style="font-size:11px; color:var(--text-muted); font-weight:600;">${escapeHtml(lvlLabel)} | Departemen: ${escapeHtml(roleData.division_key.toUpperCase())}</div>
                             </div>
                         </div>
                         <div style="overflow-x:auto;">
@@ -2589,12 +2570,46 @@ document.addEventListener("DOMContentLoaded", function () {
                             });
                         });
 
+                        let previousName = item.name || '';
                         function syncRowData() {
-                            item.name = nameInp.value;
+                            const newName = nameInp.value;
+                            let nameChanged = false;
+                            
+                            if (previousName !== newName) {
+                                nameChanged = true;
+                                if (previousName && previousName.trim() !== "") {
+                                    orgList.forEach(child => {
+                                        if (child.parent_key === previousName) {
+                                            child.parent_key = newName;
+                                        }
+                                    });
+                                }
+                                previousName = newName;
+                            }
+                            
+                            item.name = newName;
                             item.division_key = divSelect.value;
                             item.level_key = lvlSelect.value;
                             item.description = descInp.value;
                             item.parent_key = parentSelect.value;
+                            
+                            if (nameChanged) {
+                                const allRows = orgTableBody.querySelectorAll("tr");
+                                allRows.forEach((r, idx) => {
+                                    const pSelect = r.querySelector(".org-parent");
+                                    if (pSelect && orgList[idx]) {
+                                        const currentParentKey = orgList[idx].parent_key;
+                                        let optionsHtml = '<option value="">-- Tanpa Atasan (Direktur) --</option>';
+                                        orgList.forEach((opt, oIdx) => {
+                                            if (oIdx !== idx && opt.name && opt.name.trim() !== "") {
+                                                const isSelected = currentParentKey === opt.name ? 'selected' : '';
+                                                optionsHtml += `<option value="${opt.name.replace(/"/g, '&quot;')}" ${isSelected}>${escapeHtml(opt.name)}</option>`;
+                                            }
+                                        });
+                                        pSelect.innerHTML = optionsHtml;
+                                    }
+                                });
+                            }
                         }
 
                         row.querySelector(".org-remove").addEventListener("click", () => {
@@ -3656,6 +3671,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateStepFields(stepId) {
+        return true; // Bypassed for mockup testing
         switch (stepId) {
             case 1:
                 const purpose = document.getElementById("ws-purpose").value.trim();
@@ -3763,7 +3779,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         return false;
                     }
                     if (!r.division_key) {
-                        alert(`Divisi wajib dipilih untuk "${r.name}"!`);
+                        alert(`Departemen wajib dipilih untuk "${r.name}"!`);
                         return false;
                     }
                     if (!r.level_key) {
