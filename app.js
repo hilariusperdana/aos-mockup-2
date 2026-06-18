@@ -2340,12 +2340,14 @@ document.addEventListener("DOMContentLoaded", function () {
             case 14: // Train The Trainer
                 formBody.innerHTML = `
                     <div style="overflow-x:auto;">
-                        <table class="table-form" id="ws-train-table" style="min-width:650px;">
+                        <table class="table-form" id="ws-train-table" style="min-width:950px;">
                             <thead>
                                 <tr>
-                                    <th>Jabatan</th>
-                                    <th>Aktivitas Utama (Key Activities)</th>
-                                    <th>Daftar Keterampilan Kerja / ASK (Attitude, Skill, Knowledge) *</th>
+                                    <th style="width:40px; text-align:center;">No</th>
+                                    <th style="width:130px;">Jabatan</th>
+                                    <th style="width:180px;">Culture</th>
+                                    <th>Skills</th>
+                                    <th style="width:230px;">Knowledge Organization</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -3817,57 +3819,144 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!trainTableBody) return;
                     trainTableBody.innerHTML = "";
                     if (trainDB.length === 0) {
-                        trainTableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 08 terlebih dahulu!</td></tr>`;
+                        trainTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 08 terlebih dahulu!</td></tr>`;
                         return;
                     }
 
+                    const cultures = stepsData[5].cultures || [];
+                    let cultureHTML = `<ul class="culture-bullet-list">`;
+                    if (cultures.length === 0) {
+                        cultureHTML += `<li>-</li>`;
+                    } else {
+                        cultures.forEach(c => {
+                            if (c.budaya && c.budaya.trim()) {
+                                cultureHTML += `<li>${escapeHtml(c.budaya.trim())}</li>`;
+                            }
+                        });
+                    }
+                    cultureHTML += `</ul>`;
+
+                    const knowledgeHTML = `
+                        <ul class="culture-bullet-list">
+                            <li>AOS#1-6</li>
+                            <li>Doc. Job Desc</li>
+                            <li>Do vs Don't</li>
+                            <li>Reward & Punishment</li>
+                        </ul>
+                    `;
+
                     trainDB.forEach((item, index) => {
-                        item.skills.forEach((skillItem, sIdx) => {
-                            const row = document.createElement("tr");
-
-                            let skillsInputsHTML = "";
-                            skillItem.list.forEach((skillVal, kIdx) => {
-                                skillsInputsHTML += `
-                                    <div style="display:flex; gap:6px; align-items:center; margin-bottom:6px;">
-                                        <input type="text" class="form-control skill-box-input" style="flex:1;" value="${escapeHtml(skillVal || '')}" placeholder="Nama skill">
-                                        ${kIdx === 0 ? `<button type="button" class="btn btn-outline btn-add-skill-val" style="padding:6px 10px; border-color:var(--brand-baby); color:var(--brand-royal);">+</button>` : `<button type="button" class="btn-delete-row btn-remove-skill-val">&times;</button>`}
-                                    </div>
-                                `;
+                        const skillsList = item.skills || [];
+                        const headersHTML = skillsList.map(s => `<th>${escapeHtml(s.key_activity || '')}</th>`).join('');
+                        
+                        const maxRows = Math.max(...skillsList.map(s => (s.list || []).length), 1);
+                        let bodyRowsHTML = "";
+                        for (let r = 0; r < maxRows; r++) {
+                            let cellsHTML = "";
+                            skillsList.forEach((skillItem, c) => {
+                                const list = skillItem.list || [];
+                                const skillVal = list[r];
+                                if (r < list.length) {
+                                    cellsHTML += `
+                                        <td>
+                                            <div class="inner-skill-input-container">
+                                                <input type="text" 
+                                                       class="inner-skill-input" 
+                                                       data-role-idx="${index}" 
+                                                       data-col-idx="${c}" 
+                                                       data-row-idx="${r}" 
+                                                       value="${escapeHtml(skillVal || '')}" 
+                                                       placeholder="Nama skill">
+                                                <button type="button" 
+                                                        class="btn-remove-skill-inner" 
+                                                        data-role-idx="${index}" 
+                                                        data-col-idx="${c}" 
+                                                        data-row-idx="${r}" 
+                                                        title="Hapus skill">&times;</button>
+                                            </div>
+                                        </td>
+                                    `;
+                                } else {
+                                    cellsHTML += `<td></td>`;
+                                }
                             });
+                            bodyRowsHTML += `<tr>${cellsHTML}</tr>`;
+                        }
 
-                            row.innerHTML = `
-                                ${sIdx === 0 ? `<td rowspan="${item.skills.length}"><strong>${escapeHtml(item.role_name || '')}</strong></td>` : ''}
-                                <td>${escapeHtml(skillItem.key_activity || '')}</td>
-                                <td>
-                                    <div class="skills-inputs-box">
-                                        ${skillsInputsHTML}
-                                    </div>
+                        let plusRowHTML = "<tr>";
+                        skillsList.forEach((skillItem, c) => {
+                            plusRowHTML += `
+                                <td style="text-align: center; background-color: #f8fafc; border: 1px solid var(--border-color) !important;">
+                                    <button type="button" 
+                                            class="btn-add-skill-inner" 
+                                            data-role-idx="${index}" 
+                                            data-col-idx="${c}">+ Skill</button>
                                 </td>
                             `;
-                            trainTableBody.appendChild(row);
-
-                            const inputs = row.querySelectorAll(".skill-box-input");
-                            inputs.forEach((inputEl, kIdx) => {
-                                inputEl.addEventListener("input", () => {
-                                    skillItem.list[kIdx] = inputEl.value;
-                                });
-                            });
-
-                            const addValBtn = row.querySelector(".btn-add-skill-val");
-                            if (addValBtn) {
-                                addValBtn.onclick = () => {
-                                    skillItem.list.push("");
-                                    renderTrainTable();
-                                };
-                            }
-
-                            row.querySelectorAll(".btn-remove-skill-val").forEach((btn, rIdx) => {
-                                btn.onclick = () => {
-                                    skillItem.list.splice(rIdx + 1, 1);
-                                    renderTrainTable();
-                                };
-                            });
                         });
+                        plusRowHTML += "</tr>";
+
+                        const nestedTableHTML = `
+                            <table class="inner-skills-table">
+                                <thead>
+                                    <tr>${headersHTML}</tr>
+                                </thead>
+                                <tbody>
+                                    ${bodyRowsHTML}
+                                    ${plusRowHTML}
+                                </tbody>
+                            </table>
+                        `;
+
+                        const row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td style="text-align:center; font-weight:600;">${index + 1}</td>
+                            <td><strong>${escapeHtml(item.role_name || '')}</strong></td>
+                            <td>${cultureHTML}</td>
+                            <td>${nestedTableHTML}</td>
+                            <td>${knowledgeHTML}</td>
+                        `;
+                        trainTableBody.appendChild(row);
+                    });
+
+                    // Attach change event listeners to inputs
+                    const inputs = trainTableBody.querySelectorAll(".inner-skill-input");
+                    inputs.forEach(inputEl => {
+                        const rIdx = parseInt(inputEl.getAttribute("data-role-idx"));
+                        const cIdx = parseInt(inputEl.getAttribute("data-col-idx"));
+                        const sIdx = parseInt(inputEl.getAttribute("data-row-idx"));
+                        
+                        inputEl.addEventListener("input", () => {
+                            trainDB[rIdx].skills[cIdx].list[sIdx] = inputEl.value;
+                        });
+                    });
+
+                    // Attach click event listeners to remove buttons
+                    const removeBtns = trainTableBody.querySelectorAll(".btn-remove-skill-inner");
+                    removeBtns.forEach(btn => {
+                        const rIdx = parseInt(btn.getAttribute("data-role-idx"));
+                        const cIdx = parseInt(btn.getAttribute("data-col-idx"));
+                        const sIdx = parseInt(btn.getAttribute("data-row-idx"));
+                        
+                        btn.onclick = () => {
+                            trainDB[rIdx].skills[cIdx].list.splice(sIdx, 1);
+                            renderTrainTable();
+                        };
+                    });
+
+                    // Attach click event listeners to add buttons
+                    const addBtns = trainTableBody.querySelectorAll(".btn-add-skill-inner");
+                    addBtns.forEach(btn => {
+                        const rIdx = parseInt(btn.getAttribute("data-role-idx"));
+                        const cIdx = parseInt(btn.getAttribute("data-col-idx"));
+                        
+                        btn.onclick = () => {
+                            if (!trainDB[rIdx].skills[cIdx].list) {
+                                trainDB[rIdx].skills[cIdx].list = [];
+                            }
+                            trainDB[rIdx].skills[cIdx].list.push("");
+                            renderTrainTable();
+                        };
                     });
                 }
                 renderTrainTable();
