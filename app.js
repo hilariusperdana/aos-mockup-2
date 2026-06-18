@@ -67,7 +67,7 @@ const STEP_DATABASE = {
         `
     },
     3: {
-        title: "Langkah 01: Business Vision (Visi Perusahaan)",
+        title: "Langkah 1: Business Vision (Visi Perusahaan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Visi Penting?</strong></p>
@@ -78,7 +78,7 @@ const STEP_DATABASE = {
         `
     },
     4: {
-        title: "Langkah 02: Business Mission (Peta Jalan Misi)",
+        title: "Langkah 2: Business Mission (Peta Jalan Misi)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Misi Penting?</strong></p>
@@ -92,7 +92,7 @@ const STEP_DATABASE = {
         `
     },
     5: {
-        title: "Langkah 03: Core Values & Culture (Budaya Kerja)",
+        title: "Langkah 3: Core Values & Culture (Budaya Kerja)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Budaya Kerja Penting?</strong></p>
@@ -105,7 +105,7 @@ const STEP_DATABASE = {
         `
     },
     6: {
-        title: "Langkah 04: Business Goal (Sasaran Keuangan)",
+        title: "Langkah 4: Business Goal (Sasaran Keuangan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Business Goal Penting?</strong></p>
@@ -118,7 +118,7 @@ const STEP_DATABASE = {
         `
     },
     7: {
-        title: "Langkah 05: Organization Structure (Struktur Fungsional)",
+        title: "Langkah 5: Organization Structure (Struktur Fungsional)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Struktur Organisasi Penting?</strong></p>
@@ -131,7 +131,7 @@ const STEP_DATABASE = {
         `
     },
     8: {
-        title: "Langkah 06: Key Activities (Aktivitas Inti)",
+        title: "Langkah 6: Key Activities (Aktivitas Inti)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Key Activities Penting?</strong></p>
@@ -139,7 +139,7 @@ const STEP_DATABASE = {
         `
     },
     9: {
-        title: "Langkah 07: Job Description (Deskripsi Jabatan)",
+        title: "Langkah 7: Job Description (Deskripsi Jabatan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Job Description Penting?</strong></p>
@@ -147,7 +147,7 @@ const STEP_DATABASE = {
         `
     },
     10: {
-        title: "Langkah 08: Reporting System (Sistem Pelaporan)",
+        title: "Langkah 8: Reporting System (Sistem Pelaporan)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa Reporting System Penting?</strong></p>
@@ -155,7 +155,7 @@ const STEP_DATABASE = {
         `
     },
     11: {
-        title: "Langkah 09: KPI Setup (Indikator Kinerja Utama)",
+        title: "Langkah 9: KPI Setup (Indikator Kinerja Utama)",
         videoLink: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         tips: `
             <p><strong>Kenapa KPI Setup Penting?</strong></p>
@@ -397,7 +397,23 @@ function formatDateIndo(date) {
 }
 
 // 3. INITIALIZATION
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', () => {
+    // AUTO EXPAND TEXTAREA LOGIC
+    window.initAutoExpand = function() {
+        setTimeout(() => {
+            document.querySelectorAll('textarea.auto-expand').forEach(el => {
+                el.style.height = 'auto';
+                el.style.height = (el.scrollHeight) + 'px';
+            });
+        }, 50);
+    };
+
+    document.addEventListener('input', function (event) {
+        if (event.target.tagName.toLowerCase() === 'textarea' && event.target.classList.contains('auto-expand')) {
+            event.target.style.height = 'auto';
+            event.target.style.height = (event.target.scrollHeight) + 'px';
+        }
+    }, false);
 
     function syncStep10Reports() {
         const tasks = stepsData[9].tasks || [];
@@ -418,6 +434,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
         stepsData[10].reports = updatedReports;
+        initAutoExpand();
     }
 
     function syncStep13Sops() {
@@ -438,6 +455,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
         stepsData[13].sops = updatedSops;
+        initAutoExpand();
     }
 
     function syncStep14Trainings() {
@@ -469,6 +487,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
         stepsData[14].trainings = updatedTrainings;
+        initAutoExpand();
     }
 
     function renderDownloadDocumentPanel() {
@@ -478,7 +497,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         const rolesList = stepsData[7].roles || [];
         if (rolesList.length === 0) {
-            tblBody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:var(--text-muted); padding:15px;">Belum ada jabatan yang dikonfigurasikan di Langkah 07.</td></tr>`;
+            tblBody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:var(--text-muted); padding:15px;">Belum ada jabatan yang dikonfigurasikan di Langkah 7.</td></tr>`;
             return;
         }
         
@@ -1657,25 +1676,71 @@ document.addEventListener("DOMContentLoaded", function () {
                 completedCount++;
                 if (node) {
                     node.className = "step-node completed";
-                    node.querySelector(".node-circle").innerHTML = `✔`;
+                    let displayNum = (i <= 2) ? 0 : (i - 2);
+                    node.querySelector(".node-circle").innerHTML = displayNum;
+                    node.querySelector(".node-circle").style.boxShadow = "0 0 10px var(--success)";
+                    node.querySelector(".node-circle").style.backgroundColor = "var(--success)";
+                    node.querySelector(".node-circle").style.color = "#ffffff";
+                    
+                    if (!node.querySelector(".node-check")) {
+                        let check = document.createElement("div");
+                        check.className = "node-check";
+                        check.innerHTML = "✔";
+                        check.style.color = "var(--success)";
+                        check.style.position = "absolute";
+                        check.style.top = "-5px";
+                        check.style.right = "0";
+                        check.style.background = "#fff";
+                        check.style.borderRadius = "50%";
+                        check.style.width = "18px";
+                        check.style.height = "18px";
+                        check.style.display = "flex";
+                        check.style.alignItems = "center";
+                        check.style.justifyContent = "center";
+                        check.style.fontSize = "12px";
+                        check.style.boxShadow = "0 0 5px rgba(0,0,0,0.1)";
+                        node.querySelector(".node-circle").style.position = "relative";
+                        node.querySelector(".node-circle").appendChild(check);
+                    }
                 }
                 if (nav) {
                     nav.classList.remove("locked");
-                    nav.querySelector(".step-num").innerHTML = `✔`;
-                    nav.querySelector(".step-num").style.backgroundColor = "var(--success)";
-                    nav.querySelector(".step-num").style.color = "#ffffff";
+                    let displayNum = (i <= 2) ? 0 : (i - 2);
+                    nav.querySelector(".step-num").innerHTML = displayNum;
+                    nav.querySelector(".step-num").style.backgroundColor = "rgba(254, 141, 22, 0.1)"; // success-bg
+                    nav.querySelector(".step-num").style.color = "var(--success)";
+                    nav.querySelector(".step-num").style.boxShadow = "0 0 8px var(--success)";
+                    
+                    if (!nav.querySelector(".step-check")) {
+                        let check = document.createElement("span");
+                        check.className = "step-check";
+                        check.innerHTML = "✔";
+                        check.style.color = "var(--success)";
+                        check.style.marginLeft = "4px";
+                        check.style.marginRight = "4px";
+                        check.style.fontWeight = "bold";
+                        nav.insertBefore(check, nav.children[1]);
+                    }
                 }
             } else if (stepStatus[i] === 'unlocked') {
                 let displayNum = (i <= 2) ? 0 : (i - 2);
                 if (node) {
                     node.className = "step-node in-progress";
                     node.querySelector(".node-circle").innerHTML = displayNum;
+                    node.querySelector(".node-circle").style.boxShadow = "none";
+                    node.querySelector(".node-circle").style.backgroundColor = "";
+                    node.querySelector(".node-circle").style.color = "";
+                    let check = node.querySelector(".node-check");
+                    if (check) check.remove();
                 }
                 if (nav) {
                     nav.classList.remove("locked");
-                    nav.querySelector(".step-num").innerHTML = (displayNum === 0) ? "0" : (displayNum < 10 ? `0${displayNum}` : displayNum);
+                    nav.querySelector(".step-num").innerHTML = displayNum;
                     nav.querySelector(".step-num").style.backgroundColor = "";
                     nav.querySelector(".step-num").style.color = "";
+                    nav.querySelector(".step-num").style.boxShadow = "none";
+                    let existingCheck = nav.querySelector(".step-check");
+                    if (existingCheck) existingCheck.remove();
                 }
                 if (activeIndex === -1) activeIndex = i;
             } else {
@@ -1692,7 +1757,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Progress text and multi-segment bar
         const pctText = document.querySelector(".progress-bar-section .progress-pct-text");
-        const segmentGreen = document.querySelector(".progress-bar-segment.segment-green");
+        const segmentOrange = document.querySelector(".progress-bar-segment.segment-orange");
         const segmentBlue = document.querySelector(".progress-bar-segment.segment-blue");
         const segmentGray = document.querySelector(".progress-bar-segment.segment-gray");
         const progressDesc = document.querySelector(".progress-desc-text");
@@ -1702,7 +1767,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (pctText) pctText.textContent = `${completedPct}% Selesai`;
         if (progressDesc) progressDesc.textContent = `${completedCount} dari 14 langkah selesai`;
 
-        if (segmentGreen) segmentGreen.style.width = `${completedPct}%`;
+        if (segmentOrange) segmentOrange.style.width = `${completedPct}%`;
 
         let inProgressPct = 0;
         if (completedCount < 14) inProgressPct = Math.round((1 / 14) * 100);
@@ -1807,7 +1872,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 formBody.innerHTML = `
                     <div class="form-group">
                         <label for="ws-purpose">Tujuan Perusahaan *</label>
-                        <textarea id="ws-purpose" class="form-control" rows="8" placeholder="Masukkan tujuan jangka panjang (Why) perusahaan Anda...">${stepsData[1].purpose || ''}</textarea>
+                        <textarea id="ws-purpose" class="form-control auto-expand" rows="8" placeholder="Masukkan tujuan jangka panjang (Why) perusahaan Anda...">${stepsData[1].purpose || ''}</textarea>
                     </div>
                 `;
                 break;
@@ -1830,15 +1895,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="form-group">
                         <label for="ws-core-value">Core Value *</label>
-                        <textarea id="ws-core-value" class="form-control" rows="3" placeholder="Contoh: Terstandarisasi Akuntansi standar PSAK">${stepsData[2].core_value || ''}</textarea>
+                        <textarea id="ws-core-value" class="form-control auto-expand" rows="3" placeholder="Contoh: Terstandarisasi Akuntansi standar PSAK">${stepsData[2].core_value || ''}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="ws-add-value">Add Value *</label>
-                        <textarea id="ws-add-value" class="form-control" rows="3" placeholder="Contoh: Tampilan dashboard ramah pemula">${stepsData[2].add_value || ''}</textarea>
+                        <textarea id="ws-add-value" class="form-control auto-expand" rows="3" placeholder="Contoh: Tampilan dashboard ramah pemula">${stepsData[2].add_value || ''}</textarea>
                     </div>
                     <div class="form-group" style="margin-top:20px; border-top:1px dashed var(--border-color); padding-top:16px;">
                         <label for="ws-positioning">Pernyataan Positioning Strategis (Auto-Generated) *</label>
-                        <textarea id="ws-positioning" class="form-control" rows="3" readonly style="background-color:#f1f5f9; color:#475569; font-weight:500;">${stepsData[2].positioning || ''}</textarea>
+                        <textarea id="ws-positioning" class="form-control auto-expand" rows="3" readonly style="background-color:#f1f5f9; color:#475569; font-weight:500;">${stepsData[2].positioning || ''}</textarea>
                     </div>
                 `;
                 break;
@@ -1867,7 +1932,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     <div class="form-group" style="margin-top:20px; border-top:1px dashed var(--border-color); padding-top:16px;">
                         <label for="ws-vision">Visi Perusahaan (Auto-Generated) *</label>
-                        <textarea id="ws-vision" class="form-control" rows="3" readonly style="background-color:#f1f5f9; color:#475569; font-weight:500;">${stepsData[3].vision || ''}</textarea>
+                        <textarea id="ws-vision" class="form-control auto-expand" rows="3" readonly style="background-color:#f1f5f9; color:#475569; font-weight:500;">${stepsData[3].vision || ''}</textarea>
                     </div>
                 `;
                 break;
@@ -1876,19 +1941,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 formBody.innerHTML = `
                     <div class="form-group">
                         <label for="ws-m-hr">Misi Sumber Daya Manusia (SDM) *</label>
-                        <textarea id="ws-m-hr" class="form-control" rows="3" placeholder="Contoh: Membangun tim kerja yang kompeten, loyal, dan berakhlak mulia...">${stepsData[4].human_resources || ''}</textarea>
+                        <textarea id="ws-m-hr" class="form-control auto-expand" rows="3" placeholder="Contoh: Membangun tim kerja yang kompeten, loyal, dan berakhlak mulia...">${stepsData[4].human_resources || ''}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="ws-m-ops">Misi Operasional *</label>
-                        <textarea id="ws-m-ops" class="form-control" rows="3" placeholder="Contoh: Mengembangkan sistem kerja operasional berbasis digital yang efisien...">${stepsData[4].operation || ''}</textarea>
+                        <textarea id="ws-m-ops" class="form-control auto-expand" rows="3" placeholder="Contoh: Mengembangkan sistem kerja operasional berbasis digital yang efisien...">${stepsData[4].operation || ''}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="ws-m-mkt">Misi Pemasaran / Marketing *</label>
-                        <textarea id="ws-m-mkt" class="form-control" rows="3" placeholder="Contoh: Menjadi mitra terpercaya bagi UMKM lewat edukasi bisnis berkelanjutan...">${stepsData[4].marketing || ''}</textarea>
+                        <textarea id="ws-m-mkt" class="form-control auto-expand" rows="3" placeholder="Contoh: Menjadi mitra terpercaya bagi UMKM lewat edukasi bisnis berkelanjutan...">${stepsData[4].marketing || ''}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="ws-m-fin">Misi Keuangan / Finance *</label>
-                        <textarea id="ws-m-fin" class="form-control" rows="3" placeholder="Contoh: Menjaga stabilitas keuangan perusahaan yang profitabel dan sehat...">${stepsData[4].finance || ''}</textarea>
+                        <textarea id="ws-m-fin" class="form-control auto-expand" rows="3" placeholder="Contoh: Menjaga stabilitas keuangan perusahaan yang profitabel dan sehat...">${stepsData[4].finance || ''}</textarea>
                     </div>
                 `;
                 break;
@@ -2364,6 +2429,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Call binding helper for active step
         bindStepFormLogic(stepId);
+        if (stepId === 5) renderCultures(); // Re-trigger initial render
+        initAutoExpand();
     }
 
     // 9. BINDING LOGIC PER STEP FORM
@@ -2421,7 +2488,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const list = stepsData[5].cultures || [];
 
-                function renderCultures() {
+                window.renderCultures = function() {
                     cultureCont.innerHTML = "";
                     list.forEach((item, index) => {
                         const row = document.createElement("div");
@@ -2430,13 +2497,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         row.style.alignItems = "center";
                         row.innerHTML = `
                             <span style="font-family:'Outfit'; font-weight:700; font-size:12px; color:var(--brand-royal); width:20px;">0${index + 1}</span>
-                            <input type="text" class="form-control cult-name" style="width:30%; font-weight:600;" placeholder="Budaya" value="${item.budaya}">
-                            <input type="text" class="form-control cult-desc" placeholder="Deskripsi Budaya Kerja" value="${item.deskripsi}">
+                            <textarea class="form-control cult-name auto-expand" style="width:30%; font-weight:600;" placeholder="Budaya" rows="1">${item.budaya}</textarea>
+                            <textarea class="form-control cult-desc auto-expand" placeholder="Deskripsi Budaya Kerja" rows="1">${item.deskripsi}</textarea>
                             ${list.length > 3 ? `<button type="button" class="btn-delete-row cult-remove">&times;</button>` : `<div style="width:28px;"></div>`}
                         `;
                         cultureCont.appendChild(row);
 
-                        row.querySelectorAll("input").forEach(inp => {
+                        row.querySelectorAll("textarea").forEach(inp => {
                             inp.addEventListener("input", () => {
                                 item.budaya = row.querySelector(".cult-name").value;
                                 item.deskripsi = row.querySelector(".cult-desc").value;
@@ -2456,6 +2523,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (list.length >= 4) addCultureBtn.style.display = "none";
                         else addCultureBtn.style.display = "inline-flex";
                     }
+                    initAutoExpand();
                 }
 
                 if (addCultureBtn) {
@@ -2513,7 +2581,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <td><strong>${m}</strong></td>
                             <td><input type="number" class="form-control y1-val text-sm" value="${y1Val}"></td>
                             <td><input type="number" class="form-control y2-val text-sm" value="${y2Val}"></td>
-                            <td><span class="growth-cell font-bold ${growth >= 0 ? 'text-green' : 'text-red'}">${growth}%</span></td>
+                            <td><span class="growth-cell font-bold ${growth >= 0 ? 'text-orange' : 'text-red'}">${growth}%</span></td>
                         `;
                         runTableBody.appendChild(row);
 
@@ -2555,7 +2623,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             const span = rows[idx].querySelector(".growth-cell");
                             if (span) {
                                 span.textContent = `${growth}%`;
-                                span.className = `growth-cell font-bold ${growth >= 0 ? 'text-green' : 'text-red'}`;
+                                span.className = `growth-cell font-bold ${growth >= 0 ? 'text-orange' : 'text-red'}`;
                             }
                         }
                     });
@@ -2774,7 +2842,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
 
                         row.innerHTML = `
-                            <td><input type="text" class="form-control org-name" value="${item.name || ''}" placeholder="Nama Jabatan"></td>
+                            <td><textarea class="form-control org-name auto-expand" placeholder="Nama Jabatan" rows="1">${item.name || ''}</textarea></td>
                             <td>
                                 <select class="form-control org-div">
                                     <option value="finance" ${item.division_key === 'finance' ? 'selected' : ''}>Finance</option>
@@ -2862,6 +2930,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     });
                     drawOrgChart();
+                    initAutoExpand();
                 }
 
                 if (addOrgBtn) {
@@ -2894,10 +2963,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         row.innerHTML = `
                             <td><select class="form-control ka-role">${roleOpts}</select></td>
-                            <td><input type="text" class="form-control ka-1" value="${item.ka1}" placeholder="Aktivitas 1"></td>
-                            <td><input type="text" class="form-control ka-2" value="${item.ka2}" placeholder="Aktivitas 2"></td>
-                            <td><input type="text" class="form-control ka-3" value="${item.ka3}" placeholder="Aktivitas 3"></td>
-                            <td><input type="text" class="form-control ka-4" value="${item.ka4}" placeholder="Aktivitas 4"></td>
+                            <td><textarea class="form-control ka-1 auto-expand" placeholder="Aktivitas 1" rows="1">${item.ka1}</textarea></td>
+                            <td><textarea class="form-control ka-2 auto-expand" placeholder="Aktivitas 2" rows="1">${item.ka2}</textarea></td>
+                            <td><textarea class="form-control ka-3 auto-expand" placeholder="Aktivitas 3" rows="1">${item.ka3}</textarea></td>
+                            <td><textarea class="form-control ka-4 auto-expand" placeholder="Aktivitas 4" rows="1">${item.ka4}</textarea></td>
                             <td><button type="button" class="btn-delete-row ka-remove">&times;</button></td>
                         `;
                         kaTableBody.appendChild(row);
@@ -2917,6 +2986,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             renderKaTable();
                         });
                     });
+                    initAutoExpand();
                 }
 
                 if (addKaBtn) {
@@ -2938,7 +3008,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const tasks = stepsData[9].tasks || [];
 
                     if (roles.length === 0) {
-                        rolesTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:15px;">Belum ada jabatan. Silakan isi Langkah 07 terlebih dahulu!</td></tr>`;
+                        rolesTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:15px;">Belum ada jabatan. Silakan isi Langkah 7 terlebih dahulu!</td></tr>`;
                         break;
                     }
 
@@ -2967,7 +3037,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     });
                 } else {
-                    // Level 2 detail edit screen
+                    // Level 2: Manage Job Descriptions for selected role
                     const tasksTableBody = document.querySelector("#ws-job-tasks-table tbody");
                     const backBtn = document.getElementById("btn-back-to-roles-list");
                     const addTaskBtn = document.getElementById("btn-add-job-task-row");
@@ -3019,7 +3089,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             row.innerHTML = `
                                 <td><select class="form-control job-act">${actOpts}</select></td>
-                                <td><input type="text" class="form-control job-desc" value="${item.description || ''}" placeholder="Uraian Tugas Rinci"></td>
+                                <td><textarea class="form-control job-desc auto-expand" placeholder="Uraian Tugas Rinci" rows="1">${item.description || ''}</textarea></td>
                                 <td>
                                     <select class="form-control job-freq">
                                         <option value="Harian" ${item.frequency === 'Harian' ? 'selected' : ''}>Harian</option>
@@ -3029,7 +3099,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         <option value="Insidentil" ${item.frequency === 'Insidentil' ? 'selected' : ''}>Insidentil</option>
                                     </select>
                                 </td>
-                                <td><input type="text" class="form-control job-rep" value="${item.report || ''}" placeholder="Format Laporan Hasil Kerja"></td>
+                                <td><textarea class="form-control job-rep auto-expand" placeholder="Format Laporan Hasil Kerja" rows="1">${item.report || ''}</textarea></td>
                                 <td><button type="button" class="btn-delete-row job-task-remove">&times;</button></td>
                             `;
                             tasksTableBody.appendChild(row);
@@ -3059,6 +3129,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 renderTasksTable();
                             });
                         });
+                        initAutoExpand();
                     }
 
                     if (addTaskBtn) {
@@ -3100,7 +3171,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 function renderReportTable() {
                     repTableBody.innerHTML = "";
                     if (reportTemplates.length === 0) {
-                        repTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 09 terlebih dahulu!</td></tr>`;
+                        repTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 9 terlebih dahulu!</td></tr>`;
                         return;
                     }
                     reportTemplates.forEach((item, index) => {
@@ -3108,7 +3179,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         row.innerHTML = `
                             <td><strong>${item.role_name}</strong></td>
                             <td>${item.task_name}</td>
-                            <td><input type="text" class="form-control rep-temp" value="${item.report_template}" placeholder="Format Template Laporan"></td>
+                            <td><textarea class="form-control rep-temp auto-expand" placeholder="Format Template Laporan" rows="1">${item.report_template}</textarea></td>
                             <td><span class="badge-legal">${item.frequency}</span></td>
                             <td>
                                 <div style="display:flex; gap:6px; align-items:center;">
@@ -3139,6 +3210,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             }
                         });
                     });
+                    initAutoExpand();
                 }
                 renderReportTable();
                 break;
@@ -3165,7 +3237,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (rolesTableBody) {
                         rolesTableBody.innerHTML = "";
                         if (allRolesFromList.length === 0) {
-                            rolesTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:var(--text-muted); padding:15px;">Belum ada jabatan. Silakan isi Langkah 07 terlebih dahulu!</td></tr>`;
+                            rolesTableBody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:var(--text-muted); padding:15px;">Belum ada jabatan. Silakan isi Langkah 7 terlebih dahulu!</td></tr>`;
                         } else {
                             const levelLabelMap = {
                                 director: 'Direktur', general_manager: 'General Manager', manager: 'Manager',
@@ -3250,6 +3322,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             detailTableBody.innerHTML = `<tr><td colspan="12" style="text-align:center; color:var(--text-muted); padding:15px;">Belum ada KPI. Silakan klik "+ Tambah KPI" di bawah.</td></tr>`;
                             if (bobotIndicator) bobotIndicator.textContent = "Total Bobot: 0%";
                             if (scoreIndicator) scoreIndicator.textContent = "Total Score: 0";
+                            initAutoExpand();
                             return;
                         }
 
@@ -3340,7 +3413,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     </select>
                                 </td>
                                 <td>${targetInputHTML}</td>
-                                <td><input type="text" class="form-control kpi-def-inp" value="${escapeHtml(item.definisi_target || '')}" placeholder="Definisi"></td>
+                                <td><textarea class="form-control kpi-def-inp auto-expand" placeholder="Definisi" rows="1">${escapeHtml(item.definisi_target || '')}</textarea></td>
                                 <td>
                                     <select class="form-control kpi-arah-sel">
                                         <option value="lebih besar lebih baik" ${item.arah === 'lebih besar lebih baik' ? 'selected' : ''}>Lebih Besar Lebih Baik</option>
@@ -3425,6 +3498,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (scoreIndicator) {
                             scoreIndicator.textContent = `Total Score: ${Math.round(totalScore)}`;
                         }
+                        initAutoExpand();
                     }
 
                     if (addKpiBtn) {
@@ -3460,6 +3534,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         btnPunishment.className = "btn btn-outline";
                         rewardSec.style.display = "block";
                         punishmentSec.style.display = "none";
+                        initAutoExpand();
                     };
 
                     btnPunishment.onclick = () => {
@@ -3467,6 +3542,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         btnPunishment.className = "btn btn-primary";
                         rewardSec.style.display = "none";
                         punishmentSec.style.display = "block";
+                        initAutoExpand();
                     };
                 }
 
@@ -3498,12 +3574,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td><input type="text" class="form-control r-name" value="${escapeHtml(item.bonus_name || '')}" placeholder="Contoh: Bonus Tahunan"></td>
+                            <td><textarea class="form-control r-name auto-expand" placeholder="Contoh: Bonus Tahunan" rows="1">${escapeHtml(item.bonus_name || '')}</textarea></td>
                             <td>${catSelectHTML}</td>
                             <td>${roleSelectHTML}</td>
-                            <td><input type="text" class="form-control r-tgt" value="${escapeHtml(item.bonus_target || '')}" placeholder="Syarat Target"></td>
-                            <td><input type="text" class="form-control r-amt" value="${escapeHtml(item.bonus_amount || '')}" placeholder="Jumlah Reward"></td>
-                            <td><input type="text" class="form-control r-per" value="${escapeHtml(item.bonus_period || '')}" placeholder="Contoh: Bulanan"></td>
+                            <td><textarea class="form-control r-tgt auto-expand" placeholder="Syarat Target" rows="1">${escapeHtml(item.bonus_target || '')}</textarea></td>
+                            <td><textarea class="form-control r-amt auto-expand" placeholder="Jumlah Reward" rows="1">${escapeHtml(item.bonus_amount || '')}</textarea></td>
+                            <td><textarea class="form-control r-per auto-expand" placeholder="Contoh: Bulanan" rows="1">${escapeHtml(item.bonus_period || '')}</textarea></td>
                             <td><button type="button" class="btn-delete-row rew-remove">&times;</button></td>
                         `;
                         rewTableBody.appendChild(row);
@@ -3539,6 +3615,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             renderRewardTable();
                         });
                     });
+                    initAutoExpand();
                 }
 
                 if (addRewBtn) {
@@ -3626,14 +3703,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     punModalTableBody.innerHTML = "";
                     if (activeSanctionsTemp.length === 0) {
                         punModalTableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:var(--text-muted); padding:10px 0;">Belum ada pasal. Klik "+ Tambah Pasal" di bawah.</td></tr>`;
+                        initAutoExpand();
                         return;
                     }
 
                     activeSanctionsTemp.forEach((s, idx) => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td><input type="text" class="form-control s-clause-inp" value="${escapeHtml(s.warning_clause || '')}" placeholder="Tindakan Pelanggaran"></td>
-                            <td><input type="text" class="form-control s-fee-inp" value="${escapeHtml(s.fee || '')}" placeholder="Denda / Sanksi"></td>
+                            <td><textarea class="form-control s-clause-inp auto-expand" placeholder="Tindakan Pelanggaran" rows="1">${escapeHtml(s.warning_clause || '')}</textarea></td>
+                            <td><textarea class="form-control s-fee-inp auto-expand" placeholder="Denda / Sanksi" rows="1">${escapeHtml(s.fee || '')}</textarea></td>
                             <td><button type="button" class="btn-delete-row s-detail-remove">&times;</button></td>
                         `;
                         punModalTableBody.appendChild(row);
@@ -3653,6 +3731,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             renderPunishmentModalTable();
                         };
                     });
+                    initAutoExpand();
                 }
 
                 if (addSanctionBtn) {
@@ -3696,7 +3775,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!sopTableBody) return;
                     sopTableBody.innerHTML = "";
                     if (sopDB.length === 0) {
-                        sopTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 09 terlebih dahulu!</td></tr>`;
+                        sopTableBody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 9 terlebih dahulu!</td></tr>`;
                         return;
                     }
 
@@ -3705,7 +3784,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         row.innerHTML = `
                             <td><strong>${escapeHtml(item.role_name || '')}</strong></td>
                             <td>${escapeHtml(item.task_name || '')}</td>
-                            <td><input type="text" class="form-control s-name" value="${escapeHtml(item.sop_name || '')}" placeholder="Contoh: SOP Rekonsiliasi Bank"></td>
+                            <td><textarea class="form-control s-name auto-expand" placeholder="Contoh: SOP Rekonsiliasi Bank" rows="1">${escapeHtml(item.sop_name || '')}</textarea></td>
                             <td>
                                 <button type="button" class="btn btn-outline btn-configure-4m" style="font-size:11px; padding:6px 12px;">
                                     Configure 4M (${(item.steps || []).length} Baris)
@@ -3748,10 +3827,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     stepsArray.forEach((step, idx) => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td><input type="text" class="form-control sm-method" value="${escapeHtml(step.method || '')}" placeholder="Metode"></td>
-                            <td><input type="text" class="form-control sm-man" value="${escapeHtml(step.man || '')}" placeholder="Manusia"></td>
-                            <td><input type="text" class="form-control sm-machine" value="${escapeHtml(step.machine || '')}" placeholder="Mesin/Alat"></td>
-                            <td><input type="text" class="form-control sm-material" value="${escapeHtml(step.material || '')}" placeholder="Material"></td>
+                            <td><textarea class="form-control sm-method auto-expand" placeholder="Metode" rows="1">${escapeHtml(step.method || '')}</textarea></td>
+                            <td><textarea class="form-control sm-man auto-expand" placeholder="Manusia" rows="1">${escapeHtml(step.man || '')}</textarea></td>
+                            <td><textarea class="form-control sm-machine auto-expand" placeholder="Mesin/Alat" rows="1">${escapeHtml(step.machine || '')}</textarea></td>
+                            <td><textarea class="form-control sm-material auto-expand" placeholder="Material" rows="1">${escapeHtml(step.material || '')}</textarea></td>
                             <td><button type="button" class="btn-delete-row sm-remove">&times;</button></td>
                         `;
                         sopModalTableBody.appendChild(row);
@@ -3819,7 +3898,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!trainTableBody) return;
                     trainTableBody.innerHTML = "";
                     if (trainDB.length === 0) {
-                        trainTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 08 terlebih dahulu!</td></tr>`;
+                        trainTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:var(--text-muted);">Lengkapi Langkah 8 terlebih dahulu!</td></tr>`;
                         return;
                     }
 
@@ -4176,7 +4255,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const tasksList9 = stepsData[9].tasks || [];
 
                 if (rolesList9.length === 0) {
-                    alert("Silakan lengkapi Langkah 07 terlebih dahulu!");
+                    alert("Silakan lengkapi Langkah 7 terlebih dahulu!");
                     return false;
                 }
 
@@ -4783,7 +4862,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (badgeStatus) {
                 badgeStatus.innerHTML = `<span style="width:8px; height:8px; border-radius:50%; background-color:var(--success); display:inline-block;"></span> Berjalan`;
                 badgeStatus.style.backgroundColor = "var(--success-bg)";
-                badgeStatus.style.borderColor = "rgba(34, 197, 94, 0.2)";
+                badgeStatus.style.borderColor = "rgba(254, 141, 22, 0.2)";
                 badgeStatus.style.color = "var(--success)";
             }
             if (infoText) {
@@ -4878,7 +4957,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const formatted = formatDateIndo(startD);
                         deadlineHtml = `
                             <div style="display:flex; flex-direction:column; gap:2px;">
-                                <span class="badge-industry" style="font-size:11px; padding:3px 8px; border-radius:4px; font-weight:600; background-color:var(--success-bg); color:var(--success); border:1px solid rgba(34, 197, 94, 0.2); width:fit-content;">${formatted}</span>
+                                <span class="badge-industry" style="font-size:11px; padding:3px 8px; border-radius:4px; font-weight:600; background-color:var(--success-bg); color:var(--success); border:1px solid rgba(254, 141, 22, 0.2); width:fit-content;">${formatted}</span>
                                 <span style="font-size:10px; color:var(--text-muted); font-weight:500; margin-left:2px;">${escapeHtml(task.time)}</span>
                             </div>
                         `;

@@ -1,4 +1,38 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOS Online Design System Showcase</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main Application Stylesheet -->
+
+
+    <!-- Design System Documentation Layout Styles -->
+    <style>
+        /* ==========================================================================
+           INJECTED APPLICATION STYLES (styles.css)
+           ========================================================================== */
+        /* ==========================================================================
+   AOS ONLINE CONCEPT REDESIGN - BRIGHT SYSTEM STYLESHEET
+   Accords with: AOS Online Brand Guidelines (Royal Blue, Ocean Blue, Baby Blue)
+   Aesthetic: Clean, Bright, Light-gray background, White cards, Blue accents
+   ========================================================================== */
+
+        :root {
+            /* Brand Color Palette (MANDATORY FROM GUIDELINES) */
+            --brand-royal: #1859BC;
+            --brand-ocean: #2888E6;
+            --brand-baby: #82B2FA;
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -38,8 +72,8 @@
             --brand-grey: #767575;
 
             /* Semantic Colors */
-            --success: #22c55e;
-            --success-bg: rgba(34, 197, 94, 0.1);
+            --success: #FE8D16;
+            --success-bg: rgba(254, 141, 22, 0.1);
             --blue-progress: #3b82f6;
             --blue-progress-bg: rgba(59, 130, 246, 0.1);
             --muted: #cbd5e1;
@@ -791,33 +825,26 @@
    ========================================================================== */
 
         .horizontal-timeline-container {
-            padding: 24px 0 35px 0;
-            overflow-x: auto;
+            padding: 24px 0 20px 0;
             width: 100%;
         }
 
         .timeline-nodes-wrapper {
             position: relative;
-            width: max-content;
-            min-width: 100%;
-            padding: 0 20px;
+            width: 100%;
+            padding: 0 10px;
         }
 
         /* Line running through all node circles */
         .timeline-connect-line {
-            position: absolute;
-            top: 25px;
-            left: 20px;
-            right: 20px;
-            height: 4px;
-            background-color: #e2e8f0;
-            z-index: 10;
+            display: none;
         }
 
         .timeline-nodes-list {
             display: flex;
-            justify-content: space-between;
-            gap: 45px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px 20px;
             position: relative;
             z-index: 20;
         }
@@ -880,7 +907,7 @@
             font-weight: 600 !important;
         }
 
-        /* Active Completed Steps styles (Green border and green text/number) */
+        /* Active Completed Steps styles (Orange border and orange text/number) */
         .step-node.completed .node-circle {
             border-color: var(--success);
             color: var(--success);
@@ -942,7 +969,7 @@
             transition: width 0.3s ease;
         }
 
-        .progress-bar-segment.segment-green {
+        .progress-bar-segment.segment-orange {
             background-color: var(--success);
         }
 
@@ -1598,7 +1625,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            color: #4ade80;
+            color: #FE8D16;
             font-weight: 600;
         }
 
@@ -1606,11 +1633,11 @@
             width: 5px;
             height: 5px;
             border-radius: 50%;
-            background-color: #4ade80;
+            background-color: #FE8D16;
         }
 
-        .status-indicator-light.pulse-green {
-            box-shadow: 0 0 6px #4ade80;
+        .status-indicator-light.pulse-orange {
+            box-shadow: 0 0 6px #FE8D16;
             animation: successPulse 1.2s infinite alternate;
         }
 
@@ -1970,11 +1997,11 @@
 
         @keyframes successPulse {
             from {
-                box-shadow: 0 0 2px #4ade80;
+                box-shadow: 0 0 2px #FE8D16;
             }
 
             to {
-                box-shadow: 0 0 10px #4ade80;
+                box-shadow: 0 0 10px #FE8D16;
             }
         }
 
@@ -2905,7 +2932,7 @@
         }
 
         .checklist-table tr.row-completed {
-            background-color: rgba(34, 197, 94, 0.04);
+            background-color: rgba(254, 141, 22, 0.04);
         }
 
         .checklist-status-select {
@@ -3428,8 +3455,8 @@
         }
 
         .contrast-pass {
-            background-color: rgba(34, 197, 94, 0.15);
-            color: #16a34a;
+            background-color: rgba(254, 141, 22, 0.15);
+            color: #FE8D16;
         }
 
         /* Typography display block */
@@ -3645,7 +3672,7 @@
         }
 
         .toast-icon {
-            color: #22c55e;
+            color: #FE8D16;
             width: 16px;
             height: 16px;
         }
@@ -4004,11 +4031,11 @@
                     <div class="doc-card-title">Warna Semantik & Fungsional</div>
                     <div class="color-grid">
                         <div class="doc-color-swatch" onclick="copyText('var(--success)')">
-                            <div class="color-block" style="background-color: #22c55e;"></div>
+                            <div class="color-block" style="background-color: #FE8D16;"></div>
                             <div class="color-meta">
-                                <div class="color-name">Success Green</div>
+                                <div class="color-name">Success Orange</div>
                                 <div class="color-hex">
-                                    <span>#22c55e</span>
+                                    <span>#FE8D16</span>
                                     <span style="font-size:10px;">var(--success)</span>
                                 </div>
                             </div>
@@ -4244,7 +4271,7 @@
 &lt;!-- Ocean Blue Accent Button --&gt;
 &lt;button class="btn btn-ocean"&gt;Ocean Accent&lt;/button&gt;
 
-&lt;!-- Success (Green) --&gt;
+&lt;!-- Success (Orange) --&gt;
 &lt;button class="btn btn-success"&gt;Success Action&lt;/button&gt;
 
 &lt;!-- Neutral Outline Button --&gt;
@@ -4325,7 +4352,7 @@
                             <span class="code-title">HTML MARKUP</span>
                             <button class="btn-copy" onclick="copyCode('code-badge')">Copy HTML</button>
                         </div>
-                        <pre class="code-content"><code id="code-badge">&lt;!-- Selesai Badge (dengan Green Pulse Dot) --&gt;
+                        <pre class="code-content"><code id="code-badge">&lt;!-- Selesai Badge (dengan Orange Pulse Dot) --&gt;
 &lt;span class="badge badge-success"&gt;
   &lt;span class="pulse-dot"&gt;&lt;/span&gt; Selesai
 &lt;/span&gt;
@@ -4921,7 +4948,7 @@
 &lt;script&gt;lucide.createIcons();&lt;/script&gt;</code></pre>
                             </div>
                             <div style="flex:1; min-width:200px; background:var(--muted-bg); border-radius:8px; padding:12px;">
-                                <div style="font-size:12px; font-weight:700; color:#22c55e; margin-bottom:6px;">③ Browse Semua Ikon</div>
+                                <div style="font-size:12px; font-weight:700; color:#FE8D16; margin-bottom:6px;">③ Browse Semua Ikon</div>
                                 <div style="font-size:11.5px; color:var(--text-muted); margin-bottom:8px;">Temukan 1500+ ikon di website resminya dan copy SVG path yang dibutuhkan:</div>
                                 <a href="https://lucide.dev/icons/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; background:var(--brand-royal); color:#fff; padding:7px 12px; border-radius:6px; font-size:11.5px; font-weight:600; text-decoration:none;">
                                     <svg style="width:13px;height:13px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -4937,89 +4964,6 @@
                 </div>
 
                 <div class="doc-card">
-                    <div class="doc-card-title">Katalog Ikon</div>
-                    <div class="icons-grid">
-                        <div class="icon-box" onclick="copyText('dashboard-icon')">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="3" width="7" height="7"></rect>
-                                <rect x="14" y="14" width="7" height="7"></rect>
-                                <rect x="3" y="14" width="7" height="7"></rect>
-                            </svg>
-                            <span>Dashboard</span>
-                        </div>
-
-                        <div class="icon-box" onclick="copyText('document-icon')">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                            <span>Doc</span>
-                        </div>
-
-                        <div class="icon-box" onclick="copyText('user-icon')">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            <span>User</span>
-                        </div>
-
-                        <div class="icon-box" onclick="copyText('chat-icon')">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                            </svg>
-                            <span>Chat</span>
-                        </div>
-
-                        <div class="icon-box" onclick="copyText('download-icon')">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                            <span>Download</span>
-                        </div>
-
-                        <div class="icon-box" onclick="copyText('checklist-icon')">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 11l3 3L22 4"></path>
-                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                            </svg>
-                            <span>Checklist</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 7: EXPORT TOKENS -->
-            <section class="doc-section-panel" id="panel-export">
-                <div class="doc-section-intro">
-                    <h2>Ekspor Token</h2>
-                    <p>Unduh atau salin representasi format data token design system ini ke platform pengembangan
-                        eksternal seperti Figma API, Tailwind config, atau preprocessor SASS.</p>
-                </div>
-
-                <div class="doc-card">
-                    <div class="doc-card-title">
-                        <span>Figma / JSON Tokens</span>
-                        <button class="btn btn-outline" style="font-size:11px; padding:6px 12px;"
-                            onclick="copyCode('json-export-block')">Salin JSON</button>
-                    </div>
-                    <pre class="export-pre"><code id="json-export-block">{
-  "global": {
-    "colors": {
-      "royalBlue": { "value": "#1859BC", "type": "color" },
-      "oceanBlue": { "value": "#2888E6", "type": "color" },
-      "babyBlue": { "value": "#82B2FA", "type": "color" },
-      "neutralDark": { "value": "#332D2B", "type": "color" },
-      "successGreen": { "value": "#22c55e", "type": "color" }
-    },
-    "fontFamilies": {
-      "headings": { "value": "Outfit, sans-serif", "type": "fontFamily" },
-      "body": { "value": "Poppins, sans-serif", "type": "fontFamily" }
-    },
-    "spacingScale": {
       "xs": { "value": "4px", "type": "spacing" },
       "sm": { "value": "8px", "type": "spacing" },
       "md": { "value": "12px", "type": "spacing" },
