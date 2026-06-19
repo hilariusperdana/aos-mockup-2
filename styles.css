@@ -805,23 +805,22 @@ body.dark-theme .theme-toggle-btn .moon-icon {
 
 .horizontal-timeline-container {
     padding: 24px 0 35px 0;
-    overflow-x: auto;
+    overflow-x: hidden;
     width: 100%;
 }
 
 .timeline-nodes-wrapper {
     position: relative;
-    width: max-content;
-    min-width: 100%;
-    padding: 0 20px;
+    width: 100%;
+    padding: 0 10px;
 }
 
 /* Line running through all node circles */
 .timeline-connect-line {
     position: absolute;
     top: 22px;
-    left: 20px;
-    right: 20px;
+    left: 3.5%;
+    right: 3.5%;
     height: 2px;
     background: linear-gradient(to right, #1848FD 38%, #e2e8f0 38%);
     z-index: 10;
@@ -830,9 +829,10 @@ body.dark-theme .theme-toggle-btn .moon-icon {
 .timeline-nodes-list {
     display: flex;
     justify-content: space-between;
-    gap: 45px;
+    gap: 4px;
     position: relative;
     z-index: 20;
+    width: 100%;
 }
 
 /* Indivual node styling */
@@ -841,7 +841,8 @@ body.dark-theme .theme-toggle-btn .moon-icon {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 80px;
+    flex: 1;
+    min-width: 0;
     cursor: pointer;
 }
 
@@ -888,12 +889,14 @@ body.dark-theme .theme-toggle-btn .moon-icon {
 }
 
 .node-label {
-    font-size: 11.5px;
-    line-height: 1.4;
+    font-size: 10px;
+    line-height: 1.25;
     color: var(--text-muted);
     font-weight: 500;
     display: block;
-    max-width: 100px;
+    max-width: 100%;
+    margin-top: 4px;
+    word-wrap: break-word;
 }
 
 .font-bold {
