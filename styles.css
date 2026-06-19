@@ -469,7 +469,7 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background: #FD6118 !important;
+    background: #071753;
     border: 2px solid #fff;
     display: flex;
     align-items: center;
@@ -492,15 +492,20 @@ body {
 
 /* Orange dot badge for active */
 .nav-item.active-step .step-num::after {
-    content: "" !important;
+    content: "✓" !important;
     position: absolute;
     top: -5px;
     right: -5px;
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background: #FD6118 !important;
     border: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #fff;
 }
 
 .nav-item.locked {
@@ -865,7 +870,7 @@ body.dark-theme .theme-toggle-btn .moon-icon {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: #FD6118;
+    background-color: #071753;
     color: transparent;
     display: flex;
     align-items: center;
@@ -909,7 +914,7 @@ body.dark-theme .theme-toggle-btn .moon-icon {
 
 /* Override badge check for timeline completed steps */
 .step-node.completed .badge-check {
-    background-color: #FD6118 !important;
+    background-color: #071753 !important;
     border: 2px solid #ffffff !important;
 }
 
@@ -930,16 +935,21 @@ body.dark-theme .theme-toggle-btn .moon-icon {
 }
 
 .step-node.in-progress .node-circle::after {
-    content: "" !important;
+    content: "✓" !important;
     position: absolute;
     top: -4px;
     right: -4px;
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background-color: #FD6118 !important;
     border: 2px solid #ffffff !important;
     z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
 }
 
 /* Locked Steps */
