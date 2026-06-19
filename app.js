@@ -4495,14 +4495,44 @@ document.addEventListener('DOMContentLoaded', () => {
             pctEl.textContent = `${overallPct}% Selesai`;
         }
 
-        // Timeline visualization: position is (currentDay / 33) * 100%
+        
+        
+        // Generate dots if not exists
+        const dotsContainer = document.getElementById('impl-timeline-dots');
+        if (dotsContainer && dotsContainer.children.length === 0) {
+            let dotsHtml = '';
+            for (let i = 0; i <= 33; i++) {
+                dotsHtml += '<div class="impl-dot" data-day="' + i + '"></div>';
+            }
+            dotsContainer.innerHTML = dotsHtml;
+        }
+
+        // Update dots colors
+
+        const dots = document.querySelectorAll('.impl-dot');
+        dots.forEach((dot, index) => {
+            if (index < currentDay) {
+                dot.style.backgroundColor = '#071753';
+                dot.style.borderColor = '#071753';
+            } else if (index === currentDay) {
+                dot.style.backgroundColor = 'transparent';
+                dot.style.borderColor = 'transparent';
+            } else if (false) {
+                dot.style.backgroundColor = '#071753';
+                dot.style.borderColor = '#071753';
+            } else {
+                dot.style.backgroundColor = '#ffffff';
+                dot.style.borderColor = '#e2e8f0';
+            }
+        });
+// Timeline visualization: position is (currentDay / 33) * 100%
         const dayPct = Math.round((currentDay / 33) * 100);
         if (fillEl) {
             fillEl.style.width = `${dayPct}%`;
         }
         if (markerEl) {
             markerEl.style.left = `${dayPct}%`;
-            markerEl.textContent = currentDay;
+            markerEl.innerHTML = `<span class='impl-tooltip'>HARI KE-${currentDay}</span>`;
         }
     }
 
@@ -5153,3 +5183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStepTimelineDashboard();
     updateDashboardChecklistProgress();
 });
+
+
+
+

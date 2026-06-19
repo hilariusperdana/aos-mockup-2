@@ -3331,3 +3331,60 @@ textarea.auto-expand {
     padding-top: 8px !important;
     padding-bottom: 8px !important;
 }
+.impl-dot {
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+.impl-timeline-fill .impl-dot {
+    background-color: #071753;
+    border-color: #071753;
+}
+.impl-label {
+    position: absolute;
+    top: 25px;
+    font-size: 11px;
+    color: #475569;
+    font-weight: 600;
+    transform: translateX(-50%);
+}
+.impl-marker.active-marker {
+    width: 14px;
+    height: 14px;
+    background-color: #1848FD;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(24, 72, 253, 0.2);
+    transform: translateX(-50%);
+    top: -4px;
+    color: transparent;
+    display: flex;
+    justify-content: center;
+}
+.impl-tooltip {
+    position: absolute;
+    bottom: 24px;
+    background-color: #1848FD;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+.impl-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px 4px 0;
+    border-style: solid;
+    border-color: #1848FD transparent transparent transparent;
+}

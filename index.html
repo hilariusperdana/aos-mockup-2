@@ -426,51 +426,45 @@
 
                         <!-- Implementasi AOS (33 Hari) Section -->
                         <section class="tracker-section">
-                            <div class="section-header">
-                                <h2 class="section-title">Implementasi AOS (33 Hari)</h2>
-                                <div class="status-legend">
-                                    <span class="legend-item"><span class="legend-dot bg-success"></span> Selesai</span>
-                                    <span class="legend-item"><span class="legend-dot bg-blue"></span> Sedang
-                                        Berjalan</span>
-                                    <span class="legend-item"><span class="legend-dot bg-muted"></span> Belum
-                                        Dimulai</span>
+                            <div class="section-header" style="flex-direction: column; align-items: flex-start; position: relative;">
+                                <div style="display: flex; justify-content: space-between; width: 100%; align-items: flex-start;">
+                                    <div>
+                                        <h2 class="section-title" style="margin-bottom: 8px;">Implementasi AOS</h2>
+                                        <p style="color: var(--text-muted); font-size: 13px; font-weight: 500;">Program penerapan selama 33 hari</p>
+                                    </div>
+                                    <div class="status-legend" style="margin-top: 5px;">
+                                        <span class="legend-item"><span class="legend-dot" style="background-color: #071753;"></span> Selesai</span>
+                                        <span class="legend-item"><span class="legend-dot" style="background-color: #1848FD;"></span> Sedang Berjalan</span>
+                                        <span class="legend-item"><span class="legend-dot" style="background-color: #e0e0e0;"></span> Belum Dimulai</span>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="implementation-container">
-                                <div class="impl-info-row">
-                                    <div class="impl-icon-box">
+                                <div class="impl-info-row" style="margin-bottom: 20px;">
+                                    <div class="impl-icon-box" style="width: 48px; height: 48px; border-radius: 12px; background-color: #f0f4ff; color: #1848FD;">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                                             <line x1="16" y1="2" x2="16" y2="6"></line>
                                             <line x1="8" y1="2" x2="8" y2="6"></line>
                                             <line x1="3" y1="10" x2="21" y2="10"></line>
+                                            <circle cx="8" cy="15" r="1" fill="currentColor" stroke="none"></circle>
+                                            <circle cx="12" cy="15" r="1" fill="currentColor" stroke="none"></circle>
+                                            <circle cx="16" cy="15" r="1" fill="currentColor" stroke="none"></circle>
+                                            <circle cx="8" cy="19" r="1" fill="currentColor" stroke="none"></circle>
+                                            <circle cx="12" cy="19" r="1" fill="currentColor" stroke="none"></circle>
+                                            <circle cx="16" cy="19" r="1" fill="currentColor" stroke="none"></circle>
                                         </svg>
                                     </div>
                                     <div class="impl-meta-text">
-                                        <span class="impl-title" id="dashboard-impl-title">Hari ke-12 dari 33
-                                            hari</span>
-                                        <span class="impl-desc" id="dashboard-impl-desc">Tahap: Persiapan &
-                                            Sosialisasi</span>
+                                        <span class="impl-title" id="dashboard-impl-title" style="font-size: 16px; font-weight: 700; color: #071753; margin-bottom: 4px;">Hari ke-8 dari 33 hari</span>
+                                        <span class="impl-desc" id="dashboard-impl-desc" style="font-size: 13px; color: var(--text-muted);">Tahap: Persiapan & Sosialisasi</span>
                                     </div>
                                 </div>
 
-                                <div class="impl-timeline-bar-wrapper">
-                                    <div class="impl-timeline-line">
-                                        <div class="impl-timeline-fill" id="dashboard-impl-fill" style="width: 36%;">
-                                        </div>
-                                        <span class="impl-marker" style="left: 0%;">1</span>
-                                        <span class="impl-marker active-marker" id="dashboard-impl-marker"
-                                            style="left: 36%;">12</span>
-                                        <span class="impl-marker" style="left: 60%;">20</span>
-                                        <span class="impl-marker" style="left: 100%;">33</span>
-                                    </div>
-                                </div>
+                                <div class="impl-timeline-bar-wrapper" style="position: relative; margin-top: 50px; margin-bottom: 25px;"><div class="impl-timeline-line" id="dashboard-impl-line" style="height: 6px; background-color: #e2e8f0; border-radius: 10px; position: relative;"><div class="impl-timeline-fill" id="dashboard-impl-fill" style="width: 36%; height: 100%; background-color: #071753; border-radius: 10px; position: absolute; top: 0; left: 0; z-index: 2;"></div><div id="impl-timeline-dots" style="position: absolute; width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: center; z-index: 3;"></div><span class="impl-marker active-marker" id="dashboard-impl-marker" style="left: 36%; z-index: 4;"></span><span class="impl-label" style="left: 0%;">0</span><span class="impl-label" style="left: 60.6%;">20</span><span class="impl-label" style="left: 100%;">33</span></div></div>
 
-                                <div class="progress-bar-section">
-                                    <span class="progress-pct-text font-bold" id="dashboard-impl-pct"
-                                        style="margin-left: auto;">36% Selesai</span>
-                                </div>
+                                <div class="progress-bar-section" style="display: flex; justify-content: space-between; align-items: center; margin-top: 25px;"><div style="font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 8px;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path><path d="M13 13l6 6"></path></svg>Arahkan kursor ke titik tanggal untuk melihat aktivitas harian.</div><span class="progress-pct-text font-bold" id="dashboard-impl-pct" style="color: #1848FD; font-size: 13px;">36% Selesai</span></div>
                             </div>
                         </section>
 
@@ -1612,6 +1606,11 @@
 
     <!-- Link app.js -->
     <script src="app.js"></script>
+
+
 </body>
 
 </html>
+
+
+
