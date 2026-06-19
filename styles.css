@@ -464,17 +464,17 @@ body {
 .step-item.completed .step-num::after {
     content: "✓";
     position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 15px;
-    height: 15px;
+    top: -8px;
+    right: -8px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: #071753;
-    border: 2px solid #fff;
+    border: 1.5px solid #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
+    font-size: 9px;
     color: #fff;
 }
 
@@ -494,17 +494,17 @@ body {
 .nav-item.active-step .step-num::after {
     content: "✓" !important;
     position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 15px;
-    height: 15px;
+    top: -8px;
+    right: -8px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: #FD6118 !important;
-    border: 2px solid #fff;
+    border: 1.5px solid #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
+    font-size: 9px;
     color: #fff;
 }
 
