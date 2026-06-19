@@ -696,7 +696,7 @@ body.dark-theme .theme-toggle-btn .moon-icon {
     background: linear-gradient(115deg, #1848FD 0%, #1330a6 55%, #071753 100%);
     border: none;
     border-radius: 12px;
-    padding: 30px;
+    padding: 56px 36px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -704,7 +704,7 @@ body.dark-theme .theme-toggle-btn .moon-icon {
 }
 
 .banner-content {
-    max-width: 60%;
+    max-width: 65%;
 }
 
 .banner-title {
@@ -728,7 +728,7 @@ body.dark-theme .theme-toggle-btn .moon-icon {
 }
 
 .banner-visual svg {
-    max-height: 120px;
+    max-height: 150px;
     width: auto;
 }
 
