@@ -570,19 +570,6 @@ document.addEventListener('DOMContentLoaded', () => {
             stepStatus['profil'] = 'unlocked';
             stepStatus['checklist'] = 'unlocked';
             
-            // Remove locked classes from nav items
-            for (let i = 1; i <= 14; i++) {
-                const nav = document.getElementById(`nav-step-${i}`);
-                if (nav) {
-                    nav.classList.remove("locked");
-                    const numSpan = nav.querySelector(".step-num");
-                    if (numSpan) {
-                        numSpan.innerHTML = "✔";
-                        numSpan.style.backgroundColor = "var(--success)";
-                        numSpan.style.color = "#ffffff";
-                    }
-                }
-            }
             const navProfil = document.getElementById("nav-profil");
             if (navProfil) navProfil.classList.remove("locked");
             const navChecklist = document.getElementById("nav-aos-checklist");
@@ -1678,67 +1665,52 @@ document.addEventListener('DOMContentLoaded', () => {
                     node.className = "step-node completed";
                     let displayNum = (i <= 2) ? 0 : (i - 2);
                     node.querySelector(".node-circle").innerHTML = displayNum;
-                    node.querySelector(".node-circle").style.boxShadow = "0 0 10px var(--success)";
-                    node.querySelector(".node-circle").style.backgroundColor = "var(--success)";
-                    node.querySelector(".node-circle").style.color = "#ffffff";
+                    node.querySelector(".node-circle").style.boxShadow = "";
+                    node.querySelector(".node-circle").style.backgroundColor = "";
+                    node.querySelector(".node-circle").style.color = "";
                     
-                    if (!node.querySelector(".node-check")) {
-                        let check = document.createElement("div");
-                        check.className = "node-check";
-                        check.innerHTML = "✔";
-                        check.style.color = "var(--success)";
-                        check.style.position = "absolute";
-                        check.style.top = "-5px";
-                        check.style.right = "0";
-                        check.style.background = "#fff";
-                        check.style.borderRadius = "50%";
-                        check.style.width = "18px";
-                        check.style.height = "18px";
-                        check.style.display = "flex";
-                        check.style.alignItems = "center";
-                        check.style.justifyContent = "center";
-                        check.style.fontSize = "12px";
-                        check.style.boxShadow = "0 0 5px rgba(0,0,0,0.1)";
-                        node.querySelector(".node-circle").style.position = "relative";
+                    let nodeCheck = node.querySelector(".node-check");
+                    if (nodeCheck) nodeCheck.remove();
+                    
+                    if (!node.querySelector(".badge-check")) {
+                        let check = document.createElement("span");
+                        check.className = "badge-check";
+                        check.innerHTML = "✅";
                         node.querySelector(".node-circle").appendChild(check);
                     }
                 }
                 if (nav) {
-                    nav.classList.remove("locked");
+                    nav.className = "nav-item step-item completed";
                     let displayNum = (i <= 2) ? 0 : (i - 2);
                     nav.querySelector(".step-num").innerHTML = displayNum;
-                    nav.querySelector(".step-num").style.backgroundColor = "rgba(254, 141, 22, 0.1)"; // success-bg
-                    nav.querySelector(".step-num").style.color = "var(--success)";
-                    nav.querySelector(".step-num").style.boxShadow = "0 0 8px var(--success)";
+                    nav.querySelector(".step-num").style.backgroundColor = "";
+                    nav.querySelector(".step-num").style.color = "";
+                    nav.querySelector(".step-num").style.boxShadow = "";
                     
-                    if (!nav.querySelector(".step-check")) {
-                        let check = document.createElement("span");
-                        check.className = "step-check";
-                        check.innerHTML = "✔";
-                        check.style.color = "var(--success)";
-                        check.style.marginLeft = "4px";
-                        check.style.marginRight = "4px";
-                        check.style.fontWeight = "bold";
-                        nav.insertBefore(check, nav.children[1]);
-                    }
+                    let existingCheck = nav.querySelector(".step-check");
+                    if (existingCheck) existingCheck.remove();
                 }
             } else if (stepStatus[i] === 'unlocked') {
                 let displayNum = (i <= 2) ? 0 : (i - 2);
                 if (node) {
                     node.className = "step-node in-progress";
                     node.querySelector(".node-circle").innerHTML = displayNum;
-                    node.querySelector(".node-circle").style.boxShadow = "none";
+                    node.querySelector(".node-circle").style.boxShadow = "";
                     node.querySelector(".node-circle").style.backgroundColor = "";
                     node.querySelector(".node-circle").style.color = "";
-                    let check = node.querySelector(".node-check");
+                    
+                    let check = node.querySelector(".badge-check");
                     if (check) check.remove();
+                    let nodeCheck = node.querySelector(".node-check");
+                    if (nodeCheck) nodeCheck.remove();
                 }
                 if (nav) {
-                    nav.classList.remove("locked");
+                    nav.className = "nav-item step-item active-step";
                     nav.querySelector(".step-num").innerHTML = displayNum;
                     nav.querySelector(".step-num").style.backgroundColor = "";
                     nav.querySelector(".step-num").style.color = "";
-                    nav.querySelector(".step-num").style.boxShadow = "none";
+                    nav.querySelector(".step-num").style.boxShadow = "";
+                    
                     let existingCheck = nav.querySelector(".step-check");
                     if (existingCheck) existingCheck.remove();
                 }
@@ -1748,9 +1720,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (node) {
                     node.className = "step-node locked";
                     node.querySelector(".node-circle").innerHTML = displayNum;
+                    node.querySelector(".node-circle").style.boxShadow = "";
+                    node.querySelector(".node-circle").style.backgroundColor = "";
+                    node.querySelector(".node-circle").style.color = "";
+                    
+                    let check = node.querySelector(".badge-check");
+                    if (check) check.remove();
+                    let nodeCheck = node.querySelector(".node-check");
+                    if (nodeCheck) nodeCheck.remove();
                 }
                 if (nav) {
-                    nav.classList.add("locked");
+                    nav.className = "nav-item step-item locked";
+                    nav.querySelector(".step-num").innerHTML = displayNum;
+                    nav.querySelector(".step-num").style.backgroundColor = "";
+                    nav.querySelector(".step-num").style.color = "";
+                    nav.querySelector(".step-num").style.boxShadow = "";
+                    
+                    let existingCheck = nav.querySelector(".step-check");
+                    if (existingCheck) existingCheck.remove();
                 }
             }
         }
