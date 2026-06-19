@@ -4465,6 +4465,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Cap day at 33
         if (currentDay > 33) currentDay = 33;
+        currentDay = 16; // Hardcoded for mockup
 
         // Determine Stage Name based on currentDay
         let stageName = "Persiapan & Sosialisasi";
@@ -5183,6 +5184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     updateStepTimelineDashboard();
     updateDashboardChecklistProgress();
 });
+
+
 
 
 
